@@ -22,19 +22,21 @@ public class User {
 	
 	public User () {}
 	
-	public User (/*String apelido,*/ String email, String nome, String senha) {
-		//setApelido(apelido);
+	public User (String id, String email, String nome, String senha) {
+		setId(id);
 		setEmail(email);
 		setNome(nome);
 		setSenha(senha);
 	}
 	
-	/*public String getApelido() {
-		return apelido;
+	public String getId(){
+		return id;
 	}
-	public void setApelido(String apelido) {
-		this.apelido = apelido;
-	}*/
+	
+	public void setId(String id) {
+		this.id = id;
+	}
+	
 	public String getEmail() {
 		return email;
 	}

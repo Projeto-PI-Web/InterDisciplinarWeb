@@ -6,46 +6,46 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 
-import model.Topic;
+import model.UserQuestion;
 
-public class TopicDAO {
+public class UserQuestionDAO {
 
 	private EntityManagerFactory emf;
 	private EntityManager em;
 	private Connection conexao;
 	
-	public TopicDAO () {
+	public UserQuestionDAO () {
 		this.conexao = ConnectionFactory.conectar();
 	}
 	
-	public void insert (Topic topic) {
+	public void insert (UserQuestion userQuestion) {
 		em.getTransaction().begin();
-		em.merge(topic);
+		em.merge(userQuestion);
 		em.getTransaction().commit();
 		emf.close();
 	}
 	
-	public void delete (Topic topic) {
+	public void delete (UserQuestion userQuestion) {
 		em.getTransaction().begin();
-		Query delete = em.createNamedQuery("DELETE materia FROM questao WHERE id = " + topic.getId());
+		Query delete = em.createNamedQuery("DELETE materia FROM questao WHERE id = " + userQuestion.getId());
 		delete.executeUpdate();
 		em.getTransaction().commit();
 		emf.close();
 	}
 	
-	public void update (Topic topic) {
+	public void update (UserQuestion userQuestion) {
 		em.getTransaction().begin();
 		System.out.println();
-		Query update = em.createNamedQuery("UPDATE materia SET nome_materia = "  + 
-											" WHERE id = " + topic.getId());
+		Query update = em.createNamedQuery("UPDATE materia SET nome_materia = " + 
+											" WHERE id = " + userQuestion.getId());
 		update.executeUpdate();
 		em.getTransaction().commit();
 		emf.close();
 	}
 	
-	public void select (Topic topic) {
+	public void select (UserQuestion userQuestion) {
 		em.getTransaction().begin();
-		Query select = em.createNamedQuery("SELECT * FROM questao WHERE id = " + topic.getId());
+		Query select = em.createNamedQuery("SELECT * FROM questao WHERE id = " + userQuestion.getId());
 		select.executeUpdate();
 		em.getTransaction().commit();
 		emf.close();

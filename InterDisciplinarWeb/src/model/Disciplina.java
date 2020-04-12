@@ -1,4 +1,5 @@
 package model;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,8 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="materia")
-public class Materia {
+@Table(name="disciplina")
+public class Disciplina {
+	
 
 	@Id //informa que a variavle será o id no banco
 	@Column(name="materia_id") //name == nome no banco
@@ -19,9 +21,9 @@ public class Materia {
 	@Column(name="ativo")
 	private boolean ativo;
 	
-	public Materia() {}
+	public Disciplina() {}
 	
-	public Materia(String id, String nameMateria) {
+	public Disciplina(String id, String nameMateria) {
 		setId(id);
 		setNameMateria(nameMateria);
 	}
@@ -52,7 +54,7 @@ public class Materia {
 		if (this == obj) return true;
 		if (obj == null) return false;
 		if (getClass() != obj.getClass()) return false;
-		Materia other = (Materia) obj;
+		Disciplina other = (Disciplina) obj;
 		if (nomeMateria == null) {
 			if (other.nomeMateria != null) return false;
 		} else if (!nomeMateria.equals(other.nomeMateria)) return false;

@@ -43,6 +43,14 @@ public class Question {
 		setAlternativaE(alternativaE);
 	}
 	
+	public String getId() {
+		return id;
+	}
+	
+	public void setId(String id) {
+		this.id = id;
+	}
+	
 	public String getEnunciado() {
 		return enunciado;
 	}
