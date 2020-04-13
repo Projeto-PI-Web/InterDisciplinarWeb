@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionFactory {
-
 	static {
 		try {
 			System.out.println("Procurando Driver...");
@@ -14,7 +13,6 @@ public class ConnectionFactory {
 			
 		}catch(ClassNotFoundException ex) {
 			System.out.println("Drive NÃO Encontrado");
-			
 			ex.printStackTrace();
 		}
 	}
@@ -23,15 +21,17 @@ public class ConnectionFactory {
 		try {
 			System.out.println("Estabelecendo Conexão...");
 			
-			Connection c = DriverManager.getConnection("jdbc:mysql://localhost/colecao?useSSL=false",		
-			"root", "");
-			
+			Connection c = DriverManager.getConnection("jdbc:mysql://localhost/projetopi?useSSL=false",	
+							"root", "");
 			System.out.println("Conexão Estabelecida com Sucesso");
-			
 			return c;
 		} catch(SQLException ex) {
 			ex.printStackTrace();
 			return null;	
 		}		
+	}
+	
+	public static void main(String[] args) {
+		conectar();
 	}
 }

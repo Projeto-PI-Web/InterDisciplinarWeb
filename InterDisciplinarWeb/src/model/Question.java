@@ -7,25 +7,25 @@ import javax.persistence.Id;
 
 public class Question {
 
-	@Id
+	/*@Id
 	@Column(name="question_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)*/
 	private String id;
-	@Column(name="enunciado")
+	//@Column(name="enunciado")
 	private String enunciado;
-	@Column(name="peso")
+	//@Column(name="peso")
 	private String peso;
-	@Column(name="alternativa_correta")
+	//@Column(name="alternativa_correta")
 	private String alternativaCorreta;
-	@Column(name="alternativa_a")
+	//@Column(name="alternativa_a")
 	private String alternativaA;
-	@Column(name="alternativa_b")
+	//@Column(name="alternativa_b")
 	private String alternativaB;
-	@Column(name="alternativa_c")
+	//@Column(name="alternativa_c")
 	private String alternativaC;
-	@Column(name="alternativa_d")
+	//@Column(name="alternativa_d")
 	private String alternativaD;
-	@Column(name="alternativa_e")
+	//@Column(name="alternativa_e")
 	private String alternativaE;
 	
 	public Question() {}

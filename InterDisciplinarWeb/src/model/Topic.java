@@ -12,18 +12,10 @@ import javax.persistence.ManyToOne;
 
 public class Topic {
 
-	@Id
-	@Column(name="topic_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String id;
-	@Column(name="nome_topico")
 	private String nameTopic;
-	@Column(name="playlist")
 	private String playList;
-	@ManyToOne
-	@Column(name="materia_topic")
-	@JoinColumn(name="topic_materia_id", referencedColumnName = "materia_id")
-	private List<Materia> materia;
+	private List<Disciplina> disciplina;
 	
 	public Topic() {}
 	
