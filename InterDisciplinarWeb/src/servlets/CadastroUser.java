@@ -32,6 +32,7 @@ public class CadastroUser extends HttpServlet {
 		System.out.println("Passou aqui");
 		UserDAO pDAO= new UserDAO();
 		User p = new User(-1, "Matheus", "Matheus", "Matheus");
+		//Test
 		
 		pDAO.insert(p);
 	}
