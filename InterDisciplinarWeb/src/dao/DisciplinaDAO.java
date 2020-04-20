@@ -70,7 +70,7 @@ public class DisciplinaDAO {
 		Disciplina dc = new Disciplina(); 
 		
 		try (PreparedStatement pst = conexao.prepareStatement(inserir)){
-			pst.setString(1, disciplina.getId());
+			pst.setInt(1, disciplina.getId());
 			pst.setString(2, disciplina.getNameMateria());
 			
 			dc.setId(disciplina.getId());

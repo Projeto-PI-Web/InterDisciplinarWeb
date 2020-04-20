@@ -4,7 +4,7 @@ import java.sql.Time;
 
 public class UserQuestion {
 
-	private String id;
+	private int id;
 	private User user;
 	private Question question;
 	private Time tempo;
@@ -13,7 +13,7 @@ public class UserQuestion {
 	
 	public UserQuestion () {}
 	
-	public UserQuestion (String id, User u, Question q, Time tempo, String resposta, String historico) {
+	public UserQuestion (int id, User u, Question q, Time tempo, String resposta, String historico) {
 		setId(id);
 		setUser(u);
 		setQuestion(q);
@@ -22,10 +22,10 @@ public class UserQuestion {
 		setHistorico(historico);
 	}
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public User getUser() {

@@ -10,7 +10,7 @@ public class Question {
 	/*@Id
 	@Column(name="question_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)*/
-	private String id;
+	private int id;
 	//@Column(name="enunciado")
 	private String enunciado;
 	//@Column(name="peso")
@@ -30,9 +30,10 @@ public class Question {
 	
 	public Question() {}
 	
-	public Question(String enunciado, String peso, String alternativaCorreta, 
+	public Question(int id, String enunciado, String peso, String alternativaCorreta, 
 					String alternativaA, String alternativaB, String alternativaC, 
 					String alternativaD, String alternativaE) {
+		setId(id);
 		setEnunciado(enunciado);
 		setPeso(peso);
 		setAlternativaCorreta(alternativaCorreta);
@@ -43,11 +44,11 @@ public class Question {
 		setAlternativaE(alternativaE);
 	}
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 	
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	

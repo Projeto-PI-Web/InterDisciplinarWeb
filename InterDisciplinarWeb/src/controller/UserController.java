@@ -28,6 +28,5 @@ public class UserController extends HttpServlet{
 		
 		RequestDispatcher view = request.getRequestDispatcher("listaAtributos.jsp");
 		view.forward(request, response);
-	
 	}
 }

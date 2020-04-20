@@ -64,7 +64,7 @@ public class TopicDAO {
 		Topic tp = new Topic(); 
 		
 		try (PreparedStatement pst = conexao.prepareStatement(inserir)){
-			pst.setString(1, topic.getId());
+			pst.setInt(1, topic.getId());
 			pst.setString(2, topic.getNameTopic());
 			pst.setString(3, topic.getPlayList());
 			

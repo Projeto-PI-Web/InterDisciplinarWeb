@@ -12,23 +12,24 @@ import javax.persistence.ManyToOne;
 
 public class Topic {
 
-	private String id;
+	private int id;
 	private String nameTopic;
 	private String playList;
 	private List<Disciplina> disciplina;
 	
 	public Topic() {}
 	
-	public Topic(String nameTopic, String playList) {
+	public Topic(int id, String nameTopic, String playList) {
+		setId(id);
 		setNameTopic(nameTopic);
 		setPlayList(playList);
 	}
 	
-	public String getId(){
+	public int getId(){
 		return id;
 	}
 	
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	

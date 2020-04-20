@@ -65,7 +65,7 @@ public class QuestionDAO {
 		Question qt = new Question(); 
 		
 		try (PreparedStatement pst = conexao.prepareStatement(inserir)){
-			pst.setString(1, question.getId());
+			pst.setInt(1, question.getId());
 			pst.setString(2, question.getAlternativaA());
 			pst.setString(3, question.getAlternativaB());
 			pst.setString(4, question.getAlternativaC());

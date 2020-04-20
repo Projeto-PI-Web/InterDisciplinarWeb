@@ -71,7 +71,7 @@ public class UserDAO {
 		User us = new User(); 
 		
 		try (PreparedStatement pst = conexao.prepareStatement(inserir)){
-			pst.setString(1, usuario.getId());
+			pst.setInt(1, usuario.getId());
 			pst.setString(2, usuario.getNome());
 			pst.setString(3, usuario.getSenha());
 			pst.setString(4, usuario.getEmail());
@@ -90,7 +90,6 @@ public class UserDAO {
 		}
 	}
 	
-	//Delete
 	public void deleteUsuario (String apelido) {
 			
 		String delete = "DELETE FROM Usuario WHERE apelido = ?";
@@ -107,7 +106,6 @@ public class UserDAO {
 		}
 	}
 
-	//Update Email
 	public void upDateUsuarioEmail (String campo, String apelido) {		
 		String update = "UPDATE Usuario SET email = ? WHERE apelido = ?";
 				
@@ -138,7 +136,6 @@ public class UserDAO {
 		}
 	}
 	
-	//Update Senha
 	public void upDateUsuarioSenha (String campo, String apelido) {		
 		String update = "UPDATE Usuario SET senha = ? WHERE apelido = ?";
 				
