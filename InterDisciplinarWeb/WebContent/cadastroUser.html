@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<style>
+
+	body {
+	font-family: Arial, Helvetica, sans-serif;
+	text-align:center;
+	}
+
+	form {border: 3px solid #f1f1f1;}
+	
+	input[type=text] {
+	  
+	  width: 80%;
+	  padding: 12px 20px;
+	  margin: 8px 0;
+	  display: inline-block;
+	  border: 1px solid #ccc;
+	  box-sizing: border-box;
+	}
+	
+	 input[type=password]{
+	  width: 40%;
+	  padding: 12px 20px;
+	  margin: 8px 0;
+	  display: inline-block;
+	  border: 1px solid #ccc;
+	  box-sizing: border-box;
+	 }
+	
+	.container {
+	 
+	  margin-top: 6px;
+	  padding: 16px;
+	}
+	
+	button {
+	  
+	  background-color: #3111bf;
+	  color: white;
+	  padding: 14px 20px;
+	  margin: 8px 0;
+	  border: none;
+	  cursor: pointer;
+	  width: 100%;
+	}
+	
+	.cadastrobtn {
+ 	
+ 	 width: auto;
+  	 padding: 10px 18px;
+ 	 background-color: #3111bf;
+	
+	}
+	
+	.cancelarbtn {
+	  width: auto;
+	  padding: 10px 18px;
+	  background-color: #8f0425;
+	}
+	
+	@media screen and (max-width: 300px) {
+	.cadastrobtn { width: 100%; }
+	.cancelarbtn { width: 100%; }
+	}
+
+</style>
+
+<title>Cadastro</title>
+
+<script>
+	
+	function validacaoEmail(field) {
+	usuario = field.value.substring(0, field.value.indexOf("@"));
+	dominio = field.value.substring(field.value.indexOf("@")+ 1, field.value.length);
+	 
+	if ((usuario.length >=1) &&
+	    (dominio.length >=3) && 
+	    (usuario.search("@")==-1) && 
+	    (dominio.search("@")==-1) &&
+	    (usuario.search(" ")==-1) && 
+	    (dominio.search(" ")==-1) &&
+	    (dominio.search(".")!=-1) &&      
+	    (dominio.indexOf(".") >=1)&& 
+	    (dominio.lastIndexOf(".") < dominio.length - 1)) {
+		document.getElementById("msgemail").innerHTML="E-mail válido";
+		alert("E-mail valido");
+	}
+	else{
+		document.getElementById("msgemail").innerHTML="<font color='red'>E-mail inválido </font>";
+		alert("E-mail invalido");
+	}
+	}
+	
+</script>
+
+
+</head>
+<body>
+
+<form action="CadastroController.do" method="post" name=f1>
+	<div class="container">
+		<h3 style="text-align:center">Cadastro</h3>
+		<input type="text" name="name" placeholder="Nome">
+		<input type="text" name="usuario" placeholder="Usuário">
+		<input type="text" name="email" onblur="validacaoEmail(f1.email)" placeholder="Email">
+		<input type="password" name="senha" placeholder="Senha">
+		<input type="password" name="cSenha" placeholder="Confirme sua Senha">
+		<div id="msgemail"></div>
+	</div>	
+<div class="container" style="background-color:#f1f1f1">
+	<button type="button" class="cadastrobtn" onclick="window.location.href = 'index.html';">Cadastre-se</button>
+	<button type="button" class="cancelarbtn" onclick="window.location.href = 'index.html';">Cancelar</button>
+</div>
+</form>
+</body>
+</html>
