@@ -7,18 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name="disciplina")
 public class Disciplina {
-	
-
-	//@Id //informa que a variavle será o id no banco
-	//@Column(name="materia_id") //name == nome no banco
-	//@GeneratedValue(strategy = GenerationType.IDENTITY) //informa que a variavle será o id no banco
 	private int id;
-	//@Column(name="nome_materia")
 	private String nomeMateria;
-	//@Column(name="ativo")
 	private boolean ativo;
 	
 	public Disciplina() {}

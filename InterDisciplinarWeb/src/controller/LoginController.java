@@ -23,7 +23,11 @@ public class LoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+		System.out.println("Request: " + request);
+		System.out.println("Response: " + response);
+		//doPost(request, response);
+		
+		System.out.println("LOGIN GET");
 		
 		//String pNome = request.getParameter("nome");
 		String pEmail = request.getParameter("email");

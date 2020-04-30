@@ -6,18 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 public class User {
-
-	@Id
-	@Column(name="user_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(name="email_user")
 	private String email;
-	@Column(name="nome_user")
 	private String nome;
-	@Column(name="senha_user")
 	private String senha;
-	@Column(name="telefone_user")
 	private String telefone;
 	
 	public User () {}

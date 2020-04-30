@@ -6,26 +6,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 public class Question {
-
-	/*@Id
-	@Column(name="question_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)*/
 	private int id;
-	//@Column(name="enunciado")
 	private String enunciado;
-	//@Column(name="peso")
 	private String peso;
-	//@Column(name="alternativa_correta")
 	private String alternativaCorreta;
-	//@Column(name="alternativa_a")
 	private String alternativaA;
-	//@Column(name="alternativa_b")
 	private String alternativaB;
-	//@Column(name="alternativa_c")
 	private String alternativaC;
-	//@Column(name="alternativa_d")
 	private String alternativaD;
-	//@Column(name="alternativa_e")
 	private String alternativaE;
 	
 	public Question() {}
