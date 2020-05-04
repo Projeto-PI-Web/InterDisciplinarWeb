@@ -79,16 +79,12 @@
 			}
 		}
 	</script>
-	
-	
 	</head>
 	<body>
-	<!-- onclick="window.location.href = 'index.html';"-->
 	<form action="CadastroController.do" method="post" name=f1>
 		<div class="container">
 			<h3 style="text-align:center">Cadastro</h3>
 			<input type="text" name="name" placeholder="Nome">
-			<!-- <input type="text" name="usuario" placeholder="Usuário"> -->
 			<input type="text" name="email" onblur="validacaoEmail(f1.email)" placeholder="Email">
 			<input type="password" name="senha" placeholder="Senha">
 			<input type="password" name="cSenha" placeholder="Confirme sua Senha">
@@ -96,8 +92,8 @@
 		</div>	
 		<div class="container" style="background-color:#f1f1f1">
 			<button id="cadastrar" type="button" value="Cadastrar" class="cadastrobtn">Cadastre-se</button>
-			<button type="button" class="cancelarbtn">Cancelar</button>
 		</div>
 	</form>
+	<button type="button" class="cancelarbtn">Cancelar</button>
 	</body>
 </html>

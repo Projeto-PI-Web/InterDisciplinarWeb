@@ -15,15 +15,23 @@ import servlets.UserService;
 /**
  * Servlet implementation class CadastroController
  */
-@WebServlet("/CadastroController.do")
+@WebServlet(name="/CadastroController.do", urlPatterns ="/CadastroController.do")
 public class CadastroController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Request: " + request);
+		System.out.println("Response: " + response);
+		doPost(request, response);
+		
+		System.out.println("CADASTRO GET");
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
-		request.getRequestDispatcher("index.html").include(request, response);
+		//request.getRequestDispatcher("index.html").include(request, response);
 		System.out.println("Request: " + request);
 		System.out.println("Response: " + response);
 		System.out.println("Cadastrar POST");
