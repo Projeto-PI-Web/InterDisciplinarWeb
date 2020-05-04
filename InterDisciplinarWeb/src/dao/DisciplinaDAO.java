@@ -16,8 +16,6 @@ import model.User;
 
 public class DisciplinaDAO {
 
-	private EntityManagerFactory emf;
-	private EntityManager em;
 	private Connection conexao;
 	
 	public DisciplinaDAO () {
@@ -27,7 +25,7 @@ public class DisciplinaDAO {
 	public void insert (Disciplina disciplina) {
 		System.out.println("Entrou no insert");
 		UserDAO dao = new UserDAO();
-		String inserir = "INSERT INTO Disciplina (id, nome, senha, email)" + "VALUES(?,?,?,?)";
+		String inserir = "INSERT INTO Disciplina (id, nome_disciplina)" + "VALUES(?,?)";
 		
 		Disciplina dc = new Disciplina(); 
 		
@@ -48,15 +46,12 @@ public class DisciplinaDAO {
 	}
 	
 	public void delete (Disciplina disciplina) {
-			
 		String delete = "DELETE FROM Disciplina WHERE id = ?";
 			
 		try (PreparedStatement pst = conexao.prepareStatement(delete)){
 			pst.setInt(1, disciplina.getId());
 			pst.execute();
-			
 			System.out.println("Usuario excluido");
-			
 		} catch(SQLException ex){
 			ex.printStackTrace();
 			System.out.println("Falha ao excluir o usuario");
@@ -64,13 +59,12 @@ public class DisciplinaDAO {
 	}
 
 	public void upDate (Disciplina disciplina) {		
-		String update = "UPDATE Usuario SET nome = ? WHERE id = ?";
+		String update = "UPDATE Usuario SET nome_disciplina = ? WHERE id = ?";
 				
 		try (PreparedStatement pst = conexao.prepareStatement(update)){
 			pst.setString(1, disciplina.getNameMateria());
 			pst.setInt(2, disciplina.getId());
 			pst.execute();
-				
 			System.out.println("Atualizado com sucesso!");
 		} catch(SQLException ex){
 			System.out.println("Erro ao atualizar");
@@ -80,7 +74,7 @@ public class DisciplinaDAO {
 	
 	public Disciplina select (Disciplina disciplina) {
 		Disciplina disc = null;
-		String consulta = "SELECT id, nome FROM Disciplina WHERE id = ?";
+		String consulta = "SELECT id, nome_disciplina FROM Disciplina WHERE id = ?";
 				
 		try (PreparedStatement pst = conexao.prepareStatement(consulta)){
 			pst.setInt(1, disciplina.getId());
@@ -97,7 +91,6 @@ public class DisciplinaDAO {
 				System.out.println("Essa é a noticia: " + disc.toString());
 			}
 			System.out.println("Consulta feita com sucesso");
-			
 		} catch(SQLException ex) {	
 			ex.printStackTrace();
 			System.out.println("Falha na consulta");
@@ -108,7 +101,7 @@ public class DisciplinaDAO {
 	public ArrayList<Disciplina> selectAll () {
 		ArrayList<Disciplina> lstNoticia = new ArrayList<Disciplina>();
 		Disciplina disc = null;
-		String consulta = "SELECT id, titulo, descricao, texto FROM Noticia";
+		String consulta = "SELECT id, nome_disciplina FROM Noticia";
 				
 		try (PreparedStatement pst = conexao.prepareStatement(consulta)){
 			ResultSet resultado = pst.executeQuery();

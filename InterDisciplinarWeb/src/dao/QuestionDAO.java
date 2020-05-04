@@ -15,8 +15,6 @@ import model.Topic;
 
 public class QuestionDAO {
 
-	private EntityManagerFactory emf;
-	private EntityManager em;
 	private Connection conexao;
 	
 	public QuestionDAO () {
@@ -25,34 +23,34 @@ public class QuestionDAO {
 	
 	public void insert (Question question) {
 		UserDAO dao = new UserDAO();
-		String inserir = "INSERT INTO Questao (id, nome, senha, email)" + "VALUES(?,?,?,?)";
+		String inserir = "INSERT INTO Questao (id, enunciado, alternativa_correta, peso,"
+				+ "alternativa_a, alternativa_b, alternativa_c, alternativa_d, alternativa_e,"
+				+ "fk_topico)" + "VALUES(?,?,?,?,?,?,?,?,?)";
 		
 		Question qt = new Question(); 
 		
 		try (PreparedStatement pst = conexao.prepareStatement(inserir)){
 			pst.setInt(1, question.getId());
-			pst.setString(2, question.getAlternativaA());
-			pst.setString(3, question.getAlternativaB());
-			pst.setString(4, question.getAlternativaC());
-			pst.setString(5, question.getAlternativaD());
-			pst.setString(6, question.getAlternativaE());
-			pst.setString(7, question.getAlternativaCorreta());
-			pst.setString(8, question.getEnunciado());
-			pst.setString(9, question.getPeso());
+			pst.setString(2, question.getEnunciado());
+			pst.setString(3, question.getAlternativaCorreta());
+			pst.setString(4, question.getPeso());
+			pst.setString(5, question.getAlternativaA());
+			pst.setString(6, question.getAlternativaB());
+			pst.setString(7, question.getAlternativaC());
+			pst.setString(8, question.getAlternativaD());
+			pst.setString(9, question.getAlternativaE());			
 			
 			qt.setId(question.getId());
+			qt.setEnunciado(question.getEnunciado());
+			qt.setAlternativaCorreta(question.getAlternativaCorreta());
+			qt.setPeso(question.getPeso());
 			qt.setAlternativaA(question.getAlternativaA());
 			qt.setAlternativaB(question.getAlternativaB());
 			qt.setAlternativaC(question.getAlternativaC());
 			qt.setAlternativaD(question.getAlternativaD());
 			qt.setAlternativaE(question.getAlternativaE());
-			qt.setAlternativaCorreta(question.getAlternativaCorreta());
-			qt.setEnunciado(question.getEnunciado());
-			qt.setPeso(question.getPeso());
-			
 			pst.execute();
 			System.out.println("Insert feito com sucesso");
-			
 		} catch(SQLException ex){ 
 			System.out.println("Houve um erro ao inserir");
 			ex.printStackTrace();
@@ -60,9 +58,7 @@ public class QuestionDAO {
 	}
 	
 	public void delete (Question question) {
-		
 		String delete = "DELETE FROM Questao WHERE id = ?";
-			
 		try (PreparedStatement pst = conexao.prepareStatement(delete)){
 			pst.setInt(1, question.getId());
 			pst.execute();
@@ -74,17 +70,21 @@ public class QuestionDAO {
 	}
 
 	public void upDate (Question questao) {		
-		String update = "UPDATE Usuario SET email=? WHERE id=?";
+		String update = "UPDATE Usuario SET enunciado=?, SET alternativa_correta=?, SET peso=?," + 
+				"SET alternativa_a=?, SET alternativa_b=?, SET alternativa_c=?, SET alternativa_d=?," +
+				"SET alternativa_e=?, SET fk_topico=? WHERE id=?";
 				
 		try (PreparedStatement pst = conexao.prepareStatement(update)){
-			pst.setString(1, questao.getAlternativaA());
-			pst.setString(2, questao.getAlternativaB());
-			pst.setString(3, questao.getAlternativaC());
-			pst.setString(4, questao.getAlternativaD());
-			pst.setString(5, questao.getAlternativaE());
-			pst.setString(5, questao.getAlternativaCorreta());
-			pst.setString(5, questao.getPeso());
-			pst.setInt(6, questao.getId());
+			pst.setString(1, questao.getEnunciado());
+			pst.setString(2, questao.getAlternativaCorreta());
+			pst.setString(3, questao.getPeso());
+			pst.setString(4, questao.getAlternativaA());
+			pst.setString(5, questao.getAlternativaB());
+			pst.setString(6, questao.getAlternativaC());
+			pst.setString(7, questao.getAlternativaD());
+			pst.setString(8, questao.getAlternativaE());
+			//pst.setString(9, questao.getTopico()); //Adicionar o Topico aqui
+			pst.setInt(10, questao.getId());
 			pst.execute();
 			System.out.println("Atualizado com sucesso!");
 		} catch(SQLException ex){
@@ -95,7 +95,9 @@ public class QuestionDAO {
 	
 	public Question select (Question question) {
 		Question quest = null;
-		String consulta = "SELECT id, titulo, descricao, texto FROM Noticia WHERE id = ?";
+		String consulta = "SELECT id, enunciado, alternativa_correta, peso," 
+				+ "alternativa_a, alternativa_b, alternativa_c, alternativa_d, alternativa_e," 
+				+ "fk_topico FROM Noticia WHERE id = ?";
 				
 		try (PreparedStatement pst = conexao.prepareStatement(consulta)){
 			pst.setInt(1, question.getId());
@@ -105,6 +107,7 @@ public class QuestionDAO {
 				quest = new Question();
 				
 				int idNoticia = resultado.getInt("id");
+				String enunciado = resultado.getString("enunciado");
 				String alternativaA = resultado.getString("alternativaA");
 				String alternativaB = resultado.getString("alternativaB");
 				String alternativaC = resultado.getString("alternativaC");
@@ -114,13 +117,14 @@ public class QuestionDAO {
 				String peso = resultado.getString("peso");
 				
 				quest.setId(idNoticia);
+				quest.setEnunciado(enunciado);
+				quest.setAlternativaCorreta(alternativaCorreta);
+				quest.setPeso(peso);
 				quest.setAlternativaA(alternativaA);
 				quest.setAlternativaB(alternativaB);
 				quest.setAlternativaC(alternativaC);
 				quest.setAlternativaD(alternativaD);
 				quest.setAlternativaE(alternativaE);
-				quest.setAlternativaCorreta(alternativaCorreta);
-				quest.setPeso(peso);
 				System.out.println("Essa é a noticia: " + quest.toString());
 			}
 			System.out.println("Consulta feita com sucesso");
@@ -135,7 +139,9 @@ public class QuestionDAO {
 	public ArrayList<Question> selectAll () {
 		ArrayList<Question> lstNoticia = new ArrayList<Question>();
 		Question quest = null;
-		String consulta = "SELECT id, titulo, descricao, texto FROM Noticia";
+		String consulta = "SELECT id, enunciado, alternativa_correta, peso," 
+				+ "alternativa_a, alternativa_b, alternativa_c, alternativa_d, alternativa_e," 
+				+ "fk_topico FROM Noticia";
 				
 		try (PreparedStatement pst = conexao.prepareStatement(consulta)){
 			ResultSet resultado = pst.executeQuery();
@@ -144,6 +150,7 @@ public class QuestionDAO {
 				quest = new Question();
 				
 				int idNoticia = resultado.getInt("id");
+				String enunciado = resultado.getString("enunciado");
 				String alternativaA = resultado.getString("alternativaA");
 				String alternativaB = resultado.getString("alternativaB");
 				String alternativaC = resultado.getString("alternativaC");
@@ -153,13 +160,14 @@ public class QuestionDAO {
 				String peso = resultado.getString("peso");
 				
 				quest.setId(idNoticia);
+				quest.setEnunciado(enunciado);
+				quest.setAlternativaCorreta(alternativaCorreta);
+				quest.setPeso(peso);
 				quest.setAlternativaA(alternativaA);
 				quest.setAlternativaB(alternativaB);
 				quest.setAlternativaC(alternativaC);
 				quest.setAlternativaD(alternativaD);
 				quest.setAlternativaE(alternativaE);
-				quest.setAlternativaCorreta(alternativaCorreta);
-				quest.setPeso(peso);
 				System.out.println("Essa é a noticia: " + quest.toString());
 				lstNoticia.add(quest);
 			}

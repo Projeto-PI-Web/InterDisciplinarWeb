@@ -15,7 +15,7 @@ public class Topic {
 	private int id;
 	private String nameTopic;
 	private String playList;
-	private List<Disciplina> disciplina;
+	private Disciplina disciplina;
 	
 	public Topic() {}
 	
@@ -47,6 +47,14 @@ public class Topic {
 	
 	public void setPlayList(String playList) {
 		this.playList = playList;
+	}
+	
+	public Disciplina getDisciplina() {
+		return disciplina;
+	}
+	
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
 	}
 	
 	@Override
