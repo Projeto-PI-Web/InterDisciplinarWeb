@@ -8,19 +8,19 @@ public class UserService {
 	UserDAO dao = new UserDAO();
 	
 	public int criar(User usuario) {
-		dao.insertUser(usuario);
+		dao.insert(usuario);
 		return usuario.getId();
 	}
 	
-	/*public void atualizar(User usuario){
-		dao.atualizar(disciplina);
+	public void atualizar(User usuario){
+		dao.upDate(usuario);
 	}
 	
-	public void excluir(int id){
-		dao.excluir(id);
+	public void excluir(User usuario){
+		dao.delete(usuario);
 	}
 	
-	public User carregar(int id){
-		return dao.carregar(id);
-	}*/
+	public User carregar(User usuario){
+		return dao.select(usuario.getId());
+	}
 }

@@ -19,37 +19,24 @@ import servlets.UserService;
 public class CadastroController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Request: " + request);
-		System.out.println("Response: " + response);
-		doPost(request, response);
-		
-		System.out.println("CADASTRO GET");
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
-		//request.getRequestDispatcher("index.html").include(request, response);
 		System.out.println("Request: " + request);
 		System.out.println("Response: " + response);
 		System.out.println("Cadastrar POST");
 		
-		String pNome = request.getParameter("nome");
+		String pNome = request.getParameter("name");
 		String pEmail = request.getParameter("email");
 		String pSenha = request.getParameter("senha");
 		String cSenha = request.getParameter("cSenha");
 		
+		PrintWriter out = response.getWriter();
 		//instanciar o javabean
 		User usuario = new User();
 		usuario.setNome(pNome);
 		usuario.setEmail(pEmail);
 		if(pSenha.equals(cSenha)) usuario.setEmail(pSenha);
-		else { 
-			PrintWriter out = response.getWriter();
-			out.println("As senhas não são igual. Favor verificar novamente");
-		}
+		else out.println("As senhas não são igual. Favor verificar novamente");
+		
 		System.out.println("User: " +usuario);
 		
 		//instanciar o service

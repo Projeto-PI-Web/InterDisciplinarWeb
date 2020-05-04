@@ -1,6 +1,7 @@
 package dao;
 
 import java.io.FileInputStream;
+
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -26,44 +27,7 @@ public class UserDAO {
 		this.conexao = conexao;
 	}
 	
-	public void insert (User user) {
-		em.getTransaction().begin();
-		em.merge(user);
-		em.getTransaction().commit();
-		emf.close();
-	}
-	
-	public void delete (User user) {
-		em.getTransaction().begin();
-		Query delete = em.createNamedQuery("DELETE materia FROM questao WHERE id = " + user.getId());
-		delete.executeUpdate();
-		em.getTransaction().commit();
-		emf.close();
-	}
-	
-	public void update (User user) {
-		em.getTransaction().begin();
-		System.out.println();
-		Query update = em.createNamedQuery("UPDATE materia SET nome_materia = " + user.getSenha() + 
-											" WHERE id = " + user.getId());
-		update.executeUpdate();
-		em.getTransaction().commit();
-		emf.close();
-	}
-	
-	public void select (User user) {
-		em.getTransaction().begin();
-		Query select = em.createNamedQuery("SELECT * FROM questao WHERE id = " + user.getId());
-		select.executeUpdate();
-		em.getTransaction().commit();
-		emf.close();
-	}
-	
-	
-	//CASO USANDO O PERSISTENCE NÃO DE CERTO, SEGUNDO MODO DE FAZER O CRUD
-	
-	
-	public void insertUser (User usuario) {
+	public void insert (User usuario) {
 		System.out.println("Entrou no insert");
 		UserDAO dao = new UserDAO();
 		String inserir = "INSERT INTO Usuario (id, nome, senha, email)" + "VALUES(?,?,?,?)";
@@ -90,12 +54,12 @@ public class UserDAO {
 		}
 	}
 	
-	public void deleteUsuario (String apelido) {
+	public void delete (User usuario) {
 			
-		String delete = "DELETE FROM Usuario WHERE apelido = ?";
+		String delete = "DELETE FROM Usuario WHERE id = ?";
 			
 		try (PreparedStatement pst = conexao.prepareStatement(delete)){
-			pst.setString(1, apelido);
+			pst.setInt(1, usuario.getId());
 			pst.execute();
 			
 			System.out.println("Usuario excluido");
@@ -106,12 +70,12 @@ public class UserDAO {
 		}
 	}
 
-	public void upDateUsuarioEmail (String campo, String apelido) {		
-		String update = "UPDATE Usuario SET email = ? WHERE apelido = ?";
+	public void upDate (User user) {		
+		String update = "UPDATE Usuario SET email = ? WHERE id = ?";
 				
 		try (PreparedStatement pst = conexao.prepareStatement(update)){
-			pst.setString(1, campo);
-			pst.setString(2, apelido);
+			pst.setString(1, user.getEmail());
+			pst.setInt(2, user.getId());
 			pst.execute();
 				
 			System.out.println("Atualizado com sucesso!");
@@ -121,34 +85,65 @@ public class UserDAO {
 		}
 	}
 	
-	//Update Telefone
-	public void upDateUsuarioTelefone (String campo, String apelido) {		
-		String update = "UPDATE Usuario SET telefone = ? WHERE apelido = ?";
+	public User select (int id) {
+		User user = null;
+		String consulta = "SELECT id, nome, senha, email, perfil FROM Usuario WHERE id = ?";
 				
-		try (PreparedStatement pst = conexao.prepareStatement(update)){
-			pst.setString(1, campo);
-			pst.setString(2, apelido);
-			pst.execute();
-			System.out.println("Atualizado com sucesso!");
-		} catch(SQLException ex){
-			System.out.println("Erro ao atualizar");
+		try (PreparedStatement pst = conexao.prepareStatement(consulta)){
+			pst.setInt(1, id);
+			ResultSet resultado = pst.executeQuery();
+			
+			if(resultado.next()) {
+				user = new User();
+				
+				int idNoticia = resultado.getInt("id");
+				String nome = resultado.getString("titulo");
+				String email = resultado.getString("descricao");
+				String senha = resultado.getString("texto");
+				
+				user.setId(idNoticia);
+				user.setNome(nome);
+				user.setEmail(email);
+				user.setSenha(senha);
+				System.out.println("Essa é a noticia: " + user.toString());
+			}
+			System.out.println("Consulta feita com sucesso");
+			
+		} catch(SQLException ex) {	
 			ex.printStackTrace();
+			System.out.println("Falha na consulta");
 		}
+		return user;
 	}
 	
-	public void upDateUsuarioSenha (String campo, String apelido) {		
-		String update = "UPDATE Usuario SET senha = ? WHERE apelido = ?";
+	public ArrayList<User> selectAll () {
+		ArrayList<User> lstNoticia = new ArrayList<User>();
+		User user = null;
+		String consulta = "SELECT id, titulo, descricao, texto FROM Noticia";
 				
-		try (PreparedStatement pst = conexao.prepareStatement(update)){
-			pst.setString(1, campo);
-			pst.setString(2, apelido);
-			pst.execute();
+		try (PreparedStatement pst = conexao.prepareStatement(consulta)){
+			ResultSet resultado = pst.executeQuery();
+			
+			while(resultado.next()) {
+				user = new User();
 				
-			System.out.println("Atualizado com sucesso!");
-		} catch(SQLException ex){
-			System.out.println("Erro ao atualizar");
+				int idNoticia = resultado.getInt("id");
+				String nome = resultado.getString("titulo");
+				String email = resultado.getString("descricao");
+				String senha = resultado.getString("texto");
+				
+				user.setId(idNoticia);
+				user.setNome(nome);
+				user.setEmail(email);
+				user.setSenha(senha);
+				System.out.println("Essa é a noticia: " + user.toString());
+				lstNoticia.add(user);
+			}
+			System.out.println("Consulta feita com sucesso");
+		} catch(SQLException ex) {	
 			ex.printStackTrace();
+			System.out.println("Falha na consulta");
 		}
+		return lstNoticia;
 	}
-
 }

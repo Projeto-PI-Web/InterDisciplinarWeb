@@ -8,19 +8,19 @@ public class TopicService {
 	TopicDAO dao = new TopicDAO();
 	
 	public int criar(Topic topic) {
-		dao.insertTopic(topic);
+		dao.insert(topic);
 		return topic.getId();
 	}
 	
-	/*public void atualizar(Topic topic){
-		dao.atualizar(topic);
+	public void atualizar(Topic topic){
+		dao.upDate(topic);
 	}
 	
-	public void excluir(int id){
-		dao.excluir(id);
+	public void excluir(Topic topic){
+		dao.delete(topic);
 	}
 	
-	public Topic carregar(int id){
-		return dao.carregar(id);
-	}*/
+	public Topic carregar(Topic topic){
+		return dao.select(topic);
+	}
 }

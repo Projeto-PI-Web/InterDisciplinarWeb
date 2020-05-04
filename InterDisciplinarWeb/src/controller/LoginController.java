@@ -22,7 +22,7 @@ public class LoginController extends HttpServlet {
     /**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/*protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Request: " + request);
 		System.out.println("Response: " + response);
 		//doPost(request, response);
@@ -43,13 +43,13 @@ public class LoginController extends HttpServlet {
 		UserService cs = new UserService();
 		//cs.criar(usuario);
 		//cliente = cs.carregar(cliente.getId()); USAR ESSE APOS MODIFICACAO
-	}
+	}*/
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*String pNome = request.getParameter("nome");
+		String pNome = request.getParameter("nome");
 		String pEmail = request.getParameter("email");
 		String pSenha = request.getParameter("senha");
 		
@@ -62,7 +62,7 @@ public class LoginController extends HttpServlet {
 		//instanciar o service
 		UserService cs = new UserService();
 		//cs.criar(usuario);
-		//cliente = cs.carregar(cliente.getId()); USAR ESSE APOS MODIFICACAO
+		usuario = cs.carregar(usuario); //USAR ESSE APOS MODIFICACAO
 		
 		PrintWriter out = response.getWriter();
 		out.println("<html><head><title>Cliente Cadastrado</title></head><body>");
@@ -70,6 +70,6 @@ public class LoginController extends HttpServlet {
 		out.println(	"nome: "+usuario.getNome()+"<br>");
 		out.println(	"e-mail: "+usuario.getEmail()+"<br>");
 		out.println(	"senha: "+usuario.getSenha()+"<br>");
-	    out.println("</body></html>");*/
+	    out.println("</body></html>");
 	}
 }

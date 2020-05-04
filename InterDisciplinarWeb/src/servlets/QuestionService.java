@@ -8,19 +8,19 @@ public class QuestionService {
 	QuestionDAO dao = new QuestionDAO();
 	
 	public int criar(Question question) {
-		dao.insertQuestion(question);
+		dao.insert(question);
 		return question.getId();
 	}
 	
-	/*public void atualizar(Question question){
-		dao.atualizar(question);
+	public void atualizar(Question question){
+		dao.upDate(question);
 	}
 	
-	public void excluir(int id){
-		dao.excluir(id);
+	public void excluir(Question question){
+		dao.delete(question);
 	}
 	
-	public Question carregar(int id){
-		return dao.carregar(id);
-	}*/
+	public Question carregar(Question question){
+		return dao.select(question);
+	}
 }

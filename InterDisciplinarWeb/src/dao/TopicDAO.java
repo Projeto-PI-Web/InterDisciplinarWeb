@@ -2,19 +2,18 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 
 import model.Topic;
-import model.User;
 
 public class TopicDAO {
 
-	private EntityManagerFactory emf;
-	private EntityManager em;
 	private Connection conexao;
 	
 	public TopicDAO () {
@@ -22,41 +21,6 @@ public class TopicDAO {
 	}
 	
 	public void insert (Topic topic) {
-		em.getTransaction().begin();
-		em.merge(topic);
-		em.getTransaction().commit();
-		emf.close();
-	}
-	
-	public void delete (Topic topic) {
-		em.getTransaction().begin();
-		Query delete = em.createNamedQuery("DELETE materia FROM questao WHERE id = " + topic.getId());
-		delete.executeUpdate();
-		em.getTransaction().commit();
-		emf.close();
-	}
-	
-	public void update (Topic topic) {
-		em.getTransaction().begin();
-		System.out.println();
-		Query update = em.createNamedQuery("UPDATE materia SET nome_materia = "  + 
-											" WHERE id = " + topic.getId());
-		update.executeUpdate();
-		em.getTransaction().commit();
-		emf.close();
-	}
-	
-	public void select (Topic topic) {
-		em.getTransaction().begin();
-		Query select = em.createNamedQuery("SELECT * FROM questao WHERE id = " + topic.getId());
-		select.executeUpdate();
-		em.getTransaction().commit();
-		emf.close();
-	}
-	
-	//SEGUNDA OPÇÃO CRUD
-	
-	public void insertTopic (Topic topic) {
 		System.out.println("Entrou no insert");
 		UserDAO dao = new UserDAO();
 		String inserir = "INSERT INTO Topico (id, nome, senha, email)" + "VALUES(?,?,?,?)";
@@ -81,13 +45,12 @@ public class TopicDAO {
 		}
 	}
 	
-	//Delete
-	public void deleteUsuario (String apelido) {
+	public void delete (Topic topic) {
 			
-		String delete = "DELETE FROM Usuario WHERE apelido = ?";
+		String delete = "DELETE FROM Usuario WHERE id = ?";
 			
 		try (PreparedStatement pst = conexao.prepareStatement(delete)){
-			pst.setString(1, apelido);
+			pst.setInt(1, topic.getId());
 			pst.execute();
 			
 			System.out.println("Usuario excluido");
@@ -98,13 +61,12 @@ public class TopicDAO {
 		}
 	}
 
-	//Update Email
-	public void upDateUsuarioEmail (String campo, String apelido) {		
-		String update = "UPDATE Usuario SET email = ? WHERE apelido = ?";
+	public void upDate (Topic topic) {		
+		String update = "UPDATE Usuario SET email = ? WHERE id = ?";
 				
 		try (PreparedStatement pst = conexao.prepareStatement(update)){
-			pst.setString(1, campo);
-			pst.setString(2, apelido);
+			pst.setString(1, topic.getNameTopic());
+			pst.setInt(2, topic.getId());
 			pst.execute();
 				
 			System.out.println("Atualizado com sucesso!");
@@ -114,34 +76,61 @@ public class TopicDAO {
 		}
 	}
 	
-	//Update Telefone
-	public void upDateUsuarioTelefone (String campo, String apelido) {		
-		String update = "UPDATE Usuario SET telefone = ? WHERE apelido = ?";
+	public Topic select (Topic topic) {
+		Topic top = null;
+		String consulta = "SELECT id, nome FROM Topic WHERE id = ?";
 				
-		try (PreparedStatement pst = conexao.prepareStatement(update)){
-			pst.setString(1, campo);
-			pst.setString(2, apelido);
-			pst.execute();
-			System.out.println("Atualizado com sucesso!");
-		} catch(SQLException ex){
-			System.out.println("Erro ao atualizar");
+		try (PreparedStatement pst = conexao.prepareStatement(consulta)){
+			pst.setInt(1, topic.getId());
+			ResultSet resultado = pst.executeQuery();
+			
+			if(resultado.next()) {
+				top = new Topic();
+				
+				int idNoticia = resultado.getInt("id");
+				String nomeTopic = resultado.getString("titulo");
+				String playlist = resultado.getString("descricao");
+				
+				top.setId(idNoticia);
+				top.setNameTopic(nomeTopic);
+				top.setPlayList(playlist);
+				System.out.println("Essa é a noticia: " + top.toString());
+			}
+			System.out.println("Consulta feita com sucesso");
+			
+		} catch(SQLException ex) {	
 			ex.printStackTrace();
+			System.out.println("Falha na consulta");
 		}
+		return top;
 	}
 	
-	//Update Senha
-	public void upDateUsuarioSenha (String campo, String apelido) {		
-		String update = "UPDATE Usuario SET senha = ? WHERE apelido = ?";
+	public ArrayList<Topic> selectAll () {
+		ArrayList<Topic> lstNoticia = new ArrayList<Topic>();
+		Topic top = null;
+		String consulta = "SELECT id, titulo, descricao, texto FROM Noticia";
 				
-		try (PreparedStatement pst = conexao.prepareStatement(update)){
-			pst.setString(1, campo);
-			pst.setString(2, apelido);
-			pst.execute();
+		try (PreparedStatement pst = conexao.prepareStatement(consulta)){
+			ResultSet resultado = pst.executeQuery();
+			
+			while(resultado.next()) {
+				top = new Topic();
 				
-			System.out.println("Atualizado com sucesso!");
-		} catch(SQLException ex){
-			System.out.println("Erro ao atualizar");
+				int idNoticia = resultado.getInt("id");
+				String nomeTopic = resultado.getString("titulo");
+				String playlist = resultado.getString("descricao");
+				
+				top.setId(idNoticia);
+				top.setNameTopic(nomeTopic);
+				top.setPlayList(playlist);
+				System.out.println("Essa é a noticia: " + top.toString());
+				lstNoticia.add(top);
+			}
+			System.out.println("Consulta feita com sucesso");
+		} catch(SQLException ex) {	
 			ex.printStackTrace();
+			System.out.println("Falha na consulta");
 		}
+		return lstNoticia;
 	}
 }

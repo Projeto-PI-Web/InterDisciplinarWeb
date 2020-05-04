@@ -2,7 +2,9 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -21,44 +23,7 @@ public class QuestionDAO {
 		this.conexao = ConnectionFactory.conectar();
 	}
 	
-	public void insert (Question mat) {
-		em.getTransaction().begin();
-		em.merge(mat);
-		em.getTransaction().commit();
-		emf.close();
-	}
-	
-	public void delete (Question quest) {
-		em.getTransaction().begin();
-		Query delete = em.createNamedQuery("DELETE materia FROM questao WHERE id = " + quest.getId());
-		delete.executeUpdate();
-		em.getTransaction().commit();
-		emf.close();
-	}
-	
-	public void update (Question quest) {
-		em.getTransaction().begin();
-		System.out.println();
-		Query update = em.createNamedQuery("UPDATE materia SET nome_materia = " + quest.getEnunciado() + 
-											" WHERE id = " + quest.getId());
-		update.executeUpdate();
-		em.getTransaction().commit();
-		emf.close();
-	}
-	
-	public void select (Question quest) {
-		em.getTransaction().begin();
-		Query select = em.createNamedQuery("SELECT * FROM questao WHERE id = " + quest.getId());
-		select.executeUpdate();
-		em.getTransaction().commit();
-		emf.close();
-	}
-	
-	
-	//SEGUNDA OPÇÃO CRUD
-
-	public void insertQuestion (Question question) {
-		
+	public void insert (Question question) {
 		UserDAO dao = new UserDAO();
 		String inserir = "INSERT INTO Questao (id, nome, senha, email)" + "VALUES(?,?,?,?)";
 		
@@ -94,46 +59,32 @@ public class QuestionDAO {
 		}
 	}
 	
-	//Delete
-	public void deleteUsuario (String apelido) {
-			
-		String delete = "DELETE FROM Usuario WHERE apelido = ?";
+	public void delete (Question question) {
+		
+		String delete = "DELETE FROM Questao WHERE id = ?";
 			
 		try (PreparedStatement pst = conexao.prepareStatement(delete)){
-			pst.setString(1, apelido);
+			pst.setInt(1, question.getId());
 			pst.execute();
-			
 			System.out.println("Usuario excluido");
-			
 		} catch(SQLException ex){
 			ex.printStackTrace();
 			System.out.println("Falha ao excluir o usuario");
 		}
 	}
 
-	//Update Email
-	public void upDateUsuarioEmail (String campo, String apelido) {		
-		String update = "UPDATE Usuario SET email = ? WHERE apelido = ?";
+	public void upDate (Question questao) {		
+		String update = "UPDATE Usuario SET email=? WHERE id=?";
 				
 		try (PreparedStatement pst = conexao.prepareStatement(update)){
-			pst.setString(1, campo);
-			pst.setString(2, apelido);
-			pst.execute();
-				
-			System.out.println("Atualizado com sucesso!");
-		} catch(SQLException ex){
-			System.out.println("Erro ao atualizar");
-			ex.printStackTrace();
-		}
-	}
-	
-	//Update Telefone
-	public void upDateUsuarioTelefone (String campo, String apelido) {		
-		String update = "UPDATE Usuario SET telefone = ? WHERE apelido = ?";
-				
-		try (PreparedStatement pst = conexao.prepareStatement(update)){
-			pst.setString(1, campo);
-			pst.setString(2, apelido);
+			pst.setString(1, questao.getAlternativaA());
+			pst.setString(2, questao.getAlternativaB());
+			pst.setString(3, questao.getAlternativaC());
+			pst.setString(4, questao.getAlternativaD());
+			pst.setString(5, questao.getAlternativaE());
+			pst.setString(5, questao.getAlternativaCorreta());
+			pst.setString(5, questao.getPeso());
+			pst.setInt(6, questao.getId());
 			pst.execute();
 			System.out.println("Atualizado com sucesso!");
 		} catch(SQLException ex){
@@ -142,19 +93,81 @@ public class QuestionDAO {
 		}
 	}
 	
-	//Update Senha
-	public void upDateUsuarioSenha (String campo, String apelido) {		
-		String update = "UPDATE Usuario SET senha = ? WHERE apelido = ?";
+	public Question select (Question question) {
+		Question quest = null;
+		String consulta = "SELECT id, titulo, descricao, texto FROM Noticia WHERE id = ?";
 				
-		try (PreparedStatement pst = conexao.prepareStatement(update)){
-			pst.setString(1, campo);
-			pst.setString(2, apelido);
-			pst.execute();
+		try (PreparedStatement pst = conexao.prepareStatement(consulta)){
+			pst.setInt(1, question.getId());
+			ResultSet resultado = pst.executeQuery();
+			
+			if(resultado.next()) {
+				quest = new Question();
 				
-			System.out.println("Atualizado com sucesso!");
-		} catch(SQLException ex){
-			System.out.println("Erro ao atualizar");
+				int idNoticia = resultado.getInt("id");
+				String alternativaA = resultado.getString("alternativaA");
+				String alternativaB = resultado.getString("alternativaB");
+				String alternativaC = resultado.getString("alternativaC");
+				String alternativaD = resultado.getString("alternativaD");
+				String alternativaE = resultado.getString("alternativaE");
+				String alternativaCorreta = resultado.getString("alternativaCorreta");
+				String peso = resultado.getString("peso");
+				
+				quest.setId(idNoticia);
+				quest.setAlternativaA(alternativaA);
+				quest.setAlternativaB(alternativaB);
+				quest.setAlternativaC(alternativaC);
+				quest.setAlternativaD(alternativaD);
+				quest.setAlternativaE(alternativaE);
+				quest.setAlternativaCorreta(alternativaCorreta);
+				quest.setPeso(peso);
+				System.out.println("Essa é a noticia: " + quest.toString());
+			}
+			System.out.println("Consulta feita com sucesso");
+			
+		} catch(SQLException ex) {	
 			ex.printStackTrace();
+			System.out.println("Falha na consulta");
 		}
+		return quest;
+	}
+	
+	public ArrayList<Question> selectAll () {
+		ArrayList<Question> lstNoticia = new ArrayList<Question>();
+		Question quest = null;
+		String consulta = "SELECT id, titulo, descricao, texto FROM Noticia";
+				
+		try (PreparedStatement pst = conexao.prepareStatement(consulta)){
+			ResultSet resultado = pst.executeQuery();
+			
+			while(resultado.next()) {
+				quest = new Question();
+				
+				int idNoticia = resultado.getInt("id");
+				String alternativaA = resultado.getString("alternativaA");
+				String alternativaB = resultado.getString("alternativaB");
+				String alternativaC = resultado.getString("alternativaC");
+				String alternativaD = resultado.getString("alternativaD");
+				String alternativaE = resultado.getString("alternativaE");
+				String alternativaCorreta = resultado.getString("alternativaCorreta");
+				String peso = resultado.getString("peso");
+				
+				quest.setId(idNoticia);
+				quest.setAlternativaA(alternativaA);
+				quest.setAlternativaB(alternativaB);
+				quest.setAlternativaC(alternativaC);
+				quest.setAlternativaD(alternativaD);
+				quest.setAlternativaE(alternativaE);
+				quest.setAlternativaCorreta(alternativaCorreta);
+				quest.setPeso(peso);
+				System.out.println("Essa é a noticia: " + quest.toString());
+				lstNoticia.add(quest);
+			}
+			System.out.println("Consulta feita com sucesso");
+		} catch(SQLException ex) {	
+			ex.printStackTrace();
+			System.out.println("Falha na consulta");
+		}
+		return lstNoticia;
 	}
 }
