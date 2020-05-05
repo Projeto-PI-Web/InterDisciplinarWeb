@@ -10,14 +10,17 @@ public class User {
 	private String email;
 	private String nome;
 	private String senha;
+	private Perfil perfil;
 	
 	public User () {}
 	
-	public User (int id, String email, String nome, String senha) {
+	
+	public User (int id, String email, String nome, String senha, Perfil perfil) {
 		setId(id);
 		setEmail(email);
 		setNome(nome);
 		setSenha(senha);
+		setPerfil(perfil);
 	}
 	
 	public int getId(){
@@ -46,10 +49,18 @@ public class User {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	public Perfil getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
+	}
+
 	
 	@Override
 	public String toString() {
 		return "{Id: " + getId() + ", Email: " + getEmail() + ", Nome: " + getNome() + 
-				", Senha: " + getSenha() + ", Perfil: " + "}";
+				", Senha: " + getSenha() + ", Perfil: " + getPerfil()" }";
 	}
 }

@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 
+import model.Perfil;
 import model.User;
 
 public class UserDAO {
@@ -24,20 +25,19 @@ public class UserDAO {
 	}
 
 	public void insert(User usuario) {
-		// Adicionar 'perfil' depois na query quando ENUM estiver pronto
-		String inserir = "INSERT INTO Usuario ( nome, senha, email)" + "VALUES(?,?,?)";
+		String inserir = "INSERT INTO Usuario ( nome, senha, email)" + "VALUES(?,?,?,?)";
 
 		User us = new User();
 		try (PreparedStatement pst = conexao.prepareStatement(inserir)) {
 			pst.setString(1, usuario.getNome());
 			pst.setString(2, usuario.getSenha());
 			pst.setString(3, usuario.getEmail());
-			// Acrescentar o perfil aqui
+			pst.setString(4, usuario.getPerfil().name());
 
 			us.setNome(usuario.getNome());
 			us.setSenha(usuario.getSenha());
 			us.setEmail(usuario.getEmail());
-			// Acrescentar o perfil aqui
+			us.setPerfil(usuario.getPerfil());
 			pst.execute();
 
 			// Pega o Id do ultimo usuario inserido no banco
@@ -71,7 +71,7 @@ public class UserDAO {
 			pst.setString(1, user.getNome());
 			pst.setString(2, user.getSenha());
 			pst.setString(3, user.getEmail());
-			// pst.setString(4, user.getPerfil()); //Adicionar o ENUM AQUI
+			pst.setString(4, user.getPerfil().name()); 
 			pst.setInt(5, user.getId());
 			pst.execute();
 			System.out.println("Atualizado com sucesso!");
@@ -83,8 +83,8 @@ public class UserDAO {
 
 	public User select(int id) {
 		User user = null;
-		// Adicionar 'perfil' depois na query quando ENUM estiver pronto
-		String consulta = "SELECT id, nome, senha, email FROM Usuario WHERE id = ?";
+		// Revisar Enum aqui no Set 
+		String consulta = "SELECT id, nome, senha, email, perfil FROM Usuario WHERE id = ?";
 
 		try (PreparedStatement pst = conexao.prepareStatement(consulta)) {
 			pst.setInt(1, id);
@@ -97,12 +97,13 @@ public class UserDAO {
 				String nome = resultado.getString("nome");
 				String email = resultado.getString("email");
 				String senha = resultado.getString("senha");
-				// String perfil = resultado.getString("perfil");
+				String perfil = resultado.getString("perfil");
 
 				user.setId(idNoticia);
 				user.setNome(nome);
 				user.setEmail(email);
 				user.setSenha(senha);
+				//user.setPerfil(perfil);
 				// adicionar o perfil aqui
 				System.out.println("Esse é o user: " + user.toString());
 			}
@@ -113,7 +114,7 @@ public class UserDAO {
 		}
 		return user;
 	}
-
+	// Revisar Enum aqui no Set 
 	public ArrayList<User> selectAll() {
 		ArrayList<User> lstNoticia = new ArrayList<User>();
 		User user = null;
@@ -128,13 +129,13 @@ public class UserDAO {
 				String nome = resultado.getString("nome");
 				String email = resultado.getString("email");
 				String senha = resultado.getString("senha");
-				// String perfil = resultado.getString("perfil");
+				String perfil = resultado.getString("perfil");
 
 				user.setId(idNoticia);
 				user.setNome(nome);
 				user.setEmail(email);
 				user.setSenha(senha);
-				// adicionar o perfil aqui
+				//user.setPerfil(perfil);
 				System.out.println("Esse é o user: " + user.toString());
 				lstNoticia.add(user);
 			}
@@ -145,7 +146,7 @@ public class UserDAO {
 		}
 		return lstNoticia;
 	}
-	
+	// Revisar Enum aqui no Set 
 	public ArrayList<User> selectEmail(User usuario) {
 		ArrayList<User> lstNoticia = new ArrayList<User>();
 		User user = null;
