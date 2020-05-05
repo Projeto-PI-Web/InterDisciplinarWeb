@@ -15,7 +15,9 @@ import servlets.UserService;
 /**
  * Servlet implementation class CadastroController
  */
-@WebServlet(name="/CadastroController.do", urlPatterns ="/CadastroController.do")
+
+//, urlPatterns ="/CadastroController.do"
+@WebServlet("/CadastroController.do")
 public class CadastroController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -34,7 +36,7 @@ public class CadastroController extends HttpServlet {
 		User usuario = new User();
 		usuario.setNome(pNome);
 		usuario.setEmail(pEmail);
-		if(pSenha.equals(cSenha)) usuario.setEmail(pSenha);
+		if(pSenha.equals(cSenha)) usuario.setSenha(pSenha);
 		else out.println("As senhas não são igual. Favor verificar novamente");
 		
 		System.out.println("User: " +usuario);

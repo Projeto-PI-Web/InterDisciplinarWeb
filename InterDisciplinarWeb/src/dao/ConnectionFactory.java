@@ -21,7 +21,7 @@ public class ConnectionFactory {
 		try {
 			System.out.println("Estabelecendo Conexão...");
 			
-			Connection c = DriverManager.getConnection("jdbc:mysql://localhost/projetopi?useSSL=false",	
+			Connection c = DriverManager.getConnection("jdbc:mysql://localhost/projetopi?useTimezone=true&serverTimezone=America/Sao_Paulo&",	
 							"root", "");
 			System.out.println("Conexão Estabelecida com Sucesso");
 			return c;
