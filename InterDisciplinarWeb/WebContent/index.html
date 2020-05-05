@@ -1,84 +1,98 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="ISO-8859-1">
-		<style>
-		body {font-family: Arial, Helvetica, sans-serif;}
-		form {border: 3px solid #f1f1f1;}
-		input[type=text], input[type=password] {
-		  width: 100%;
-		  padding: 12px 20px;
-		  margin: 8px 0;
-		  display: inline-block;
-		  border: 1px solid #ccc;
-		  box-sizing: border-box;
-		}
-		.container {
-		  margin-top: 6px;
-		  padding: 16px;
-		}
-		h1{text-align:center}
-		button {
-		  background-color: #3111bf;
-		  color: white;
-		  padding: 14px 20px;
-		  margin: 8px 0;
-		  border: none;
-		  cursor: pointer;
-		  width: 100%;
-		}
-		button:hover {
-		  opacity: 0.8;
-		}
-		.cancelbtn {
-		  width: auto;
-		  padding: 10px 18px;
-		  background-color: #8f0425;
-		}
-		.cadastrobtn {
-		  width: auto;
-		  padding: 10px 18px;
-		  background-color: #3111bf;
-		}
-		span.psw {
-		  float: right;
-		  padding-top: 16px;
-		}
-		@media screen and (max-width: 300px) {
-		  span.psw {
-		    display: block;
-		    float: none;
-		  }
-		  .cancelbtn {
-		    width: 100%;
-		  }
-		  .cadastrobtn {
-		    width: 100%;
-		  }
-		}
-		</style>
-		<title>Login</title>
-	</head>
-	<body>
-		<h1>SKYNET</h1>
-		<form action="LoginController.do" method="post">
-		  <div class="container">
-		    <label for="uname"><b>Usuário</b></label>
-		    <input type="text" placeholder="Insira o seu Usuário" name="uname" required>
-		
-		    <label for="psw"><b>Senha</b></label>
-		    <input type="password" placeholder="Insira sua senha" name="psw" required>
-		
-		    <button type="submit">Login</button>
-		    <label>
-		      <input type="checkbox" checked="checked" name="remember"> Lembrar Usuário
-		    </label>
-		  </div>
-		  <div class="container" style="background-color:#f1f1f1">
-			<button type="button" class="cadastrobtn" onclick="window.location.href = 'cadastroUser.html';">Cadastre-se</button>
-			<button type="reset" value="reset" class="cancelbtn">Cancelar</button>
-			<span class="psw">Esqueceu sua <a href="#">senha?</a></span>
-		  </div>
-		</form>
-	</body>
+<head>
+<meta charset="ISO-8859-1">
+<style>
+
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.container {
+ 
+  margin-top: 6px;
+  padding: 16px;
+}
+
+
+button {
+  background-color: #3111bf;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #8f0425;
+}
+
+.cadastrobtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #3111bf;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
+  .cadastrobtn {
+    width: 100%;
+  }
+}
+
+
+
+</style>
+<title>Login</title>
+</head>
+<body>
+
+<form>
+<div class="container">
+    <label for="uname"><b>Usuário</b></label>
+    <input type="text" placeholder="Insira o seu Usuário" name="uname" required>
+
+    <label for="psw"><b>Senha</b></label>
+    <input type="password" placeholder="Insira sua senha" name="psw" required>
+
+    <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Lembrar Usuário
+    </label>
+  </div>
+
+<div class="container" style="background-color:#f1f1f1">
+	<button type="button" class="cadastrobtn" onclick="window.location.href = 'cadastroUser.html';">Cadastre-se</button>
+    <button type="reset" value="reset" class="cancelbtn">Cancelar</button>
+    <span class="psw">Esqueceu sua <a href="#">senha?</a></span>
+  </div>
+</form>
+</body>
 </html>

@@ -10,43 +10,36 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.User;
-import servlets.UserService;
+import service.UserService;
 
 /**
  * Servlet implementation class CadastroController
  */
-
-//, urlPatterns ="/CadastroController.do"
 @WebServlet("/CadastroController.do")
 public class CadastroController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private UserService us = new UserService();
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
-		System.out.println("Request: " + request);
-		System.out.println("Response: " + response);
 		System.out.println("Cadastrar POST");
 		
+		PrintWriter out = response.getWriter();
 		String pNome = request.getParameter("name");
 		String pEmail = request.getParameter("email");
 		String pSenha = request.getParameter("senha");
 		String cSenha = request.getParameter("cSenha");
 		
-		PrintWriter out = response.getWriter();
-		//instanciar o javabean
 		User usuario = new User();
 		usuario.setNome(pNome);
 		usuario.setEmail(pEmail);
-		if(pSenha.equals(cSenha)) usuario.setSenha(pSenha);
-		else out.println("As senhas não são igual. Favor verificar novamente");
+		if(pSenha.equals(cSenha)) {
+			usuario.setSenha(pSenha);
+			us.criar(usuario);
+		} else System.out.println("Senhas não se coincidem");
 		
-		System.out.println("User: " +usuario);
+		if(us.status > 0 ) out.println("PASSOU");
+		else out.println("NÃO PASSOU");
 		
-		//instanciar o service
-		UserService us = new UserService();
-		us.criar(usuario);
-		
-		System.out.println("Mudando de pag");
-		
-		request.getRequestDispatcher("index.html").include(request, response);		
+		request.getRequestDispatcher("index.html");		
 	}
 }

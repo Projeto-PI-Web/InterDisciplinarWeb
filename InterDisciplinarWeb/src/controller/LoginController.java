@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.User;
-import servlets.UserService;
+import service.UserService;
 
 /**
  * Servlet implementation class LoginController

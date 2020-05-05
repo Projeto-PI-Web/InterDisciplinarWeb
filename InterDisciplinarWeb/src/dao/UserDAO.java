@@ -21,17 +21,13 @@ public class UserDAO {
 
 	public UserDAO() {
 		this.conexao = ConnectionFactory.conectar();
-
 	}
 
 	public void insert(User usuario) {
-		System.out.println("Entrou no insert");
-		//UserDAO dao = new UserDAO();
 		// Adicionar 'perfil' depois na query quando ENUM estiver pronto
 		String inserir = "INSERT INTO Usuario ( nome, senha, email)" + "VALUES(?,?,?)";
 
 		User us = new User();
-
 		try (PreparedStatement pst = conexao.prepareStatement(inserir)) {
 			pst.setString(1, usuario.getNome());
 			pst.setString(2, usuario.getSenha());
@@ -42,29 +38,22 @@ public class UserDAO {
 			us.setSenha(usuario.getSenha());
 			us.setEmail(usuario.getEmail());
 			// Acrescentar o perfil aqui
-
 			pst.execute();
 
 			// Pega o Id do ultimo usuario inserido no banco
 			String sqlId = "SELECT LAST_INSERT_ID()";
 			try (PreparedStatement smt = conexao.prepareStatement(sqlId); ResultSet rs = smt.executeQuery();) {
-				if (rs.next()) {
-					us.setId(rs.getInt(1));
-				}
-				//dao.conexao.close();
-			}
+				if (rs.next()) us.setId(rs.getInt(1));
+			} catch (SQLException e) { e.printStackTrace(); }
 			System.out.println("Insert feito com sucesso");
-
 		} catch (SQLException ex) {
 			System.out.println("Houve um erro ao inserir");
 			ex.printStackTrace();
-		}
-		
+		}		
 	}
 
 	public void delete(User usuario) {
 		String delete = "DELETE FROM Usuario WHERE id = ?";
-
 		try (PreparedStatement pst = conexao.prepareStatement(delete)) {
 			pst.setInt(1, usuario.getId());
 			pst.execute();
@@ -115,7 +104,7 @@ public class UserDAO {
 				user.setEmail(email);
 				user.setSenha(senha);
 				// adicionar o perfil aqui
-				System.out.println("Essa é a noticia: " + user.toString());
+				System.out.println("Esse é o user: " + user.toString());
 			}
 			System.out.println("Consulta feita com sucesso");
 		} catch (SQLException ex) {
@@ -128,11 +117,10 @@ public class UserDAO {
 	public ArrayList<User> selectAll() {
 		ArrayList<User> lstNoticia = new ArrayList<User>();
 		User user = null;
-		String consulta = "SELECT id, nome, senha, email, perfil FROM Noticia";
+		String consulta = "SELECT id, nome, senha, email, perfil FROM Usuario";
 
 		try (PreparedStatement pst = conexao.prepareStatement(consulta)) {
 			ResultSet resultado = pst.executeQuery();
-
 			while (resultado.next()) {
 				user = new User();
 
@@ -147,7 +135,33 @@ public class UserDAO {
 				user.setEmail(email);
 				user.setSenha(senha);
 				// adicionar o perfil aqui
-				System.out.println("Essa é a noticia: " + user.toString());
+				System.out.println("Esse é o user: " + user.toString());
+				lstNoticia.add(user);
+			}
+			System.out.println("Consulta feita com sucesso");
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			System.out.println("Falha na consulta");
+		}
+		return lstNoticia;
+	}
+	
+	public ArrayList<User> selectEmail() {
+		ArrayList<User> lstNoticia = new ArrayList<User>();
+		User user = null;
+		String consulta = "SELECT email FROM Usuario ";
+
+		try (PreparedStatement pst = conexao.prepareStatement(consulta)) {
+			ResultSet resultado = pst.executeQuery();
+			
+			while (resultado.next()) {
+				user = new User();
+				String email = resultado.getString("email");
+				// String perfil = resultado.getString("perfil");
+
+				user.setEmail(email);
+				// adicionar o perfil aqui
+				System.out.println("Esse é o user: " + user.toString());
 				lstNoticia.add(user);
 			}
 			System.out.println("Consulta feita com sucesso");

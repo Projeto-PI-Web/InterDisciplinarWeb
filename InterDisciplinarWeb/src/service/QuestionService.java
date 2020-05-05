@@ -1,4 +1,4 @@
-package servlets;
+package service;
 
 import dao.QuestionDAO;
 import model.Question;

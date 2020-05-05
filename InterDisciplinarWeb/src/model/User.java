@@ -10,7 +10,6 @@ public class User {
 	private String email;
 	private String nome;
 	private String senha;
-	private String telefone;
 	
 	public User () {}
 	
@@ -47,15 +46,10 @@ public class User {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public String getTelefone() {
-		return telefone;
-	}
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
 	
 	@Override
 	public String toString() {
-		return this.getNome();
+		return "{Id: " + getId() + ", Email: " + getEmail() + ", Nome: " + getNome() + 
+				", Senha: " + getSenha() + ", Perfil: " + "}";
 	}
 }
