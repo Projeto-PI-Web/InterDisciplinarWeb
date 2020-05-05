@@ -30,8 +30,9 @@ public class CadastroController extends HttpServlet {
 		String cSenha = request.getParameter("cSenha");
 		
 		User usuario = new User();
-		usuario.setNome(pNome);
-		usuario.setEmail(pEmail);
+		
+		if(!pNome.equals(null) || !pNome.equals(" ")) usuario.setNome(pNome);
+		if(!pEmail.equals(null) || !pEmail.equals(" ")) usuario.setEmail(pEmail);
 		if(pSenha.equals(cSenha)) {
 			usuario.setSenha(pSenha);
 			us.criar(usuario);
