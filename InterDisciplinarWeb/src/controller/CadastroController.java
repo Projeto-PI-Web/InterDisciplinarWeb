@@ -38,9 +38,7 @@ public class CadastroController extends HttpServlet {
 			us.criar(usuario);
 		} else System.out.println("Senhas não se coincidem");
 		
-		if(us.status > 0 ) out.println("PASSOU");
-		else out.println("NÃO PASSOU");
-		
-		request.getRequestDispatcher("index.html");		
+		if(us.status >= 0 ) response.sendRedirect("index.html");
+		else response.encodeURL("error.html");
 	}
 }

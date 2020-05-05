@@ -146,19 +146,21 @@ public class UserDAO {
 		return lstNoticia;
 	}
 	
-	public ArrayList<User> selectEmail() {
+	public ArrayList<User> selectEmail(User usuario) {
 		ArrayList<User> lstNoticia = new ArrayList<User>();
 		User user = null;
-		String consulta = "SELECT email FROM Usuario ";
+		String consulta = "SELECT email FROM Usuario WHERE email=?";
 
 		try (PreparedStatement pst = conexao.prepareStatement(consulta)) {
+			pst.setString(1, usuario.getEmail());
 			ResultSet resultado = pst.executeQuery();
 			
 			while (resultado.next()) {
 				user = new User();
+				//String nome = resultado.getString("nome");
 				String email = resultado.getString("email");
-				// String perfil = resultado.getString("perfil");
 
+				//user.setNome(nome);
 				user.setEmail(email);
 				// adicionar o perfil aqui
 				System.out.println("Esse é o user: " + user.toString());

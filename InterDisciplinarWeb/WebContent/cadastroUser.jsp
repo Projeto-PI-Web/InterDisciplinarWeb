@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@page import="dao.UserDAO"%>
+<%@page import="model.User"%>
 <html>
 	<head>
 	<meta charset="ISO-8859-1">

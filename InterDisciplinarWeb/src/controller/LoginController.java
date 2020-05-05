@@ -18,58 +18,29 @@ import service.UserService;
 @WebServlet("/LoginController.do")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    /**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	/*protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Request: " + request);
-		System.out.println("Response: " + response);
-		//doPost(request, response);
-		
-		System.out.println("LOGIN GET");
-		
-		//String pNome = request.getParameter("nome");
-		String pEmail = request.getParameter("email");
-		String pSenha = request.getParameter("senha");
-		
-		//instanciar o javabean
-		User usuario = new User();
-		//usuario.setNome(pNome);
-		usuario.setEmail(pEmail);
-		usuario.setEmail(pSenha);
-		
-		//instanciar o service
-		UserService cs = new UserService();
-		//cs.criar(usuario);
-		//cliente = cs.carregar(cliente.getId()); USAR ESSE APOS MODIFICACAO
-	}*/
-
+	private UserService cs = new UserService();
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String pNome = request.getParameter("nome");
-		String pEmail = request.getParameter("email");
-		String pSenha = request.getParameter("senha");
-		
-		//instanciar o javabean
-		User usuario = new User();
-		//usuario.setNome(pNome);
-		usuario.setEmail(pEmail);
-		usuario.setEmail(pSenha);
-		
-		//instanciar o service
-		UserService cs = new UserService();
-		//cs.criar(usuario);
-		usuario = cs.carregar(usuario); //USAR ESSE APOS MODIFICACAO
-		
+		System.out.println("POST DO LOGIN");
+		String pEmail = request.getParameter("uname");
+		String pSenha = request.getParameter("psw");
 		PrintWriter out = response.getWriter();
-		out.println("<html><head><title>Cliente Cadastrado</title></head><body>");
-		out.println(	"id: "+usuario.getId()+"<br>");
-		out.println(	"nome: "+usuario.getNome()+"<br>");
-		out.println(	"e-mail: "+usuario.getEmail()+"<br>");
-		out.println(	"senha: "+usuario.getSenha()+"<br>");
-	    out.println("</body></html>");
+		//instanciar o javabean
+		
+		User usuario = new User();
+		usuario.setEmail(pEmail);
+		usuario.setSenha(pSenha);
+		
+		if(pEmail.equals(cs.carregar(usuario).getEmail()) && pSenha.equals(cs.carregar(usuario).getSenha())) {
+			out.println("<html><head><title>Cliente Cadastrado</title></head><body>");
+			out.println(	"nome: "+usuario.getNome()+"<br>");
+			out.println(	"e-mail: "+usuario.getEmail()+"<br>");
+			out.println(	"senha: "+usuario.getSenha()+"<br>");
+		    out.println("</body></html>");
+		} else out.println("NÃO PASSOU");	
+		
 	}
 }

@@ -59,8 +59,24 @@
 		<title>Login</title>
 	</head>
 	<body>
-		<h1>Nosso Projeto que ainda Não tem nome</h1>
-		<button type="button" class="cadastrobtn" onclick="window.location.href = 'login.html';">Login</button>
-		<button type="button" class="cadastrobtn" onclick="window.location.href = 'cadastroUser.jsp';">Cadastre-se</button>
+		<form action="LoginController.do" method="post">
+		<div class="container">
+		    <label for="uname"><b>E-mail</b></label>
+		    <input type="text" placeholder="Insira o seu email" name="uname" required>
+		
+		    <label for="psw"><b>Senha</b></label>
+		    <input type="password" placeholder="Insira sua senha" name="psw" required>
+		
+		    <button type="submit">Login</button>
+		    <label>
+		      <input type="checkbox" checked="checked" name="remember"> Lembrar Usuário
+		    </label>
+		  </div>
+		</form>
+		  <div class="container" style="background-color:#f1f1f1">
+			<button type="button" class="cadastrobtn" onclick="window.location.href = 'cadastroUser.jsp';">Cadastre-se</button>
+		    <button type="reset" value="reset" class="cancelbtn">Cancelar</button>
+		    <span class="psw">Esqueceu sua <a href="#">senha?</a></span>
+		  </div>
 	</body>
 </html>

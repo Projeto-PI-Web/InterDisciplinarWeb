@@ -12,9 +12,8 @@ public class UserService {
 	
 	public int criar(User usuario) {
 		status = 0;
-		//ArrayList<User> u = ;
 		
-		for(User user : dao.selectEmail()) {
+		for(User user : dao.selectEmail(usuario)) {
 			if(!usuario.getEmail().equals(user.getEmail())) {
 				System.out.println("Email não existe ainda, pode ser criado");
 				status = 1;
@@ -25,7 +24,7 @@ public class UserService {
 			}
 		}
 		System.out.println("Status: " + status);
-		if(status > 0) dao.insert(usuario);
+		if(status >= 0) dao.insert(usuario);
 		return status;
 	}
 	
@@ -45,7 +44,7 @@ public class UserService {
 		return dao.selectAll();
 	}
 	
-	public ArrayList<User> carregarNomes(User u){
-		return dao.selectEmail();
+	public ArrayList<User> carregarNomes(User usuario){
+		return dao.selectEmail(usuario);
 	}
 }
