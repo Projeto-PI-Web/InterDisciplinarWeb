@@ -61,6 +61,6 @@ public class User {
 	@Override
 	public String toString() {
 		return "{Id: " + getId() + ", Email: " + getEmail() + ", Nome: " + getNome() + 
-				", Senha: " + getSenha() + ", Perfil: " + getPerfil()" }";
+				", Senha: " + getSenha() + ", Perfil: " + getPerfil()+"}";
 	}
 }
