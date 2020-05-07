@@ -28,6 +28,29 @@ public class UserService {
 		return status;
 	}
 	
+	public int login(User usuario, String email){
+		status = 0;
+		System.out.println("Usuario que chegou agora: " + usuario.toString());
+		User valida = dao.selectEmail(email);
+		
+		if(usuario.getEmail().equals(valida.getEmail())) {
+			System.out.println("Parece que o email passou hehe");
+			if(usuario.getSenha().equals(valida.getSenha())) {
+				System.out.println("Chegou na senha, pode passar!");
+				status = 1;
+			} else {
+				System.out.println("Senha incorreta, tratar...");
+				status = -1;
+			}
+		} else {
+			System.out.println("Nem o email confere... Verifica de novo");
+			status = -1;
+		}
+		
+		if(status > 0) return valida.getId();
+		else return -1;
+	}
+	
 	public void atualizar(User usuario){
 		dao.upDate(usuario);
 	}

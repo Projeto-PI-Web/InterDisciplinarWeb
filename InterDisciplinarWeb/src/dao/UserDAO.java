@@ -25,19 +25,17 @@ public class UserDAO {
 	}
 
 	public void insert(User usuario) {
-		String inserir = "INSERT INTO Usuario ( nome, senha, email)" + "VALUES(?,?,?,?)";
+		String inserir = "INSERT INTO Usuario ( nome, senha, email)" + "VALUES(?,?,?)";
 
 		User us = new User();
 		try (PreparedStatement pst = conexao.prepareStatement(inserir)) {
 			pst.setString(1, usuario.getNome());
 			pst.setString(2, usuario.getSenha());
 			pst.setString(3, usuario.getEmail());
-			pst.setString(4, usuario.getPerfil().name());
 
 			us.setNome(usuario.getNome());
 			us.setSenha(usuario.getSenha());
 			us.setEmail(usuario.getEmail());
-			us.setPerfil(usuario.getPerfil());
 			pst.execute();
 
 			// Pega o Id do ultimo usuario inserido no banco
@@ -146,7 +144,7 @@ public class UserDAO {
 		}
 		return lstNoticia;
 	}
-	// Revisar Enum aqui no Set 
+
 	public ArrayList<User> selectEmail(User usuario) {
 		ArrayList<User> lstNoticia = new ArrayList<User>();
 		User user = null;
@@ -158,12 +156,9 @@ public class UserDAO {
 			
 			while (resultado.next()) {
 				user = new User();
-				//String nome = resultado.getString("nome");
 				String email = resultado.getString("email");
 
-				//user.setNome(nome);
 				user.setEmail(email);
-				// adicionar o perfil aqui
 				System.out.println("Esse é o user: " + user.toString());
 				lstNoticia.add(user);
 			}
@@ -173,5 +168,34 @@ public class UserDAO {
 			System.out.println("Falha na consulta");
 		}
 		return lstNoticia;
+	}
+	
+	public User selectEmail(String emailU) {
+		User user = null;
+		String consulta = "SELECT id, nome, senha, email FROM Usuario WHERE email=?";
+
+		try (PreparedStatement pst = conexao.prepareStatement(consulta)) {
+			pst.setString(1, emailU);
+			ResultSet resultado = pst.executeQuery();
+			
+			if (resultado.next()) {
+				user = new User();
+				int id = resultado.getInt("id");
+				String nome = resultado.getString("nome");
+				String senha = resultado.getString("senha");
+				String email = resultado.getString("email");
+				
+				user.setId(id);
+				user.setNome(nome);
+				user.setSenha(senha);
+				user.setEmail(email);
+				System.out.println("Esse é o user: " + user.toString());
+			}
+			System.out.println("Consulta feita com sucesso");
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			System.out.println("Falha na consulta");
+		}
+		return user;
 	}
 }

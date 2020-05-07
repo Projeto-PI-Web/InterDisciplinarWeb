@@ -18,29 +18,25 @@ import service.UserService;
 @WebServlet("/LoginController.do")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private UserService cs = new UserService();
+	private UserService us = new UserService();
 	
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("POST DO LOGIN");
 		String pEmail = request.getParameter("uname");
 		String pSenha = request.getParameter("psw");
 		PrintWriter out = response.getWriter();
-		//instanciar o javabean
 		
 		User usuario = new User();
 		usuario.setEmail(pEmail);
 		usuario.setSenha(pSenha);
+		us.login(usuario, pEmail);
 		
-		if(pEmail.equals(cs.carregar(usuario).getEmail()) && pSenha.equals(cs.carregar(usuario).getSenha())) {
-			out.println("<html><head><title>Cliente Cadastrado</title></head><body>");
-			out.println(	"nome: "+usuario.getNome()+"<br>");
-			out.println(	"e-mail: "+usuario.getEmail()+"<br>");
-			out.println(	"senha: "+usuario.getSenha()+"<br>");
-		    out.println("</body></html>");
-		} else out.println("NÃO PASSOU");	
-		
+		if(us.status > 0) response.sendRedirect("Cursos.html");
+		else {
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('Houve um erro, favor contatar um adm.');");
+			out.println("location='cadastroUser.jsp';");
+			out.println("</script>");
+		}
 	}
 }

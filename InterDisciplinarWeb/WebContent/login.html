@@ -56,27 +56,45 @@
 			  }
 			}
 		</style>
+		<script>
+		  function validacaoEmail(field) {
+			usuario = field.value.substring(0, field.value.indexOf("@"));
+			dominio = field.value.substring(field.value.indexOf("@")+ 1, field.value.length);
+			if ((usuario.length >=1) &&
+			    (dominio.length >=3) && 
+			    (usuario.search("@")==-1) && 
+			    (dominio.search("@")==-1) &&
+			    (usuario.search(" ")==-1) && 
+			    (dominio.search(" ")==-1) &&
+			    (dominio.search(".")!=-1) &&      
+			    (dominio.indexOf(".") >=1)&& 
+			    (dominio.lastIndexOf(".") < dominio.length - 1)) {
+				document.getElementById("msgemail").innerHTML="E-mail válido";
+			}
+			else{
+				document.getElementById("msgemail").innerHTML="<font color='red'>E-mail inválido </font>";
+			}
+		  }
+	    </script>
 		<title>Login</title>
 	</head>
 	<body>
 		<form action="LoginController.do" method="post">
-		<div class="container">
-		    <label for="uname"><b>E-mail</b></label>
-		    <input type="text" placeholder="Insira o seu email" name="uname" required>
-		
+		  <div class="container">
+			<label for="uname"><b>E-mail</b></label>
+			<input type="text" placeholder="Insira o seu email" name="uname" onblur="validacaoEmail(f1.email)" required>
 		    <label for="psw"><b>Senha</b></label>
 		    <input type="password" placeholder="Insira sua senha" name="psw" required>
-		
 		    <button type="submit">Login</button>
-		    <label>
-		      <input type="checkbox" checked="checked" name="remember"> Lembrar Usuário
-		    </label>
-		  </div>
 		</form>
-		  <div class="container" style="background-color:#f1f1f1">
-			<button type="button" class="cadastrobtn" onclick="window.location.href = 'cadastroUser.jsp';">Cadastre-se</button>
-		    <button type="reset" value="reset" class="cancelbtn">Cancelar</button>
-		    <span class="psw">Esqueceu sua <a href="#">senha?</a></span>
-		  </div>
+	    <label>
+	      <input type="checkbox" checked="checked" name="remember"> Lembrar Usuário
+	    </label>
+	  </div>
+	  <div class="container" style="background-color:#f1f1f1">
+		<button type="button" class="cadastrobtn" onclick="window.location.href = 'cadastroUser.html';">Cadastre-se</button>
+	    <button type="reset" value="reset" class="cancelbtn" onclick="window.location.href = 'index.html';">Voltar</button>
+	    <span class="psw">Esqueceu sua <a href="#">senha?</a></span>
+	  </div>
 	</body>
 </html>

@@ -32,13 +32,35 @@ public class CadastroController extends HttpServlet {
 		User usuario = new User();
 		
 		if(!pNome.equals(null) || !pNome.equals(" ")) usuario.setNome(pNome);
+		else {
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('As senhas não são iguais.');");
+			out.println("location='cadastroUser.jsp';");
+			out.println("</script>");
+		}
 		if(!pEmail.equals(null) || !pEmail.equals(" ")) usuario.setEmail(pEmail);
+		else {
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('As senhas não são iguais.');");
+			out.println("location='cadastroUser.jsp';");
+			out.println("</script>");
+		}
 		if(pSenha.equals(cSenha)) {
 			usuario.setSenha(pSenha);
 			us.criar(usuario);
-		} else System.out.println("Senhas não se coincidem");
-		
-		if(us.status >= 0 ) response.sendRedirect("index.html");
-		else response.encodeURL("error.html");
+			if(us.status >= 0 ) response.sendRedirect("index.html");
+			else {
+				out.println("<script type=\"text/javascript\">");
+				out.println("alert('As senhas não são iguais.');");
+				out.println("location='cadastroUser.jsp';");
+				out.println("</script>");
+			}
+		} else {
+			 out.println("<script type=\"text/javascript\">");
+			 out.println("alert('As senhas não são iguais.');");
+			 out.println("location='cadastroUser.jsp';");
+			 out.println("</script>");
+			 System.out.println("Senhas não se coincidem");		
+		}
 	}
 }

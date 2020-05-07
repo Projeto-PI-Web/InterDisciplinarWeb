@@ -5,7 +5,6 @@
 	<head>
 	<meta charset="ISO-8859-1">
 	<style>
-	
 		body {
 		font-family: Arial, Helvetica, sans-serif;
 		text-align:center;
@@ -93,6 +92,6 @@
 			<button id="cadastrar" type="submit" value="Cadastrar" class="cadastrobtn">Cadastre-se</button>
 		</div>
 	</form>
-	<button type="button" class="cancelarbtn">Cancelar</button>
+	<button type="button" class="cancelarbtn" onclick="window.location.href = 'index.html';">Voltar</button>
 	</body>
 </html>

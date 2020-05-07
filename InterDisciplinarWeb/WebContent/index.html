@@ -1,66 +1,74 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="ISO-8859-1">
-		<style>
-			body {font-family: Arial, Helvetica, sans-serif;}
-			form {border: 3px solid #f1f1f1;}
-			input[type=text], input[type=password] {
-			  width: 100%;
-			  padding: 12px 20px;
-			  margin: 8px 0;
-			  display: inline-block;
-			  border: 1px solid #ccc;
-			  box-sizing: border-box;
-			}
-			.container {
-			  margin-top: 6px;
-			  padding: 16px;
-			}
-			button {
-			  background-color: #3111bf;
-			  color: white;
-			  padding: 14px 20px;
-			  margin: 8px 0;
-			  border: none;
-			  cursor: pointer;
-			  width: 100%;
-			}
-			button:hover {
-			  opacity: 0.8;
-			}
-			.cancelbtn {
-			  width: auto;
-			  padding: 10px 18px;
-			  background-color: #8f0425;
-			}
-			.cadastrobtn {
-			  width: auto;
-			  padding: 10px 18px;
-			  background-color: #3111bf;
-			}
-			span.psw {
-			  float: right;
-			  padding-top: 16px;
-			}
-			@media screen and (max-width: 300px) {
-			  span.psw {
-			    display: block;
-			    float: none;
-			  }
-			  .cancelbtn {
-			    width: 100%;
-			  }
-			  .cadastrobtn {
-			    width: 100%;
-			  }
-			}
-		</style>
-		<title>Login</title>
-	</head>
-	<body>
-		<h1>Nosso Projeto que ainda Não tem nome</h1>
-		<button type="button" class="cadastrobtn" onclick="window.location.href = 'login.html';">Login</button>
-		<button type="button" class="cadastrobtn" onclick="window.location.href = 'cadastroUser.jsp';">Cadastre-se</button>
+<head>
+<meta charset="ISO-8859-1">
+<style>
+button {
+	  
+	  background-color: #3111bf;
+	  color: white;
+	  padding: 14px 20px;
+	  margin: 8px 0;
+	  border: none;
+	  cursor: pointer;
+	  width: 100%;
+	}
+	
+	.cadastrobtn {
+ 	
+ 	 width: auto;
+  	 padding: 10px 18px;
+ 	 background-color: #3111bf;
+	
+	}
+	
+	/*button:hover {
+  	opacity: 0.8;
+	}-*/
+</style>
+<title>Pagina Inicial	</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="carouselSite" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+		<li data-target="#carouselSite" data-slide-to="0" class="active"></li>
+		<li data-target="#carouselSite" data-slide-to="1"></li>
+		</ol>	
+		<div class="carousel-inner">
+			<div class="carousel-item active" >
+				<img src="imgs/Pilar_Educação-e1530207668143.jpg" class="img-fluid d-block">
+				<div class="carousel-caption" >
+					<h2>NOMESITE</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam condimentum vitae ligula eu consectetur.
+					 Suspendisse congue metus et feugiat porta. Phasellus quis ultricies magna, id euismod felis.</p>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="imgs/Slide3.jpg" class="img-fluid d-block">
+				<div class="carousel-caption" >
+					<h1>NOMESITE</h1>
+					<button type="button" class="cadastrobtn" onclick="window.location.href = 'login.html';">Login</button>
+					<button type="button" class="cadastrobtn" onclick="window.location.href = 'cadastroUser.jsp';">Cadastre-se</button>
+				</div>
+			</div>
+		</div>
+		<a class="carousel-control-prev" href="#carouselSite" role="button" data-slide="prev">
+		<span class="carousel-control-prev-icon"> </span>
+		<span class="sr-only"> Anterior </span>
+		</a>
+		<a class="carousel-control-next" href="#carouselSite" role="button" data-slide="next">
+			<span class="carousel-control-next-icon"> </span>
+			<span class="sr-only"> Avançar </span>
+		</a>
+	</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="ProjetoPI/bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	</body>
 </html>
