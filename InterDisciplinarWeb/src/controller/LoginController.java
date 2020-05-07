@@ -35,7 +35,7 @@ public class LoginController extends HttpServlet {
 		else {
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('Houve um erro, favor contatar um adm.');");
-			out.println("location='cadastroUser.jsp';");
+			out.println("location='login.html';");
 			out.println("</script>");
 		}
 	}
