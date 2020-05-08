@@ -79,13 +79,14 @@
 		<title>Login</title>
 	</head>
 	<body>
-		<form action="LoginController.do" method="post">
+		<form action="LoginController.do" method="post" name="f1">
 		  <div class="container">
 			<label for="uname"><b>E-mail</b></label>
-			<input type="text" placeholder="Insira o seu email" name="uname" onblur="validacaoEmail(f1.email)" required>
+			<input type="text" placeholder="Insira o seu email" name="uname" onblur="validacaoEmail(f1.uname)" required>
 		    <label for="psw"><b>Senha</b></label>
 		    <input type="password" placeholder="Insira sua senha" name="psw" required>
 		    <button type="submit">Login</button>
+		    <div id="msgemail"></div>
 		</form>
 	    <label>
 	      <input type="checkbox" checked="checked" name="remember"> Lembrar Usuário
