@@ -72,4 +72,7 @@ public class UserService {
 	public ArrayList<User> carregarNomes(User usuario){
 		return dao.selectEmail(usuario);
 	}
+	public User selectEmail(String email) {
+		return dao.selectEmail(email);
+	}
 }

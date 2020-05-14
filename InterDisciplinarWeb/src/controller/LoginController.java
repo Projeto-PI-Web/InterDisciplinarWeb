@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,15 +24,24 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("POST DO LOGIN");
 		String pEmail = request.getParameter("uname");
-		String pSenha = request.getParameter("psw");
+	//	String pSenha = request.getParameter("psw");
+	//	int pId = .getId();
 		PrintWriter out = response.getWriter();
 		
-		User usuario = new User();
-		usuario.setEmail(pEmail);
-		usuario.setSenha(pSenha);
-		us.login(usuario, pEmail);
 		
-		if(us.status > 0) response.sendRedirect("Cursos.html");
+		/*Comentei os dados dos parametros pois nao creio que não precisa montar o Usuario novamente se
+		/usar o metodo selectEmail que devolve o Usuario com todas as informaçoes já*/
+		User usuario = new User();
+		usuario = us.selectEmail(pEmail);
+	//	usuario.setId(pId);
+	//	usuario.setEmail(pEmail);
+	//	usuario.setSenha(pSenha);
+		us.login(usuario, pEmail);
+		request.setAttribute("usuario", usuario);
+		RequestDispatcher view = request.getRequestDispatcher("Cursos.jsp");
+		
+		//request.getRequestDispatcher("Cursos.jsp").include(request,  response);
+		if(us.status > 0) view.forward(request, response);
 		else {
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('Houve um erro, favor contatar um adm.');");
