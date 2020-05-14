@@ -3,6 +3,12 @@
 <%@page import="model.User"%>
 <html>
 	<head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        
+        
 	<meta charset="ISO-8859-1">
 	<style>
 		body {
@@ -42,13 +48,27 @@
 		.cadastrobtn {
 	 	 width: auto;
 	  	 padding: 10px 18px;
-	 	 background-color: #3111bf;
+	 	 background-color: #27496d;
 		}
 		.cancelarbtn {
 		  width: auto;
 		  padding: 10px 18px;
-		  background-color: #8f0425;
+		  background-color: #00909e;
 		}
+		
+		.TITULO{
+				color:#142850
+			  }
+		
+	    .SUBTITULO{
+				color:#27496d
+			 }
+		
+		.link{
+				color:#00909e
+			}
+			
+		
 		@media screen and (max-width: 300px) {
 		.cadastrobtn { width: 100%; }
 		.cancelarbtn { width: 100%; }
@@ -78,10 +98,11 @@
 		}
 	</script>
 	</head>
-	<body>
+	<body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color:#f6f4f4">
+    <div class="col-12 text-center my-5">
 	<form action="CadastroController.do" method="post" name=f1>
 		<div class="container">
-			<h3 style="text-align:center">Cadastro</h3>
+			<h3 style="text-align:center" class="SUBTITULO">CADASTRO</h3>
 			<input type="text" name="name" placeholder="Nome">
 			<input type="text" name="email" onblur="validacaoEmail(f1.email)" placeholder="Email">
 			<input type="password" name="senha" placeholder="Senha">
@@ -93,5 +114,6 @@
 		</div>
 	</form>
 	<button type="button" class="cancelarbtn" onclick="window.location.href = 'index.html';">Voltar</button>
+    </div>
 	</body>
 </html>
