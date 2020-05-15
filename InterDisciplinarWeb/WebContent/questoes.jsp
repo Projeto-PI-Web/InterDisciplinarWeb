@@ -1,10 +1,13 @@
-Ôªø<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
 <html lang="pt-br">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<title>Quest√µes</title>
+		<title>Questıes</title>
 		<!-- lib do bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -72,49 +75,13 @@
     
 	<body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color:#f6f4f4">
     
-    	<!-- MENU SUPERIOR -->
-		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#00909e">
-        	<div class="container"> 
-        
-        		<a class="navbar-brand" href=""> NOMESITE </a>
-       		 		<button class="navbar-toggler" type="button" href="Cursos.html" data-toggles="collapse" data-target="#navbarSite">
-        				<span class="navbar-toggler-icon"> </span>
-        	 		</button>
-        
-       			 <div class="collapse navbar-collapse" id="navbarSite">
-        			<ul class="navbar-nav mr-auto">
-        				<li class="navbar-item">
-        					<a class="nav-link" href="Cursos.html">  <b> Aulas </b></a>
-        				</li>
-             			<li class="navbar-item">
-        					<a class="nav-link"  href="questoes.html"> <b>Quest√µes </b></a>
-        				</li>
-        				</li>
-            			<li class="navbar-item">
-        					<a class="nav-link" href="conteudo.html"><b> Conte√∫do para Estudo </b></a>
-       					 </li>
-                 		<li class="navbar-item">
-        					<a class="nav-link" href="dicas.html"> <b>Dicas Enem</b> </a>
-       			 		</li>
-        			</ul>
-                    
-                    <ul class="navbar-nav ml-auto">
-                    	  <li class="navbar-item">
-        					<a class="nav-link" href="Perfil.html"><b> Perfil</b> </a>
-						</li>
-                         <li class="navbar-item">
-        					<a class="nav-link" href="index.html"><b> Sair </b></a>
-						</li>
-
-                   		
-                    </ul>
-        		</div>
-       	 </nav>
-        <!-- CABO MENU SUPERIOR -->
-
-    
+    	
+	<c:import url="Menu.jsp"/>  
+	<!-- Menu Superior -->
+	
+	    
     	<div class="row">
-		<!-- t√≠tulos-->
+		<!-- tÌtulos-->
     	
     		<div class="col-12 text-center mt-5">
                 <img src="https://i.imgur.com/81ZLXfX.png" class="img-fluid" alt="Responsive image">
@@ -122,33 +89,33 @@
                 <img src="https://i.imgur.com/LeWVLck.png" class="img-fluid" alt="Responsive image"> 
         
  			</div>
-        <!-- cabo t√≠tulos-->    
+        <!-- cabo tÌtulos-->    
            
    		 </div>
          
-         <!-- MENU DE MAT√âRIAS --> 
+         <!-- MENU DE MAT…RIAS --> 
          <div class="container"> 
          
          	<ul class="nav justify-content-center nav-tabs navbar-light" style="background-color:#f0f0f0">
              
-                  <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle SUBTITULO" data-toggle="dropdown"   href=""><b> Hist√≥ria</b></a>
+                  <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle SUBTITULO" data-toggle="dropdown"   href=""><b> HistÛria</b></a>
                 	<div class="dropdown-menu">
-                    	<a class="dropdown-item link active" data-toggle="tab" href="#tab1-1"><b> 1 - Hist√≥ria Geral</b> </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab1-2"><b> 2 - Hist√≥ria do Brasil</b> </a>
+                    	<a class="dropdown-item link active" data-toggle="tab" href="#tab1-1"><b> 1 - HistÛria Geral</b> </a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab1-2"><b> 2 - HistÛria do Brasil</b> </a>
                     </div>
                 </li> 
                 
                 <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle SUBTITULO" data-toggle="dropdown"  href=""><b> Geografia</b></a>
                 	<div class="dropdown-menu">
                     	<a class="dropdown-item link " data-toggle="tab" href="#tab2-1"> <b>1 - Agricultura e meio ambiente</b> </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab2-2"> <b>2 - Popula√ß√£o e migra√ß√µes</b>  </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab2-3"> <b>3 - Urbaniza√ß√£o </b>  </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab2-4"> <b>4 - Globaliza√ß√£o e Ind√∫stria </b> </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab2-5"> <b>5 - Geografia f√≠sica </b> </a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab2-2"> <b>2 - PopulaÁ„o e migraÁıes</b>  </a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab2-3"> <b>3 - UrbanizaÁ„o </b>  </a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab2-4"> <b>4 - GlobalizaÁ„o e Ind˙stria </b> </a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab2-5"> <b>5 - Geografia fÌsica </b> </a>
                     </div>
                 </li> 
                 
-                 <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle SUBTITULO" data-toggle="dropdown"  href=""><b> Gram√°tica</b></a>
+                 <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle SUBTITULO" data-toggle="dropdown"  href=""><b> Gram·tica</b></a>
                 	<div class="dropdown-menu">
                     	<a class="dropdown-item link" data-toggle="tab" href="#tab3-1"> <b>1 - Ortografia</b> </a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab3-2"><b>2 - Morfologia</b> </a>
@@ -159,32 +126,32 @@
                 
                  <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle SUBTITULO" data-toggle="dropdown"  href=""><b>Literatura</b></a>
                 	<div class="dropdown-menu">
-                    	<a class="dropdown-item link" data-toggle="tab" href="#tab4-1"> <b>1 - Interpreta√ß√£o </b> </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab4-2"> <b>2 - Escolas Liter√°rias  </b> </a>
+                    	<a class="dropdown-item link" data-toggle="tab" href="#tab4-1"> <b>1 - InterpretaÁ„o </b> </a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab4-2"> <b>2 - Escolas Liter·rias  </b> </a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab4-3"> <b>3 - Vanguardas Europeias </b></a>
                     </div>
                 </li> 
                 
                 
-                 <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle SUBTITULO" data-toggle="dropdown"  href=""> <b>Matem√°tica 1</b></a>
+                 <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle SUBTITULO" data-toggle="dropdown"  href=""> <b>Matem·tica 1</b></a>
                 	<div class="dropdown-menu">
-                    	<a class="dropdown-item link" data-toggle="tab" href="#tab5-1"> <b>1 - Matem√°tica B√°sica </b> </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab5-2"> <b>2 - Equa√ß√£o de 1¬∞ Grau e 2¬∞ Grau </b> </a>
+                    	<a class="dropdown-item link" data-toggle="tab" href="#tab5-1"> <b>1 - Matem·tica B·sica </b> </a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab5-2"> <b>2 - EquaÁ„o de 1∞ Grau e 2∞ Grau </b> </a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab5-3"> <b>3 - Porcentagem e Juros</b> </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab5-4"> <b>4 - Matem√°tica - PA </b> </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab5-5"> <b>5 - Matem√°tica - PG</b> </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab5-6"> <b>6 - Inequa√ß√£o de 1¬∞ e 2¬∞ Grau </b></a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab5-7"> <b>7 - Conjuntos Num√©ricos </b></a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab5-8"> <b>8 - An√°lise Combinat√≥ria </b></a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab5-9"> <b>9 - Probabilidade e Estat√≠stica </b></a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab5-10"> <b>10 - An√°lise de Gr√°ficos e Tabelas</b> </a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab5-4"> <b>4 - Matem·tica - PA </b> </a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab5-5"> <b>5 - Matem·tica - PG</b> </a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab5-6"> <b>6 - InequaÁ„o de 1∞ e 2∞ Grau </b></a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab5-7"> <b>7 - Conjuntos NumÈricos </b></a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab5-8"> <b>8 - An·lise CombinatÛria </b></a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab5-9"> <b>9 - Probabilidade e EstatÌstica </b></a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab5-10"> <b>10 - An·lise de Gr·ficos e Tabelas</b> </a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab5-11"> <b>11 - Matrizes e Sistemas Lineares</b> </a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab5-12"> <b>12 - Logaritimo </b></a>
                     </div>
                 </li> 
                 
                 
-                 <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle SUBTITULO" data-toggle="dropdown"  href=""> <b>Matem√°tica 2</b></a>
+                 <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle SUBTITULO" data-toggle="dropdown"  href=""> <b>Matem·tica 2</b></a>
                 	<div class="dropdown-menu">
                     	<a class="dropdown-item link" data-toggle="tab" href="#tab6-1"> <b>1 - Geometria Plana </b> </a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab6-2"> <b>2 - Geometria Espacial </b>  </a>
@@ -194,49 +161,49 @@
                 
              
                 
-                 <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle SUBTITULO" data-toggle="dropdown" href="" > <b>F√≠sica</b></a>
+                 <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle SUBTITULO" data-toggle="dropdown" href="" > <b>FÌsica</b></a>
                 	<div class="dropdown-menu">
-                    	<a class="dropdown-item link" data-toggle="tab" href="#tab7-1"> <b>1 - No√ß√µes B√°sicas Vetores  </b></a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab7-2"> <b>2 - Cinem√°tica </b> </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab7-3"> <b>3 - Din√¢mica</b> </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab7-4"> <b>4 - Est√°tica </b> </a>
+                    	<a class="dropdown-item link" data-toggle="tab" href="#tab7-1"> <b>1 - NoÁıes B·sicas Vetores  </b></a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab7-2"> <b>2 - Cinem·tica </b> </a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab7-3"> <b>3 - Din‚mica</b> </a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab7-4"> <b>4 - Est·tica </b> </a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab7-5"> <b>5 - Energia </b></a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab7-6"> <b>6 - Termologia </b></a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab7-7"> <b>7 - Hidrost√°tica </b></a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab7-8"> <b>8 - Eletroest√°tica </b></a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab7-9"><b> 9 - Eletrodin√¢mica </b></a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab7-7"> <b>7 - Hidrost·tica </b></a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab7-8"> <b>8 - Eletroest·tica </b></a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab7-9"><b> 9 - Eletrodin‚mica </b></a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab7-10"><b> 10 - Eletromagnetismo</b> </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab7-11"> <b>11 - Ondulat√≥ria</b></a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab7-12"> <b>12 - √ìptica </b></a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab7-11"> <b>11 - OndulatÛria</b></a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab7-12"> <b>12 - ”ptica </b></a>
                     </div>
                 </li>
                 
-                 <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle SUBTITULO" data-toggle="dropdown"  href=""> <b>Qu√≠mica</b></a>
+                 <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle SUBTITULO" data-toggle="dropdown"  href=""> <b>QuÌmica</b></a>
                 	<div class="dropdown-menu">
-                    	<a class="dropdown-item link" data-toggle="tab" href="#tab8-1"> <b>1 - Qu√≠mica B√°sica </b> </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab8-2"> <b>2 - Propriedades da mat√©ria </b> </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab8-3"> <b>3 - Liga√ß√µes Qu√≠micas </b></a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab8-4"> <b>4 - Solu√ß√µes </b> </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab8-5"> <b>5 - Estequiometria e Rea√ß√µes Qu√≠micas</b> </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab8-6"> <b>6 - Fun√ß√µes Inorg√¢nicas</b> </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab8-7"> <b>7 - Termoqu√≠mica </b></a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab8-8"> <b>8 - Cin√©tica e Equil√≠brio Qu√≠mico </b></a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab8-9"> <b>9 - Eletroqu√≠mica e Radiotividade</b></a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab8-10"> <b>10 - F√≠sicoqu√≠mica</b> </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab8-11"> <b>11 - Qu√≠mica Org√¢nica</b></a>
+                    	<a class="dropdown-item link" data-toggle="tab" href="#tab8-1"> <b>1 - QuÌmica B·sica </b> </a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab8-2"> <b>2 - Propriedades da matÈria </b> </a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab8-3"> <b>3 - LigaÁıes QuÌmicas </b></a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab8-4"> <b>4 - SoluÁıes </b> </a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab8-5"> <b>5 - Estequiometria e ReaÁıes QuÌmicas</b> </a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab8-6"> <b>6 - FunÁıes Inorg‚nicas</b> </a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab8-7"> <b>7 - TermoquÌmica </b></a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab8-8"> <b>8 - CinÈtica e EquilÌbrio QuÌmico </b></a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab8-9"> <b>9 - EletroquÌmica e Radiotividade</b></a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab8-10"> <b>10 - FÌsicoquÌmica</b> </a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab8-11"> <b>11 - QuÌmica Org‚nica</b></a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab8-12"> <b>12 - Isomeria</b> </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab8-13"> <b>13 - Rea√ß√µes Org√¢nicas</b> </a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab8-13"> <b>13 - ReaÁıes Org‚nicas</b> </a>
                     </div>
                 </li> 
                 
                  <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle SUBTITULO" data-toggle="dropdown"  href=""> <b>Biologia</b></a>
                 	<div class="dropdown-menu">
                     	<a class="dropdown-item link" data-toggle="tab" href="#tab9-1"> <b>1 - Ecologia  </b> </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab9-2"> <b>2 - Origem da Vida e Evolu√ß√£o</b>   </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab9-3"> <b>3 - Bioqu√≠mica</b> </a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab9-2"> <b>2 - Origem da Vida e EvoluÁ„o</b>   </a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab9-3"> <b>3 - BioquÌmica</b> </a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab9-4"> <b>4 - Citologia  </b> </a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab9-5"> <b>5 - Histologia </b> </a>
-                        <a class="dropdown-item link" data-toggle="tab" href="#tab9-6"> <b>6 - Gen√©tica</b> </a>
+                        <a class="dropdown-item link" data-toggle="tab" href="#tab9-6"> <b>6 - GenÈtica</b> </a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab9-7"> <b>7 - Taxonomia  </b></a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab9-8"> <b>8 - Reino Animal</b>  </a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab9-9"><b> 9 - Fisiologia Humana </b> </a>
@@ -247,7 +214,7 @@
                  <li class="nav-item"> <a class="nav-link SUBTITULO" data-toggle="tab"  href="#tab11"><b> Sociologia</b></a></li>
                  
             </ul>
-             <!-- MENU DE MAT√âRIAS CABO
+             <!-- MENU DE MAT…RIAS CABO
              
              o meni chama essas divs de vc ver cada um tem um ID que chama do menu para as divs 
             -->
@@ -255,12 +222,12 @@
     <!-- DIV DA HISTORIA -->
             	<!-- DIV DA HISTORIA GERAL -->
             	<div id="tab1-1" class="container show active tab-pane mt-4"> 
-                <p class="col-2 link"> <b> ENEM 1¬∞ Dia 2019 </b> </p>
-                <p> A soberania dos cidad√£os dotados de plenos direitos era imprescind√≠vel para a exist√™ncia da cidade-estado. Segundo os regimes pol√≠ticos, a propor√ß√£o desses cidad√£os em rela√ß√£o √† popula√ß√£o total dos 
+                <p class="col-2 link"> <b> ENEM 1∞ Dia 2019 </b> </p>
+                <p> A soberania dos cidad„os dotados de plenos direitos era imprescindÌvel para a existÍncia da cidade-estado. Segundo os regimes polÌticos, a proporÁ„o desses cidad„os em relaÁ„o ‡ populaÁ„o total dos 
                 homens livres podia variar muito, sendo bastante pequena nas aristocracias e oligarquias e maior nas democracias. <p>
-				<p> <sub> CARDOSO, C. F. Acidade-estado cl√°ssica. S√£o Paulo: √Åtica, 1985. <sub></p>
+				<p> <sub> CARDOSO, C. F. Acidade-estado cl·ssica. S„o Paulo: ¡tica, 1985. <sub></p>
                 
-                <p> Nas cidades-estado da Antiguidade Cl√°ssica, a propor√ß√£o de cidad√£os descrita no texto √© explicada pela ado√ß√£o do seguinte crit√©rio para a participa√ß√£o pol√≠tica: </p>
+                <p> Nas cidades-estado da Antiguidade Cl·ssica, a proporÁ„o de cidad„os descrita no texto È explicada pela adoÁ„o do seguinte critÈrio para a participaÁ„o polÌtica: </p>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                       <label class="form-check-label" for="inlineRadio1"> <b class="link"> A)</b> Controle da terra. </label>
@@ -273,17 +240,17 @@
                     <br>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-                      <label class="form-check-label" for="inlineRadio3"><b class="link"> C)</b> Igualdade de g√™nero.</label>
+                      <label class="form-check-label" for="inlineRadio3"><b class="link"> C)</b> Igualdade de gÍnero.</label>
                     </div>
                     <br>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option4">
-                      <label class="form-check-label" for="inlineRadio3"><b class="link"> D)</b> Exclus√£o dos militares.</label>
+                      <label class="form-check-label" for="inlineRadio3"><b class="link"> D)</b> Exclus„o dos militares.</label>
                     </div>
                     <br>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option5">
-                      <label class="form-check-label" for="inlineRadio3"><b class="link"> E)</b> Exig√™ncia da alfabetiza√ß√£o.</label>
+                      <label class="form-check-label" for="inlineRadio3"><b class="link"> E)</b> ExigÍncia da alfabetizaÁ„o.</label>
                     </div>
                     <br>
                     <button class="responderbtn mt-3"> RESPONDER </button>
@@ -299,21 +266,21 @@
                  <div id="tab2-1" class="container tab-pane mt-4 "> 
                 <p> Agricultura e meio ambiente</p>
                 </div>
-                 <!-- DIV DA Popula√ß√£o e migra√ß√µes  -->
+                 <!-- DIV DA PopulaÁ„o e migraÁıes  -->
                  <div id="tab2-2" class="container tab-pane mt-4 ">
-                <p> Popula√ß√£o e migra√ß√µes </p>
+                <p> PopulaÁ„o e migraÁıes </p>
                 </div>
-                <!-- DIV DA Urbaniza√ß√£o  -->
+                <!-- DIV DA UrbanizaÁ„o  -->
                  <div id="tab2-3" class="container tab-pane mt-4 ">
-                <p> Urbaniza√ß√£o </p>
+                <p> UrbanizaÁ„o </p>
                 </div>
-                <!-- DIV DA  Globaliza√ß√£o e Ind√∫stria -->
+                <!-- DIV DA  GlobalizaÁ„o e Ind˙stria -->
                  <div id="tab2-4" class="container tab-pane mt-4 ">
-                <p>  Globaliza√ß√£o e Ind√∫stria </p>
+                <p>  GlobalizaÁ„o e Ind˙stria </p>
                 </div>
-                <!-- DIV DA  Geografia f√≠sica  -->
+                <!-- DIV DA  Geografia fÌsica  -->
                 <div id="tab2-5"class="container tab-pane mt-4 ">
-                <p>  Geografia f√≠sica </p>
+                <p>  Geografia fÌsica </p>
                 </div>
                 
                 
@@ -337,13 +304,13 @@
                 
                 
   <!-- DIV DE LITERATURA  -->
-                 <!-- DIV DA Interpreta√ß√£o -->
+                 <!-- DIV DA InterpretaÁ„o -->
                  <div id="tab4-1" class="container tab-pane mt-4 ">
-                <p> Interpreta√ß√£o</p>
+                <p> InterpretaÁ„o</p>
                 </div>
-                 <!-- DIV DA Escolas Liter√°rias   -->
+                 <!-- DIV DA Escolas Liter·rias   -->
                  <div id="tab4-2" class="container tab-pane mt-4 ">
-                <p> Escolas Liter√°rias   </p>
+                <p> Escolas Liter·rias   </p>
                 </div>
                 <!-- DIV DA Vanguardas Europeias  -->
                  <div id="tab4-3" class="container tab-pane mt-4 ">
@@ -353,45 +320,45 @@
                 
                 
  <!-- DIV DA MATEMATICA 1 -->
-                 <!-- DIV DA Matem√°tica B√°sica -->
+                 <!-- DIV DA Matem·tica B·sica -->
                  <div id="tab5-1" class="container tab-pane mt-4 ">
-                <p> Matem√°tica B√°sica</p>
+                <p> Matem·tica B·sica</p>
                 </div>
-                 <!-- DIV DA Equa√ß√£o de 1¬∞ Grau e 2¬∞ Grau  -->
+                 <!-- DIV DA EquaÁ„o de 1∞ Grau e 2∞ Grau  -->
                  <div id="tab5-2" class="container tab-pane mt-4 ">
-                <p> Equa√ß√£o de 1¬∞ Grau e 2¬∞ Grau </p>
+                <p> EquaÁ„o de 1∞ Grau e 2∞ Grau </p>
                 </div>
                 <!-- DIV DA Porcentagem e Juros  -->
                  <div id="tab5-3" class="container tab-pane mt-4 ">
                 <p> Porcentagem e Juros </p>
                 </div>
-                <!-- DIV DA  Matem√°tica - PA -->
+                <!-- DIV DA  Matem·tica - PA -->
                  <div id="tab5-4" class="container tab-pane mt-4 ">
-                <p>  Matem√°tica - PA  </p>
+                <p>  Matem·tica - PA  </p>
                 </div>
-                <!-- DIV DA Matem√°tica - PG -->
+                <!-- DIV DA Matem·tica - PG -->
                 <div id="tab5-5" class="container tab-pane mt-4 ">
-                <p>  Matem√°tica - PG </p>
+                <p>  Matem·tica - PG </p>
                 </div>
-                 <!-- DIV DA Inequa√ß√£o de 1¬∞ e 2¬∞ Grau -->
+                 <!-- DIV DA InequaÁ„o de 1∞ e 2∞ Grau -->
                  <div id="tab5-6" class="container tab-pane mt-4 ">
-                <p> Inequa√ß√£o de 1¬∞ e 2¬∞ Grau</p>
+                <p> InequaÁ„o de 1∞ e 2∞ Grau</p>
                 </div>
-                 <!-- DIV DA Conjuntos Num√©ricos  -->
+                 <!-- DIV DA Conjuntos NumÈricos  -->
                  <div id="tab5-27"class="container tab-pane mt-4 ">
-                <p> Conjuntos Num√©ricos </p>
+                <p> Conjuntos NumÈricos </p>
                 </div>
-                <!-- DIV DA Conjuntos Num√©ricos -->
+                <!-- DIV DA Conjuntos NumÈricos -->
                  <div id="tab5-8" class="container tab-pane mt-4 ">
-                <p> Conjuntos Num√©ricos </p>
+                <p> Conjuntos NumÈricos </p>
                 </div>
-                <!-- DIV DA  Conjuntos Num√©ricos -->
+                <!-- DIV DA  Conjuntos NumÈricos -->
                  <div id="tab5-9"class="container tab-pane mt-4 "> 
-                <p> Conjuntos Num√©ricos  </p>
+                <p> Conjuntos NumÈricos  </p>
                 </div>
-                <!-- Conjuntos Num√©ricos -->
+                <!-- Conjuntos NumÈricos -->
                 <div id="tab5-10" class="container tab-pane mt-4 "> 
-                <p>  Conjuntos Num√©ricos </p>
+                <p>  Conjuntos NumÈricos </p>
                 </div>
                 <!--Matrizes e Sistemas Lineares -->
                 <div id="tab5-11" class="container tab-pane mt-4 ">
@@ -418,21 +385,21 @@
                 </div>
 
 <!-- DIV DA FISICA -->
-                 <!-- No√ß√µes B√°sicas Vetores-->
+                 <!-- NoÁıes B·sicas Vetores-->
                  <div id="tab7-1" class="container tab-pane mt-4 ">
-                <p> No√ß√µes B√°sicas Vetores</p>
+                <p> NoÁıes B·sicas Vetores</p>
                 </div>
-                 <!-- Cinem√°tica  -->
+                 <!-- Cinem·tica  -->
                  <div id="tab7-2" class="container tab-pane mt-4 ">
-                <p> Cinem√°tica</p>
+                <p> Cinem·tica</p>
                 </div>
-                <!-- Din√¢mica  -->
+                <!-- Din‚mica  -->
                  <div id="tab7-3" class="container tab-pane mt-4 ">
                 <p> Porcentagem e Juros </p>
                 </div>
-                <!-- Est√°tica -->
+                <!-- Est·tica -->
                  <div id="tab7-4" class="container tab-pane mt-4 ">
-                <p>  Est√°tica  </p>
+                <p>  Est·tica  </p>
                 </div>
                 <!-- Energia-->
                 <div id="tab7-5" class="container tab-pane mt-4 ">
@@ -442,30 +409,30 @@
                  <div id="tab7-6" class="container tab-pane mt-4 ">
                 <p> Termologia</p>
                 </div>
-                 <!-- Hidrost√°tica  -->
+                 <!-- Hidrost·tica  -->
                  <div id="tab7-7" class="container tab-pane mt-4 ">
-                <p> Hidrost√°tica </p>
+                <p> Hidrost·tica </p>
                 </div>
-                <!-- Eletroest√°tica -->
+                <!-- Eletroest·tica -->
                  <div id="tab7-8" class="container tab-pane mt-4 ">
-                <p> Eletroest√°tica</p>
+                <p> Eletroest·tica</p>
                 </div>
-                <!--  Eletrodin√¢mica -->
+                <!--  Eletrodin‚mica -->
                  <div id="tab7-9" class="container tab-pane mt-4 ">
-                <p>  Eletrodin√¢mica  </p>
+                <p>  Eletrodin‚mica  </p>
                 </div>
                 <!-- Eletromagnetismo -->
                 <div id="tab7-10" class="container tab-pane mt-4 ">
                 <p>  CEletromagnetismo </p>
                 </div>
-                <!--Ondulat√≥ria -->
+                <!--OndulatÛria -->
                 <div id="tab7-11" class="container tab-pane mt-4 ">
-                <p>  Ondulat√≥ria </p>
+                <p>  OndulatÛria </p>
                 </div>
                 
-                <!--√ìptica -->
+                <!--”ptica -->
                 <div id="tab7-12" class="container tab-pane mt-4 ">
-                <p>  √ìptica </p>
+                <p>  ”ptica </p>
                 </div>   
                 
                 
@@ -474,45 +441,45 @@
                  <div id="tab8-1" class="container tab-pane mt-4 ">
                 <p> Quimica basica</p>
                 </div>
-                 <!-- Propriedades da mat√©ria  -->
+                 <!-- Propriedades da matÈria  -->
                  <div id="tab8-2" class="container tab-pane mt-4 ">
-                <p> Propriedades da mat√©ria</p>
+                <p> Propriedades da matÈria</p>
                 </div>
-                <!-- Liga√ß√µes Quimicas  -->
+                <!-- LigaÁıes Quimicas  -->
                  <div id="tab8-3"class="container tab-pane mt-4 ">
-                <p> Liga√ß√µes Quimicas </p>
+                <p> LigaÁıes Quimicas </p>
                 </div>
-                <!-- Solu√ß√µes -->
+                <!-- SoluÁıes -->
                  <div id="tab8-4" class="container tab-pane mt-4 ">
-                <p>  Solu√ß√µes  </p>
+                <p>  SoluÁıes  </p>
                 </div>
-                <!-- Estequiometria e Rea√ß√µes Quimicas-->
+                <!-- Estequiometria e ReaÁıes Quimicas-->
                 <div id="tab8-5" class="container tab-pane mt-4 ">
-                <p>  Estequiometria e Rea√ß√µes Quimicas </p>
+                <p>  Estequiometria e ReaÁıes Quimicas </p>
                 </div>
-                 <!-- Fun√ß√µes Inorg√¢nicas -->
+                 <!-- FunÁıes Inorg‚nicas -->
                  <div id="tab8-6" class="container tab-pane mt-4 ">
-                <p> Fun√ß√µes Inorg√¢nicas</p>
+                <p> FunÁıes Inorg‚nicas</p>
                 </div>
-                 <!-- Termoqu√≠mica  -->
+                 <!-- TermoquÌmica  -->
                  <div id="tab8-7" class="container tab-pane mt-4 ">
-                <p> Termoqu√≠mica </p>
+                <p> TermoquÌmica </p>
                 </div>
-                <!-- Cin√©tica e Equil√≠brio Qu√≠mico -->
+                <!-- CinÈtica e EquilÌbrio QuÌmico -->
                  <div id="tab8-8" class="container tab-pane mt-4 ">
-                <p> Cin√©tica e Equil√≠brio Qu√≠mico</p>
+                <p> CinÈtica e EquilÌbrio QuÌmico</p>
                 </div>
-                <!--  Eletroqu√≠mica e Radiotividade -->
+                <!--  EletroquÌmica e Radiotividade -->
                  <div id="tab8-9" class="container tab-pane mt-4 ">
-                <p>  Eletroqu√≠mica e Radiotividade  </p>
+                <p>  EletroquÌmica e Radiotividade  </p>
                 </div>
-                <!-- F√≠sicoqu√≠mica -->
+                <!-- FÌsicoquÌmica -->
                 <div id="tab8-10" class="container tab-pane mt-4 ">
-                <p>  F√≠sicoqu√≠mica </p>
+                <p>  FÌsicoquÌmica </p>
                 </div>
-                <!--Qu√≠mica Organica -->
+                <!--QuÌmica Organica -->
                 <div id="tab8-11" class="container tab-pane mt-4 ">
-                <p>  Qu√≠mica Organica </p>
+                <p>  QuÌmica Organica </p>
                 </div>
                 
                 <!--Isomeria -->
@@ -520,9 +487,9 @@
                 <p>  Isomeria </p>
                 </div> 
                 
-               <!--Rea√ß√µes Org√¢nicas -->
+               <!--ReaÁıes Org‚nicas -->
                 <div id="tab8-13"class="container tab-pane mt-4 ">
-                <p>  Rea√ß√µes Org√¢nicas </p>
+                <p>  ReaÁıes Org‚nicas </p>
                 </div> 
                 
                 
@@ -531,13 +498,13 @@
                  <div id="tab9-1" class="container tab-pane mt-4 ">
                 <p> Ecologia </p>
                 </div>
-                 <!-- Origem da Vida e Evolu√ß√£o   -->
+                 <!-- Origem da Vida e EvoluÁ„o   -->
                  <div id="tab9-2" class="container tab-pane mt-4 ">
-                <p> Origem da Vida e Evolu√ß√£o </p>
+                <p> Origem da Vida e EvoluÁ„o </p>
                 </div>
-                <!-- Bioqu√≠mica  -->
+                <!-- BioquÌmica  -->
                  <div id="tab9-3" class="container tab-pane mt-4 ">
-                <p> Bioqu√≠mica  </p>
+                <p> BioquÌmica  </p>
                 </div>
                 <!-- Citologia -->
                  <div id="tab9-4" class="container tab-pane mt-4 ">
@@ -547,9 +514,9 @@
                 <div id="tab9-5" class="container tab-pane mt-4 ">
                 <p>  Histologia  </p>
                 </div>
-                 <!-- Gen√©tica -->
+                 <!-- GenÈtica -->
                  <div id="tab9-6" class="container tab-pane mt-4 "> 
-                <p>Gen√©tica</p>
+                <p>GenÈtica</p>
                 </div>
                  <!-- Taxonomia  -->
                  <div id="tab9-7" class="container tab-pane mt-4 ">
@@ -561,7 +528,7 @@
                 </div>
                 <!-- Fisiologia Humana  -->
                  <div id="tab9-9"class="container tab-pane mt-4 ">
-                <p>  Eletroqu√≠mica e Radiotividade  </p>
+                <p>  EletroquÌmica e Radiotividade  </p>
                 </div>
                 
  <!-- DIV DA FILOSOFIA -->
@@ -595,4 +562,3 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	</body>
-</html>

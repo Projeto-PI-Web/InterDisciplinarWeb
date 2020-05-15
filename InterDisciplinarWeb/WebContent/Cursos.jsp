@@ -64,87 +64,10 @@
 	</head>
     
 	<body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color:#f6f4f4">
-
-
-	<!--	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-        	<div class="container"> 
-        
-        		<a class="navbar-brand" href=""> NOMESITE </a>
-       		 		<button class="navbar-toggler" type="button" data-toggles="collapse" data-target="#navbarSite">
-        				<span class="navbar-toggler-icon"> </span>
-        	 		</button>
-        
-       			 <div class="collapse navbar-collapse" id="navbarSite">
-        			<ul class="navbar-nav mr-auto">
-        				<li class="navbar-item">
-        					<a class="nav-link" href="Cursos.html"> Aulas </a>
-        				</li>
-             			<li class="navbar-item">
-        					<a class="nav-link" href="questoes.html"> Questões </a>
-        				</li>
-        				</li>
-            			<li class="navbar-item">
-        					<a class="nav-link" href="conteudo.html"> Conteúdo para Estudo </a>
-       					 </li>
-                 		<li class="navbar-item">
-        					<a class="nav-link" href="dicas.html"> Dicas Enem </a>
-       			 		</li>
-        			</ul>
-                    
-                    <ul class="navbar-nav ml-auto">
-                    	  <li class="navbar-item">
-        					<a class="nav-link" href="Perfil.html"> Perfil </a>
-						</li>
-                         <li class="navbar-item">
-        					<a class="nav-link" href="index.html"> Sair </a>
-						</li>
-
-                   		
-                    </ul>
-
-        		</div>
-       	 </nav>
-          -->
           
               	<!-- MENU SUPERIOR -->
-		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#00909e">
-        	<div class="container"> 
+		<c:import url="Menu.jsp"/> 
         
-        		<a class="navbar-brand" href=""> MOTIVASTUDY </a>
-       		 		<button class="navbar-toggler" type="button" href="Cursos.html" data-toggles="collapse" data-target="#navbarSite">
-        				<span class="navbar-toggler-icon"> </span>
-        	 		</button>
-        
-       			 <div class="collapse navbar-collapse" id="navbarSite">
-        			<ul class="navbar-nav mr-auto">
-        				<li class="navbar-item">
-        					<a class="nav-link" href="Cursos.html">  <b> Aulas </b></a>
-        				</li>
-             			<li class="navbar-item">
-        					<a class="nav-link"  href="questoes.html"> <b>Questões </b></a>
-        				</li>
-        				</li>
-            			<li class="navbar-item">
-        					<a class="nav-link" href="conteudo.html"><b> Conteúdo para Estudo </b></a>
-       					 </li>
-                 		<li class="navbar-item">
-        					<a class="nav-link" href="dicas.html"> <b>Dicas Enem</b> </a>
-       			 		</li>
-        			</ul>
-                    
-                    <ul class="navbar-nav ml-auto">
-                    	  <li class="navbar-item">
-        					<a class="nav-link" href="Perfil.jsp"><b> Perfil</b> </a>
-						</li>
-                         <li class="navbar-item">
-        					<a class="nav-link" href="index.html"><b> Sair </b></a>
-						</li>
-
-                   		
-                    </ul>
-        		</div>
-       	 </nav>
-        <!-- CABO MENU SUPERIOR -->
     		<div class="text-center my-5">
     			
                  <img src="https://i.imgur.com/p47tHs3.png" class="img-fluid" alt="Responsive image">

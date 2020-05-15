@@ -1,4 +1,7 @@
-ï»¿<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
 <html lang="pt-br">
 	<head>
 		<meta charset="utf-8">
@@ -46,42 +49,13 @@
 	</head>
 	
 	<body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color:#f6f4f4">
-		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#00909e">
-        	<div class="container"> 
-        		<a class="navbar-brand" href=""> NOMESITE </a>
-       		 		<button class="navbar-toggler"  type="submit" onclick="window.location.href = 'index.html';" data-toggles="collapse" data-target="#navbarSite">
-        				<span class="navbar-toggler-icon"> </span>
-        	 		</button>
-       			 <div class="collapse navbar-collapse" id="navbarSite">
-        			<ul class="navbar-nav mr-auto">
-        				<li class="navbar-item">
-        					<a class="nav-link" href="Cursos.html" ><b> Aulas  </b> </a>
-        				</li>
-             			<li class="navbar-item">
-        					<a class="nav-link"  href="questoes.html"><b> QuestÃµes</b> </a>
-        				</li>
-        				</li>
-            			<li class="navbar-item">
-        					<a class="nav-link" href="conteudo.html"> <b>ConteÃºdo para Estudo</b> </a>
-       					 </li>
-                 		<li class="navbar-item">
-        					<a class="nav-link" href="dicas.html"><b> Dicas Enem</b> </a>
-       			 		</li>
-        			</ul>
-                    <ul class="navbar-nav ml-auto">
-                    	  <li class="navbar-item">
-        					<a class="nav-link" href="Perfil.html"><b> Perfil</b> </a>
-						</li>
-                         <li class="navbar-item">
-        					<a class="nav-link" href="index.html"><b> Sair</b> </a>
-						</li>
-                    </ul>
-        		</div>
-       	 </nav>
+	
+	<c:import url="Menu.jsp"/>  
+	
     	<div class="row">
     		<div class="col-12 text-center my-5">
                 <img src="https://i.imgur.com/Lfqz9An.png" class="img-fluid" alt="Responsive image">
-                <p> Para um excelente efeito no Enem vocÃª deve ter acesso aos conteÃºdos que melhor vÃ£o te adequar a prova. <br>
+                <p> Para um excelente efeito no Enem você deve ter acesso aos conteúdos que melhor vão te adequar a prova. <br>
                  Por conta disso, separamos apostilas, simulados e provas antigas para te auxiliar nessa jornada. </p>
                 <p> </p>
    			 </div>
@@ -93,7 +67,7 @@
             <a class="nav-link ml-3 SUBTITULO" href="#item1"> <b>Apostilas </b></a>
                 <nav class="nav  nav-pills flex-column">
                     <a class="nav-link ml-5 link " href="#item1-1" > <b>Hexag</b> </a>
-                    <a class="nav-link ml-5 link " href="#item1-2"><b> RevisÃ£o Enem </b></a>
+                    <a class="nav-link ml-5 link " href="#item1-2"><b> Revisão Enem </b></a>
                     <a class="nav-link ml-5 link" href="#item1-3"> <b>Unesp </b></a>
                     <a class="nav-link ml-5 link" href="#item1-4"> <b>MeSalva! </b></a>
                 </nav>
@@ -111,13 +85,13 @@
             <div class="col-9">
             <div data-spy="scroll" data-target="#navbarVertical" data-offset="0" class="scrollspySite">
             	<h2 id="item1" class="display-4 text-center my-1 mb-4 TITULO" > Apostilas </h4>
-                <p > As ferramentas que vocÃª usa para o seu estudo render e ser de qualidade Ã© o que garante um bom resultado. <br>  Reunimos as apostilas e livros dos melhores cursinhos 
-                (disponibilizados gratuitamente por cada instituiÃ§Ã£o) e explicamos o foco de cada um tem. <br> E qual pode se encaixar melhor no seu plano de estudos! </p> 
+                <p > As ferramentas que você usa para o seu estudo render e ser de qualidade é o que garante um bom resultado. <br>  Reunimos as apostilas e livros dos melhores cursinhos 
+                (disponibilizados gratuitamente por cada instituição) e explicamos o foco de cada um tem. <br> E qual pode se encaixar melhor no seu plano de estudos! </p> 
                  <h3 id="item1-1" class="SUBTITULO" > Hexag </h3>
-                <p> O Hexag Ã© um curso prÃ©-vestiubular especializado no concorrido vestibular de medicina, disponibiliza para os estudantes que nÃ£o tem condiÃ§Ã£o de acesso ao curso, o material didÃ¡tico do ano anterior em PDF.  				                </p>
-                <p> O conteÃºdo do Hexag Ã© bem sucinto e completo, porÃ©m, a carga de estudo pode ser muito extensiva se vocÃª nÃ£o montar um bom plano de estudos 
-                (para aprender a montar um, <a href="dicas.html" target="_blank" class="link"> clique aqui</a>) ou jÃ¡ tenha uma boa noÃ§Ã£o dos tÃ³picos do ENEM. 
-                <p> O Hexag possui todos os direitos autoriais, os links de download sÃ£o direcionados diretamente para o Drive do mesmo onde vocÃª consegue adquirir os arquivos. </p>
+                <p> O Hexag é um curso pré-vestiubular especializado no concorrido vestibular de medicina, disponibiliza para os estudantes que não tem condição de acesso ao curso, o material didático do ano anterior em PDF.  				                </p>
+                <p> O conteúdo do Hexag é bem sucinto e completo, porém, a carga de estudo pode ser muito extensiva se você não montar um bom plano de estudos 
+                (para aprender a montar um, <a href="dicas.html" target="_blank" class="link"> clique aqui</a>) ou já tenha uma boa noção dos tópicos do ENEM. 
+                <p> O Hexag possui todos os direitos autoriais, os links de download são direcionados diretamente para o Drive do mesmo onde você consegue adquirir os arquivos. </p>
                <p  class="text-center my-5" >
                <a href="https://drive.google.com/drive/folders/1rV4pnkVsgUhCnIta-dmQ1Ajrz_vm2ATC" target="_blank"> <button class="alterarbtn" > <b> Volume 1 </b> </button> </a>
                <a href="https://drive.google.com/drive/folders/1YJtDefQp-CME6RLgPKiTKRs98oU7-PVG" target="_blank"><button class="alterarbtn" > <b>Volume 2  </b></button> </a>
@@ -126,68 +100,68 @@
                <a href="https://drive.google.com/drive/folders/18nKdkt8DULoJ5-wCeeOFJv3qKIVnfGhH" target="_blank"><button class="alterarbtn" > <b>Volume 5 </b> </button> </a>
                <a href="https://drive.google.com/drive/folders/1alw-CukI5FzIC1-qDw8EadE_-jQEa7hZ" target="_blank"> <button class="alterarbtn" ><b> Volume 6  </b></button> </a>
                </p>
-               <h4 id="item1-2" class="SUBTITULO"> RevisÃ£o Enem - Hexag </h4>
-                <p> Disponibilizada pelo Hexag Medicina tem como objetivo verificar se vocÃª aprendeu os conteÃºdos estudados.</p>
-                <p> O material apresenta indicaÃ§Ã£o de temas e competÃªncias da matriz de referÃªncia do ENEM. Em cada questÃ£o, hÃ¡ explicaÃ§Ã£o das habilidades aplicadas.</p>
-                <p> Existe uma seleÃ§Ã£o de questÃµes inÃ©ditas, adaptadas e PPL, ideais para exercitar a sua memÃ³ria. Os assuntos esco-lhidos possuem grande incidÃªncia nos Ãºltimos anos do Enem. </p>
+               <h4 id="item1-2" class="SUBTITULO"> Revisão Enem - Hexag </h4>
+                <p> Disponibilizada pelo Hexag Medicina tem como objetivo verificar se você aprendeu os conteúdos estudados.</p>
+                <p> O material apresenta indicação de temas e competências da matriz de referência do ENEM. Em cada questão, há explicação das habilidades aplicadas.</p>
+                <p> Existe uma seleção de questões inéditas, adaptadas e PPL, ideais para exercitar a sua memória. Os assuntos esco-lhidos possuem grande incidência nos últimos anos do Enem. </p>
                 <p> Clique no link abaixo para ser direcionado ao Driver do Hexag: </p>
-                <p  class="text-center my-5" > <a href="https://drive.google.com/drive/folders/14jqe30m2T8VUhQ-X6G_ywxyvWne7iuGP" target="_blank"> <button class="alterarbtn" ><b> RevisÃ£o Enem  </b></button> </a> </p>
+                <p  class="text-center my-5" > <a href="https://drive.google.com/drive/folders/14jqe30m2T8VUhQ-X6G_ywxyvWne7iuGP" target="_blank"> <button class="alterarbtn" ><b> Revisão Enem  </b></button> </a> </p>
                  <h3 id="item1-3" class="SUBTITULO"> Unesp </h3>
-                <p> O cursinho prÃ©-vestibular da Unesp, organizado e desenvolvido pela universidade desde 1987. MantÃ©m disponÃ­vel para download em sua pÃ¡gina, em pdf, sete cadernos feitos para estudandos em fase de
-                 preparaÃ§Ã£o para vestibulares. </p>
-                 <p> Os cadernos prÃ©-vestibulares foram organizados por professores da Universidade e tÃªm como norte principal os temas da Matriz de ReferÃªncia do Enem (Exame Nacional do Ensino MÃ©dio). </p>
+                <p> O cursinho pré-vestibular da Unesp, organizado e desenvolvido pela universidade desde 1987. Mantém disponível para download em sua página, em pdf, sete cadernos feitos para estudandos em fase de
+                 preparação para vestibulares. </p>
+                 <p> Os cadernos pré-vestibulares foram organizados por professores da Universidade e têm como norte principal os temas da Matriz de Referência do Enem (Exame Nacional do Ensino Médio). </p>
 				<p> Confira os links abaixo:</p>
                <p  class="text-center my-5" >
                <a href="https://www2.unesp.br/Home/servico_ses/caderno_linguagens_e_seus_codigos.pdf" target="_blank"> <button class="alterarbtn2" ><b> Apostila de Linguagens </b></button> </a>
-               <a href="https://www2.unesp.br/Home/servico_ses/caderno_matematica.pdf" target="_blank"><button class="alterarbtn2" ><b> Apostila de MatemÃ¡tica</b></button> </a>
+               <a href="https://www2.unesp.br/Home/servico_ses/caderno_matematica.pdf" target="_blank"><button class="alterarbtn2" ><b> Apostila de Matemática</b></button> </a>
                <a href="https://www2.unesp.br/Home/servico_ses/caderno_biologia.pdf" target="_blank"> <button class="alterarbtn2" ><b> Apostila de Biologia</b> </button> </a> <br>
-               <a href="https://www2.unesp.br/Home/servico_ses/caderno_fisica.pdf" target="_blank"><button class="alterarbtn2" ><b> Apostila de FÃ­sica</b> </button> </a>
-               <a href="https://www2.unesp.br/Home/servico_ses/caderno_quimica.pdf" target="_blank"><button class="alterarbtn2" ><b> Apostila de QuÃ­mica </b></button> </a>
-               <a href="https://www2.unesp.br/Home/servico_ses/caderno_ciencias_-humanas.pdf" target="_blank"> <button class="alterarbtn2" ><b> CiÃªncias Humanas</b> </button> </a>
-               <a href="https://www2.unesp.br/Home/servico_ses/caderno-7---exercicios-1.pdf" target="_blank"> <button class="alterarbtn2" ><b> Apostila de ExercÃ­cios</b> </button> </a>
+               <a href="https://www2.unesp.br/Home/servico_ses/caderno_fisica.pdf" target="_blank"><button class="alterarbtn2" ><b> Apostila de Física</b> </button> </a>
+               <a href="https://www2.unesp.br/Home/servico_ses/caderno_quimica.pdf" target="_blank"><button class="alterarbtn2" ><b> Apostila de Química </b></button> </a>
+               <a href="https://www2.unesp.br/Home/servico_ses/caderno_ciencias_-humanas.pdf" target="_blank"> <button class="alterarbtn2" ><b> Ciências Humanas</b> </button> </a>
+               <a href="https://www2.unesp.br/Home/servico_ses/caderno-7---exercicios-1.pdf" target="_blank"> <button class="alterarbtn2" ><b> Apostila de Exercícios</b> </button> </a>
                </p>
                  <h4 id="item1-4 " class="SUBTITULO"> MeSalva! </h4>
-                <p> O MeSalva! ofereceu mais de 25 apostilas em pdf com todo o conteÃºdo cobrado pelo Enem. O curso foi um dos pioneiros em vÃ­deo aulas no Brasil, e ao longo de 10 anos se especializaram em vestibulares. </p>
-   				<p> A linguagem Ã© de fÃ¡cil acesso e os mesmos abrangem o conteÃºdo de forma estimulante e atenciosamente, entendendo seu pÃºblico-alvo.</p>
-                <p> O site apenas pede um breve cadastro para liberar o download, abaixo seguem os links de cada tÃ³pico:</p>
+                <p> O MeSalva! ofereceu mais de 25 apostilas em pdf com todo o conteúdo cobrado pelo Enem. O curso foi um dos pioneiros em vídeo aulas no Brasil, e ao longo de 10 anos se especializaram em vestibulares. </p>
+   				<p> A linguagem é de fácil acesso e os mesmos abrangem o conteúdo de forma estimulante e atenciosamente, entendendo seu público-alvo.</p>
+                <p> O site apenas pede um breve cadastro para liberar o download, abaixo seguem os links de cada tópico:</p>
                 <p  class="text-center my-5" >
-               <a href="https://materiais.mesalva.com/apostila-matematica-enem-vol1" target="_blank"> <button class="alterarbtn2" > <b>MatemÃ¡tica Vol - 1</b> </button> </a>
-               <a href="https://materiais.mesalva.com/apostila-matematica-enem-vol2" target="_blank"><button class="alterarbtn2" ><b> MatemÃ¡tica Vol - 2</b> </button> </a>
-               <a href="https://materiais.mesalva.com/apostila-matematica-enem-vol3" target="_blank"> <button class="alterarbtn2" ><b> MatemÃ¡tica Vol - 3</b> </button> </a> <br>
+               <a href="https://materiais.mesalva.com/apostila-matematica-enem-vol1" target="_blank"> <button class="alterarbtn2" > <b>Matemática Vol - 1</b> </button> </a>
+               <a href="https://materiais.mesalva.com/apostila-matematica-enem-vol2" target="_blank"><button class="alterarbtn2" ><b> Matemática Vol - 2</b> </button> </a>
+               <a href="https://materiais.mesalva.com/apostila-matematica-enem-vol3" target="_blank"> <button class="alterarbtn2" ><b> Matemática Vol - 3</b> </button> </a> <br>
                <a href="https://materiais.mesalva.com/apostila-biologia-enem-vol1" target="_blank"> <button class="alterarbtn2" ><b> Biologia Vol - 1</b> </button> </a>
                <a href="https://materiais.mesalva.com/apostila-biologia-enem-vol2" target="_blank"> <button class="alterarbtn2" > <b>Biologia Vol - 2 </b></button> </a>
                <a href="https://materiais.mesalva.com/apostila-biologia-enem-vol3" target="_blank"> <button class="alterarbtn2" > <b>Biologia Vol - 3</b> </button> </a> <br>
-               <a href="https://materiais.mesalva.com/apostila-quimica-enem-vol2" target="_blank"> <button class="alterarbtn2" ><b> QuÃ­mica Vol - 2 </b></button> </a>
-               <a href="https://materiais.mesalva.com/apostila-quimica-enem-vol3" target="_blank"> <button class="alterarbtn2" > <b>QuÃ­mica Vol - 3 </b></button> </a> <br>
-               <a href="https://materiais.mesalva.com/apostila-fisica-enem-vol1" target="_blank"><button class="alterarbtn2" > <b>FÃ­sica Vol - 1 </b></button> </a>
-               <a href="https://materiais.mesalva.com/apostila-fisica-enem-vol2" target="_blank"><button class="alterarbtn2" > <b> FÃ­sica Vol - 2</b></button> </a> <br>
+               <a href="https://materiais.mesalva.com/apostila-quimica-enem-vol2" target="_blank"> <button class="alterarbtn2" ><b> Química Vol - 2 </b></button> </a>
+               <a href="https://materiais.mesalva.com/apostila-quimica-enem-vol3" target="_blank"> <button class="alterarbtn2" > <b>Química Vol - 3 </b></button> </a> <br>
+               <a href="https://materiais.mesalva.com/apostila-fisica-enem-vol1" target="_blank"><button class="alterarbtn2" > <b>Física Vol - 1 </b></button> </a>
+               <a href="https://materiais.mesalva.com/apostila-fisica-enem-vol2" target="_blank"><button class="alterarbtn2" > <b> Física Vol - 2</b></button> </a> <br>
                <a href="hhttps://materiais.mesalva.com/apostila-geografia-enem-vol1" target="_blank"><button class="alterarbtn2" > <b>Geografia Vol - 1</b> </button> </a>
                <a href="https://materiais.mesalva.com/apostila-geografia-enem-vol2" target="_blank"><button class="alterarbtn2" >  <b>Geografia Vol - 2</b></button> </a> <br>
                <a href="https://materiais.mesalva.com/apostila-literatura-enem-vol1" target="_blank"><button class="alterarbtn2" > <b>Literatura Vol - 1</b> </button> </a>
                <a href="https://materiais.mesalva.com/apostila-literatura-enem-vol2" target="_blank"><button class="alterarbtn2" >  <b>Literatura Vol - 2</b></button> </a> <br>
-               <a href="https://materiais.mesalva.com/apostila-historia-enem-vol1" target="_blank"><button class="alterarbtn2" > <b>HistÃ³ria Vol - 1 </b></button> </a>
-               <a href="https://materiais.mesalva.com/apostila-historia-enem-vol2" target="_blank"><button class="alterarbtn2" >  <b>HistÃ³ria Vol - 2</b></button> </a> <br>
-               <a href="https://materiais.mesalva.com/apostila-portugues-enem-vol1" target="_blank"><button class="alterarbtn2" > <b>PortuguÃªs Vol - 1</b> </button> </a>
-               <a href="https://materiais.mesalva.com/apostila-portugues-enem-vol2" target="_blank"><button class="alterarbtn2" >  <b>PortuguÃªs Vol - 2</b></button> </a> <br>
+               <a href="https://materiais.mesalva.com/apostila-historia-enem-vol1" target="_blank"><button class="alterarbtn2" > <b>História Vol - 1 </b></button> </a>
+               <a href="https://materiais.mesalva.com/apostila-historia-enem-vol2" target="_blank"><button class="alterarbtn2" >  <b>História Vol - 2</b></button> </a> <br>
+               <a href="https://materiais.mesalva.com/apostila-portugues-enem-vol1" target="_blank"><button class="alterarbtn2" > <b>Português Vol - 1</b> </button> </a>
+               <a href="https://materiais.mesalva.com/apostila-portugues-enem-vol2" target="_blank"><button class="alterarbtn2" >  <b>Português Vol - 2</b></button> </a> <br>
                <a href="https://materiais.mesalva.com/apostila-sociologia-enem" target="_blank"><button class="alterarbtn2" > <b> Sociologia </b></button> </a> <br>
                <a href="https://materiais.mesalva.com/apostila-filosofia-enem" target="_blank"><button class="alterarbtn2" >  <b>Filosofia</b>  </button> </a> <br>
                <a href="https://materiais.mesalva.com/apostila-artes-enem" target="_blank"><button class="alterarbtn2" > <b> Artes</b>  </button> </a> <br>
-               <a href="https://materiais.mesalva.com/apostila-ingles-enem" target="_blank"><button class="alterarbtn2" >  <b>InglÃªs </b> </button> </a> <br>
-               <a href="https://materiais.mesalva.com/apostila-redacao-enem" target="_blank"><button class="alterarbtn2" > <b> RedaÃ§Ã£o ENEM </b> </button> </a> 
+               <a href="https://materiais.mesalva.com/apostila-ingles-enem" target="_blank"><button class="alterarbtn2" >  <b>Inglês </b> </button> </a> <br>
+               <a href="https://materiais.mesalva.com/apostila-redacao-enem" target="_blank"><button class="alterarbtn2" > <b> Redação ENEM </b> </button> </a> 
                </p>
    				 <h4 id="item2" class="display-4 text-center my-1 mb-4 SUBTITULO"> Simulados </h4>
-                <p> Fazer simulado ao decorrer dos seus estudos Ã© a melhor forma de entender seus pontos fracos e fortes, possibilitando que vocÃª tenha um estudo mais direcionado e eficiente. Ã‰ uma forma de vocÃª se 
-                preparar emocionalmente para a prova. Estudos mostram que ao vivenciar vÃ¡rias vezes uma situaÃ§Ã£o e, consequentemente, conquistar maior familiaridade com o que vai 
-                enfrentar, vocÃª tem maiores chances de ficar menor ansioso, diminuindo tambÃ©m o nervosismo. Assim, vocÃª terÃ¡ um melhor desempenho.</p>
-                <p> Imprima o simulado abaixo, e pratique como serÃ¡ o dia da prova! </p> 
-                <p> Cronometre o tempo, a comida de levarÃ¡ e o seu gerenciamento para resolver as questÃµes. </p>
+                <p> Fazer simulado ao decorrer dos seus estudos é a melhor forma de entender seus pontos fracos e fortes, possibilitando que você tenha um estudo mais direcionado e eficiente. É uma forma de você se 
+                preparar emocionalmente para a prova. Estudos mostram que ao vivenciar várias vezes uma situação e, consequentemente, conquistar maior familiaridade com o que vai 
+                enfrentar, você tem maiores chances de ficar menor ansioso, diminuindo também o nervosismo. Assim, você terá um melhor desempenho.</p>
+                <p> Imprima o simulado abaixo, e pratique como será o dia da prova! </p> 
+                <p> Cronometre o tempo, a comida de levará e o seu gerenciamento para resolver as questões. </p>
                 <p  class="text-center my-5" >
                <a href="https://drive.google.com/drive/folders/1s9fZQf8PqRgqwIjKHOu79H0VlNfLoi1q" target="_blank"><button class="alterarbtn2" ><b> Primeiro dia </b></button> </a>
                <a href="https://drive.google.com/drive/folders/1-itIr0FndBLBAKOVYGh1KEt7UhNL35Gd" target="_blank"><button class="alterarbtn2" > <b> Segundo dia</b> </button> </a> 
                </p>
                   <h4 id="item3" class="display-4 text-center my-1 mb-4 SUBTITULO"> Provas Anteriores </h4>
-                <p > Fazer as provas do Enem ajudam vocÃª a se familiarizar com o estilo de prova. As questÃµes do Enem tem um formato bem especÃ­fico, buscando mais do que verificar os conteÃºdos ministrados na escola, verificar 
-                suas habilidades e competÃªncias. Ao resolver questÃµes histÃ³ricas do exame vocÃª compreende exatamente como vocÃª serÃ¡ avaliado.</p> 
+                <p > Fazer as provas do Enem ajudam você a se familiarizar com o estilo de prova. As questões do Enem tem um formato bem específico, buscando mais do que verificar os conteúdos ministrados na escola, verificar 
+                suas habilidades e competências. Ao resolver questões históricas do exame você compreende exatamente como você será avaliado.</p> 
                  <h4 id="item3-1" class="SUBTITULO"> Enem 2019 </h4>
                 <p  class="text-center my-5" >
                <a href="http://download.inep.gov.br/educacao_basica/enem/provas/2019/caderno_de_questoes_1_dia_caderno_1_azul_aplicacao_regular.pdf" target="_blank"><button class="alterarbtn2" > <b>Primeiro dia </b></button> </a>
