@@ -64,7 +64,7 @@
 	</head>
     
 	<body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color:#f6f4f4">
-<% session.setAttribute("usuario", request.getAttribute("usuario")); %>
+
 
 	<!--	<nav class="navbar navbar-expand-lg navbar-light bg-light">
         	<div class="container"> 
