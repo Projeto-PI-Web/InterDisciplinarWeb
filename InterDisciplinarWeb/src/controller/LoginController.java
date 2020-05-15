@@ -25,7 +25,7 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("POST DO LOGIN");
 		String pEmail = request.getParameter("uname");
-	//	String pSenha = request.getParameter("psw");
+		String pSenha = request.getParameter("psw");
 	//	int pId = .getId();
 		PrintWriter out = response.getWriter();
 		
@@ -37,7 +37,7 @@ public class LoginController extends HttpServlet {
 	//	usuario.setId(pId);
 	//	usuario.setEmail(pEmail);
 	//	usuario.setSenha(pSenha);
-		us.login(usuario, pEmail);
+		us.login(usuario, pEmail,pSenha);
 		
 		HttpSession ses = request.getSession();
 		ses.setAttribute("usuario", usuario);

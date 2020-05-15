@@ -28,7 +28,7 @@ public class UserService {
 		return status;
 	}
 	
-	public int login(User usuario, String email){
+	public int login(User usuario, String email, String senha){
 		status = 0;
 		System.out.println("Usuario que chegou agora: " + usuario.toString());
 		User valida = dao.selectEmail(email);
@@ -36,7 +36,7 @@ public class UserService {
 		if(valida != null) {
 			if(usuario.getEmail().equals(valida.getEmail())) {
 				System.out.println("Parece que o email passou hehe");
-				if(usuario.getSenha().equals(valida.getSenha())) {
+				if(senha.equals(valida.getSenha())) {
 					System.out.println("Chegou na senha, pode passar!");
 					status = 1;
 				} else {
