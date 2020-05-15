@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
@@ -61,8 +64,8 @@
 	</head>
     
 	<body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color:#f6f4f4">
-    
-    
+<% session.setAttribute("usuario", request.getAttribute("usuario")); %>
+
 	<!--	<nav class="navbar navbar-expand-lg navbar-light bg-light">
         	<div class="container"> 
         
@@ -131,7 +134,7 @@
                     
                     <ul class="navbar-nav ml-auto">
                     	  <li class="navbar-item">
-        					<a class="nav-link" href="Perfil.html"><b> Perfil</b> </a>
+        					<a class="nav-link" href="Perfil.jsp"><b> Perfil</b> </a>
 						</li>
                          <li class="navbar-item">
         					<a class="nav-link" href="index.html"><b> Sair </b></a>
@@ -705,3 +708,4 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	</body>
+	</html>

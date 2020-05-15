@@ -63,14 +63,15 @@ public class UserDAO {
 	}
 
 	public void upDate(User user) {
-		String update = "UPDATE Usuario SET nome=?, senha=?, email=?, perfil=? WHERE id = ?";
+		//, perfil=?
+		String update = "UPDATE Usuario SET nome=?, senha=?, email=? WHERE id = ?";
 
 		try (PreparedStatement pst = conexao.prepareStatement(update)) {
 			pst.setString(1, user.getNome());
 			pst.setString(2, user.getSenha());
 			pst.setString(3, user.getEmail());
-			pst.setString(4, user.getPerfil().name()); 
-			pst.setInt(5, user.getId());
+	//		pst.setString(4, user.getPerfil().name()); 
+			pst.setInt(4, user.getId());
 			pst.execute();
 			System.out.println("Atualizado com sucesso!");
 		} catch (SQLException ex) {
