@@ -41,6 +41,10 @@
 				color:#00909e;
 			}
 			
+			nav a img {
+					width: 200px;
+					padding: 1px;
+			}
 			
 			.nav-pills>li.active>a {
 			background-color:#f0f0f0;

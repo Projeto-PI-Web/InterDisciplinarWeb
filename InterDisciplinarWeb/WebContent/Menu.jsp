@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 	<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#00909e">
         	<div class="container"> 
-        		<a class="navbar-brand" href=""> NOMESITE </a>
+        		<a class="navbar-brand" href="index.html"> <img alt="Brand" src="https://i.imgur.com/0RPXXl7.png" class="img-responsive"> </a>
        		 		<button class="navbar-toggler"  type="submit" onclick="window.location.href = 'index.html';" data-toggles="collapse" data-target="#navbarSite">
         				<span class="navbar-toggler-icon"> </span>
         	 		</button>

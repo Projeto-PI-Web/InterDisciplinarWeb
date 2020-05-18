@@ -45,6 +45,12 @@
 			.link{
 				color:#00909e
 			}
+			
+			nav a img {
+					width: 200px;
+					padding: 1px;
+			}
+			
 		</style>
 	</head>
 	

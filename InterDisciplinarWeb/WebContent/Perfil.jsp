@@ -82,6 +82,12 @@
 		.TITULO {
 			color: #142850
 		}
+		
+			nav a img {
+					width: 200px;
+					padding: 1px;
+			} 
+			
 	</style>
 </head>
 
