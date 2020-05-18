@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -40,25 +41,35 @@ public class UpdateUserController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		PrintWriter out = response.getWriter();
 		int pId = Integer.parseInt(request.getParameter("id"));
 		String cNome = request.getParameter("nome");
 		String pSenha = request.getParameter("senha");
-//		String cSenha = request.getParameter("csenha");
+		String cSenha = request.getParameter("csenha");
 		String cEmail = request.getParameter("email");
-		User usuario = new User();
-		usuario.setId(pId);
-		usuario.setNome(cNome);
-		usuario.setEmail(cEmail);
-		usuario.setSenha(pSenha);
 		
-		UserService us = new UserService();
-		us.atualizar(usuario);
-		
-		HttpSession ses = request.getSession();
-		request.setAttribute("usuario", usuario);
-		ses.setAttribute("usuario", usuario);
-		RequestDispatcher rd = request.getRequestDispatcher("Cursos.jsp");
-		rd.forward(request, response);
+		if(cSenha.equals(pSenha) || cSenha == "" && pSenha == "") {
+			User usuario = new User();
+			usuario.setId(pId);
+			usuario.setNome(cNome);
+			usuario.setEmail(cEmail);
+			usuario.setSenha(pSenha);
+			
+			UserService us = new UserService();
+			us.atualizar(usuario);
+			
+			HttpSession ses = request.getSession();
+			request.setAttribute("usuario", usuario);
+			ses.setAttribute("usuario", usuario);
+			RequestDispatcher rd = request.getRequestDispatcher("Cursos.jsp");
+			rd.forward(request, response);
+		}
+		else {
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('As senhas não são iguais.');");
+			out.println("location='Perfil.jsp';");
+			out.println("</script>");
+		}
 		
 	}
 

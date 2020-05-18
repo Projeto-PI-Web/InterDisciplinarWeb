@@ -64,7 +64,7 @@ public class UserDAO {
 
 	public void upDate(User user) {
 		//, perfil=?
-		String update = "UPDATE Usuario SET nome=?, senha=?, email=? WHERE id = ?";
+		String update = "UPDATE Usuario SET nome=?, senha=MD5(?), email=? WHERE id = ?";
 
 		try (PreparedStatement pst = conexao.prepareStatement(update)) {
 			pst.setString(1, user.getNome());
