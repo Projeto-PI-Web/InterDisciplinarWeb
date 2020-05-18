@@ -31,7 +31,7 @@ public class UserService {
 	public int login(User usuario, String email, String senha){
 		status = 0;
 		System.out.println("Usuario que chegou agora: " + usuario.toString());
-		User valida = dao.selectEmail(email);
+		User valida = dao.selectEmail(email,senha);
 		
 		if(valida != null) {
 			if(usuario.getEmail().equals(valida.getEmail())) {
@@ -72,7 +72,7 @@ public class UserService {
 	public ArrayList<User> carregarNomes(User usuario){
 		return dao.selectEmail(usuario);
 	}
-	public User selectEmail(String email) {
-		return dao.selectEmail(email);
+	public User selectEmail(String email, String senha) {
+		return dao.selectEmail(email,senha);
 	}
 }

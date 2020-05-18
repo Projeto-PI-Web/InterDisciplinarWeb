@@ -25,7 +25,7 @@ public class UserDAO {
 	}
 
 	public void insert(User usuario) {
-		String inserir = "INSERT INTO Usuario ( nome, senha, email)" + "VALUES(?,?,?)";
+		String inserir = "INSERT INTO Usuario ( nome, senha, email)" + "VALUES(?,MD5(?),?)";
 
 		User us = new User();
 		try (PreparedStatement pst = conexao.prepareStatement(inserir)) {
@@ -171,12 +171,13 @@ public class UserDAO {
 		return lstNoticia;
 	}
 	
-	public User selectEmail(String emailU) {
+	public User selectEmail(String emailU, String senhaU) {
 		User user = null;
-		String consulta = "SELECT id, nome, senha, email FROM Usuario WHERE email=?";
+		String consulta = "SELECT id, nome, senha, email FROM Usuario WHERE email=? AND senha = MD5(?)";
 
 		try (PreparedStatement pst = conexao.prepareStatement(consulta)) {
 			pst.setString(1, emailU);
+			pst.setString(2, senhaU);
 			ResultSet resultado = pst.executeQuery();
 			
 			if (resultado.next()) {

@@ -33,7 +33,7 @@ public class LoginController extends HttpServlet {
 		/*Comentei os dados dos parametros pois nao creio que não precisa montar o Usuario novamente se
 		/usar o metodo selectEmail que devolve o Usuario com todas as informaçoes já*/
 		User usuario = new User();
-		usuario = us.selectEmail(pEmail);
+		usuario = us.selectEmail(pEmail,pSenha);
 	//	usuario.setId(pId);
 	//	usuario.setEmail(pEmail);
 	//	usuario.setSenha(pSenha);
@@ -45,7 +45,7 @@ public class LoginController extends HttpServlet {
 		RequestDispatcher view = request.getRequestDispatcher("Cursos.jsp");
 		
 		//request.getRequestDispatcher("Cursos.jsp").include(request,  response);
-		if(us.status > 0) view.forward(request, response);
+		if(us.status >= 0) view.forward(request, response);
 		else {
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('Houve um erro, favor contatar um adm.');");
