@@ -48,22 +48,44 @@ public class UpdateUserController extends HttpServlet {
 		String cSenha = request.getParameter("csenha");
 		String cEmail = request.getParameter("email");
 		
-		if(cSenha.equals(pSenha) || cSenha == "" && pSenha == "") {
-			User usuario = new User();
-			usuario.setId(pId);
-			usuario.setNome(cNome);
-			usuario.setEmail(cEmail);
-			usuario.setSenha(pSenha);
+		if(cSenha.equals(pSenha)) {
 			
-			UserService us = new UserService();
-			us.atualizar(usuario);
+			if(cSenha == "" && pSenha == "") {
+				
+				User usuario = new User();
+				usuario.setId(pId);
+				usuario.setNome(cNome);
+				usuario.setEmail(cEmail);
+				//usuario.setSenha(pSenha);
+				
+				UserService us = new UserService();
+				us.atualizar(usuario);
+				
+				HttpSession ses = request.getSession();
+				request.setAttribute("usuario", usuario);
+				ses.setAttribute("usuario", usuario);
+				RequestDispatcher rd = request.getRequestDispatcher("Cursos.jsp");
+				rd.forward(request, response);
+			}
+			else {
+				User usuario = new User();
+				usuario.setId(pId);
+				usuario.setNome(cNome);
+				usuario.setEmail(cEmail);
+				usuario.setSenha(pSenha);
+				
+				UserService us = new UserService();
+				us.atualizar(usuario);
+				
+				HttpSession ses = request.getSession();
+				request.setAttribute("usuario", usuario);
+				ses.setAttribute("usuario", usuario);
+				RequestDispatcher rd = request.getRequestDispatcher("Cursos.jsp");
+				rd.forward(request, response);
 			
-			HttpSession ses = request.getSession();
-			request.setAttribute("usuario", usuario);
-			ses.setAttribute("usuario", usuario);
-			RequestDispatcher rd = request.getRequestDispatcher("Cursos.jsp");
-			rd.forward(request, response);
-		}
+			}
+			
+		}	
 		else {
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('As senhas não são iguais.');");
