@@ -58,6 +58,10 @@ public class UserService {
 		dao.upDate(usuario);
 	}
 	
+	public void atualizarUser(User usuario) {
+		dao.upDateUser(usuario);
+	}
+	
 	public void excluir(User usuario){
 		dao.delete(usuario);
 	}

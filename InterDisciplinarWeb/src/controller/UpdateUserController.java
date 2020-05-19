@@ -56,10 +56,10 @@ public class UpdateUserController extends HttpServlet {
 				usuario.setId(pId);
 				usuario.setNome(cNome);
 				usuario.setEmail(cEmail);
-				//usuario.setSenha(pSenha);
+				//usuario.setSenha(usuario.getSenha());
 				
 				UserService us = new UserService();
-				us.atualizar(usuario);
+				us.atualizarUser(usuario);
 				
 				HttpSession ses = request.getSession();
 				request.setAttribute("usuario", usuario);

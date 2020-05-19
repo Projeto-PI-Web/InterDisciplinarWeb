@@ -79,6 +79,24 @@ public class UserDAO {
 			ex.printStackTrace();
 		}
 	}
+	
+	public void upDateUser(User user) {
+		//, perfil=?
+		String update = "UPDATE Usuario SET nome=?, email=? WHERE id = ?";
+
+		try (PreparedStatement pst = conexao.prepareStatement(update)) {
+			pst.setString(1, user.getNome());
+			//pst.setString(2, user.getSenha());
+			pst.setString(2, user.getEmail());
+	//		pst.setString(4, user.getPerfil().name()); 
+			pst.setInt(3, user.getId());
+			pst.execute();
+			System.out.println("Atualizado com sucesso!");
+		} catch (SQLException ex) {
+			System.out.println("Erro ao atualizar");
+			ex.printStackTrace();
+		}
+	}
 
 	public User select(int id) {
 		User user = null;
