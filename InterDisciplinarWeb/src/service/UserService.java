@@ -80,4 +80,7 @@ public class UserService {
 	public User selectEmail(String email, String senha) {
 		return dao.selectEmail(email,senha);
 	}
+	public User selectEmail(String email) {
+		return dao.selectEmail(email);
+	}
 }

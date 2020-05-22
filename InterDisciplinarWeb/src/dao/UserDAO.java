@@ -218,4 +218,32 @@ public class UserDAO {
 		}
 		return user;
 	}
+	public User selectEmail(String emailU) {
+		User user = null;
+		String consulta = "SELECT id, nome, senha, email FROM Usuario WHERE email=?";
+
+		try (PreparedStatement pst = conexao.prepareStatement(consulta)) {
+			pst.setString(1, emailU);
+			ResultSet resultado = pst.executeQuery();
+			
+			if (resultado.next()) {
+				user = new User();
+				int id = resultado.getInt("id");
+				String nome = resultado.getString("nome");
+				String senha = resultado.getString("senha");
+				String email = resultado.getString("email");
+				
+				user.setId(id);
+				user.setNome(nome);
+				user.setSenha(senha);
+				user.setEmail(email);
+				System.out.println("Esse é o user: " + user.toString());
+			}
+			System.out.println("Consulta feita com sucesso");
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			System.out.println("Falha na consulta");
+		}
+		return user;
+	}
 }

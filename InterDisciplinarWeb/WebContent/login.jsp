@@ -122,7 +122,7 @@
 	  <div class="container col-2 my-4" style="background-color:#f1f1f1">
 		<button type="button" class="cadastrobtn" onclick="window.location.href = 'cadastroUser.jsp';">Cadastre-se</button>
 	    <button type="reset" value="reset" class="cancelbtn" onclick="window.location.href = 'index.html';">Voltar</button> <br>
-	    <span class="psw text-center col-12 "><B>Esqueceu sua <a href="#"> <I class="link">senha? </I></a> </B></span>
+	    <span class="psw text-center col-12 "><B>Esqueceu sua <a href="resetpass.jsp"> <I class="link">senha? </I></a> </B></span>
 	  </div>
       </div>
       
