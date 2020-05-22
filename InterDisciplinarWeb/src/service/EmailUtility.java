@@ -22,7 +22,7 @@ public class EmailUtility {
 	private static String host = "smtp.gmail.com";
 	private static String port = "587";
 	private static final String userName = "email teste";
-	private static final String password = "email senha";
+	private static final String password = "senha teste";
     public static void sendEmail( 
               String toAddress,
             String subject, String message) throws AddressException,

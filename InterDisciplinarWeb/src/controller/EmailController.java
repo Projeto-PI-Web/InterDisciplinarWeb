@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,19 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.User;
-import service.UserService;
+import service.EmailUtility;
 
 /**
- * Servlet implementation class ResetPassController
+ * Servlet implementation class EmailController
  */
-@WebServlet("/ResetPass.do")
-public class ResetPassController extends HttpServlet {
+@WebServlet("/EmailController")
+public class EmailController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ResetPassController() {
+    public EmailController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,36 +39,23 @@ public class ResetPassController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*PrintWriter out = response.getWriter();
-		String to = "";
-		String assunto = "";
-		String conteudo = "";
-		out.println("Testando email, enviando " + to + assunto + conteudo);
+		PrintWriter out = response.getWriter();
+		
+		User us = (User) request.getAttribute("usuario");
+		String email = request.getParameter("email");
+		System.out.println("Email recebido "+email);
+		String to = email;
+		String assunto = "Recuperação de senha";
+		String conteudo = "Você é o usuario " + us.getNome();
+//		out.println("Testando email, enviando " + to + assunto + conteudo);
 		try {
 			EmailUtility.sendEmail(to, assunto, conteudo);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}*/
-		String email = request.getParameter("email");
-		UserService us = new UserService();
-		
-		User user = new User();
-		user = us.selectEmail(email);
-		if(user != null) {
-			// Estou enviando o email na mensagem apenas para teste, é necessario alterar a String do email para não enviar a informação completa
-			String msg = "Um email foi enviado para " + email + " com as instruções para recuperação da senha";
-			request.setAttribute("mensagem", msg);
-			request.setAttribute("usuario", user);
-			RequestDispatcher rd = request.getRequestDispatcher("EmailController");
-			rd.forward(request, response);
-		}else {
-			
-			request.setAttribute("erro", "Usuario nao cadastrado");
 			RequestDispatcher rd = request.getRequestDispatcher("resetpass.jsp");
 			rd.forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+			//Adicionar forward da pagina de erro
 		}
-		
-		
 		
 	}
 
