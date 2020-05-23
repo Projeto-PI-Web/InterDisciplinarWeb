@@ -40,17 +40,21 @@ public class LoginController extends HttpServlet {
 		us.login(usuario, pEmail,pSenha);
 		
 		HttpSession ses = request.getSession();
-		ses.setAttribute("usuario", usuario);
-		request.setAttribute("usuario", usuario);
-		RequestDispatcher view = request.getRequestDispatcher("Cursos.jsp");
+
 		
 		//request.getRequestDispatcher("Cursos.jsp").include(request,  response);
-		if(us.status >= 0) view.forward(request, response);
+		if(us.status >= 0) {
+			RequestDispatcher view = request.getRequestDispatcher("Cursos.jsp");
+			ses.setAttribute("usuario", usuario);
+			request.setAttribute("usuario", usuario);
+			view.forward(request, response);
+		}
 		else {
-			out.println("<script type=\"text/javascript\">");
-			out.println("alert('Houve um erro, favor contatar um adm.');");
-			out.println("location='login.html';");
-			out.println("</script>");
+			System.out.println("Não passou no Login");
+			request.setAttribute("erroLogin", "Usuário ou senha inválidos");
+			RequestDispatcher view = request.getRequestDispatcher("login.jsp");
+			view.forward(request, response);
+			
 		}
 	}
 }

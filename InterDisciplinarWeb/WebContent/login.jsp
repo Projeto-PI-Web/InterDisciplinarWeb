@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ page errorPage="error.jsp"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     
     
 <!DOCTYPE html>
@@ -107,7 +108,7 @@
 	<body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color:#f6f4f4">
    	 <div class="col-12 text-center my-5">
 		<form action="LoginController.do" method="post" name="f1">
-		  <div class="container">
+		  
 			<label for="uname"><b class="SUBTITULO"> E-MAIL</b></label>
 			<input type="text" placeholder="Insira o seu email" name="uname" onblur="validacaoEmail(f1.uname)" required>
 		    <label for="psw"><b class="SUBTITULO">SENHA</b></label>
@@ -115,16 +116,20 @@
 		    <button type="submit"> <b class="SUBTITULO">Login</b></button>
 		    <div id="msgemail"></div>
 		</form>
-	    <label>
-	      <input type="checkbox" checked="checked" name="remember"> Lembrar Usuário
-	    </label>
+		<div class="text-center">
+		<c:choose>
+			<c:when test="${not empty erroLogin}">
+				<c:out value="${erroLogin}" />
+			</c:when>
+		</c:choose>
+		</div>
 	  </div>
 	  <div class="container col-2 my-4" style="background-color:#f1f1f1">
 		<button type="button" class="cadastrobtn" onclick="window.location.href = 'cadastroUser.jsp';">Cadastre-se</button>
 	    <button type="reset" value="reset" class="cancelbtn" onclick="window.location.href = 'index.html';">Voltar</button> <br>
 	    <span class="psw text-center col-12 "><B>Esqueceu sua <a href="resetpass.jsp"> <I class="link">senha? </I></a> </B></span>
 	  </div>
-      </div>
+
       
           		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

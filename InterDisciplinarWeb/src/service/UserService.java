@@ -29,8 +29,8 @@ public class UserService {
 	}
 	
 	public int login(User usuario, String email, String senha){
-		status = 0;
-		System.out.println("Usuario que chegou agora: " + usuario.toString());
+		status = -1;
+	//	System.out.println("Usuario que chegou agora: " + usuario.toString());
 		User valida = dao.selectEmail(email,senha);
 		
 		if(valida != null) {
