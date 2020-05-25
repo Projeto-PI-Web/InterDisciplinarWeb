@@ -77,7 +77,7 @@
                  <img src="https://i.imgur.com/p47tHs3.png" class="img-fluid" alt="Responsive image">
                 <p> Para um excelente efeito no Enem você deve ter acesso aos conteúdos que melhor vão te adequar a prova. <br>
                  Por conta disso, separamos as aulas que já estão disponíveis no Youtube gratuitamente e separamos os tópicos mais cobrados. </p>
-                <p class="SUBTITULO"> <b> <i> Se você não souber por onde começar a estudar  <a href="dicas.html"> <b class="link">clique aqui</b> </a>. </b> </i></p>
+                <p class="SUBTITULO"> <b> <i> Se você não souber por onde começar a estudar  <a href="dicas.jsp"> <b class="link">clique aqui</b> </a>. </b> </i></p>
    			 </div>
              
          <!-- MENU DE MATÉRIAS --> 
@@ -331,14 +331,48 @@
 
                 <!-- DIV DA HISTORIA DO BRASIL -->
          	     <div id="tab1-2" class="container tab-pane mt-4">
-                           
-                        dasdsad
+                           História do Brasil
                 </div>
                 
      <!-- DIV DA GEO -->
                  <!-- DIV DA Agricultura e meio ambiente -->
-                 <div id="tab2-1" class="container tab-pane mt-4 "> 
-                <p> Agricultura e meio ambiente</p>
+                 <div id="tab2-1" class="container-fluid tab-pane mt-4  "> 
+                     <ul class="nav nav-pills nav-stacked col-2 ml-4 nav-justified" style="float:left"> 
+                        <li class="nav-item" >
+                            <a  class= "nav-link active link" data-toggle="pill" href="#id1"> Sistemas agrícolas </a>
+                            <a  class= "nav-link link" data-toggle="pill" href="#id2"> Impactos Ambientais Globais </a>
+                            <a  class= "nav-link link" data-toggle="pill" href="#id3"> Conflitos Agrários I </a>
+                            <a  class= "nav-link link" data-toggle="pill" href="#id4"> Conflitos Agrários II </a>
+                            <a  class= "nav-link link" data-toggle="pill" href="#id5"> Conflitos Agrários III </a>
+                            <a  class= "nav-link link" data-toggle="pill" href="#id6"> Problemas Urbanos Sociais e Ambientais </a>
+                     </ul>
+
+                     <div class="tab-content col-md-9"  style="float:left">
+                    	<div id="id1" class="show active tab-pane embed-responsive embed-responsive-16by9">
+                    		<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/DAKuO_CbPYo" > </iframe>
+               		   </div>
+
+               		   <div id="id2" class="tab-pane embed-responsive embed-responsive-16by9">
+                   			 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/21FZKL3nBEQ"> </iframe>
+                   	   </div>
+                       
+               		   <div id="id3"class="tab-pane embed-responsive embed-responsive-16by9">
+                   			<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yy5P5IVj7Kk"> </iframe>
+                   	   </div>
+                       
+               		   <div id="id4" class="tab-pane embed-responsive embed-responsive-16by9">
+                   			 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/cgvFEhllABE"> </iframe>
+                   	   </div>
+                        
+               		   <div id="id5" class="tab-pane embed-responsive embed-responsive-16by9">
+                   			 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/5pmdRF39p9Y"> </iframe>
+                   	   </div>  
+                       
+               		   <div id="id6" class="tab-pane embed-responsive embed-responsive-16by9">
+                   			 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/dzdSib0bd4U"> </iframe>
+                   	   </div> 
+                       
+                    </div>
                 </div>
                  <!-- DIV DA População e migrações  -->
                  <div id="tab2-2" class="container tab-pane mt-4 ">
@@ -395,8 +429,109 @@
                 
  <!-- DIV DA MATEMATICA 1 -->
                  <!-- DIV DA Matemática Básica -->
-                 <div id="tab5-1" class="container tab-pane mt-4 ">
-                <p> Matemática Básica</p>
+                 <div id="tab5-1" class="container-fluid tab-pane mt-4  "> 
+                     <ul class="nav nav-pills nav-stacked col-2 ml-4 nav-justified" style="float:left"> 
+                        <li class="nav-item" >
+                            <a  class= "nav-link active link" data-toggle="pill" href="#m1"> Adição e Subtração </a>
+                            <a  class= "nav-link link" data-toggle="pill" href="#m2"> Multiplicação e Divisão </a>
+                            <a  class= "nav-link link" data-toggle="pill" href="#m3"> Expressões Numéricas </a>
+                            <a  class= "nav-link link" data-toggle="pill" href="#m4"> Frações </a>
+                            <a  class= "nav-link link" data-toggle="pill" href="#m5"> Potenciação </a>
+                            <a  class= "nav-link link" data-toggle="pill" href="#m6"> Radiciação </a>
+							<a  class= "nav-link link" data-toggle="pill" href="#m7"> Racionalização de Denominadores </a>
+							<a  class= "nav-link link" data-toggle="pill" href="#m8"> Produtos Notáveis </a>
+							<a  class= "nav-link link" data-toggle="pill" href="#m9">  Notação Científica </a>
+							<a  class= "nav-link link" data-toggle="pill" href="#m10"> Sistema Métrico Decimal </a>
+							<a  class= "nav-link link" data-toggle="pill" href="#m11"> Números Primos </a>
+							<a  class= "nav-link link" data-toggle="pill" href="#m12"> Fatoração </a>
+							<a  class= "nav-link link" data-toggle="pill" href="#m13"> MMC </a>
+							<a  class= "nav-link link" data-toggle="pill" href="#m14"> MDC </a>
+							<a  class= "nav-link link" data-toggle="pill" href="#m15"> Razão e Proporção I </a>
+							<a  class= "nav-link link" data-toggle="pill" href="#m16"> Razão e Proporção II </a>
+							<a  class= "nav-link link" data-toggle="pill" href="#m17"> Regra de Três I  </a>
+							<a  class= "nav-link link" data-toggle="pill" href="#m18"> Regra de Três II </a>
+							<a  class= "nav-link link" data-toggle="pill" href="#m19"> Escalas Numéricas </a>
+						
+                     </ul>
+
+                     <div class="tab-content col-md-9"  style="float:left">
+                    	<div id="m1" class="show active tab-pane embed-responsive embed-responsive-16by9">
+                    		<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/e78_5WIssSU" > </iframe>
+               		   </div>
+
+               		   <div id="m2" class="tab-pane embed-responsive embed-responsive-16by9">
+                   			 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/0UGJRHq2PS4"> </iframe>
+                   	   </div>
+                       
+               		   <div id="m3"class="tab-pane embed-responsive embed-responsive-16by9">
+                   			<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/BhDm2qGy780"> </iframe>
+                   	   </div>
+                       
+               		   <div id="m4" class="tab-pane embed-responsive embed-responsive-16by9">
+                   			 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/YJyY6A_MOQc"> </iframe>
+                   	   </div>
+                        
+               		   <div id="m5" class="tab-pane embed-responsive embed-responsive-16by9">
+                   			 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/4Vfw1XiHTpM"> </iframe>
+                   	   </div>  
+                       
+               		   <div id="m6" class="tab-pane embed-responsive embed-responsive-16by9">
+                   			 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/QmIjZgKhAEo"> </iframe>
+                   	   </div> 
+					   
+					    <div id="m7" class="tab-pane embed-responsive embed-responsive-16by9">
+                   			 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/04nnroZrmgg"> </iframe>
+                   	   </div> 
+					   
+					    <div id="m8" class="tab-pane embed-responsive embed-responsive-16by9">
+                   			 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/_3YQvVKbqn0"> </iframe>
+                   	   </div> 
+					   
+					    <div id="m9" class="tab-pane embed-responsive embed-responsive-16by9">
+                   			 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/GPTxrh_mhow"> </iframe>
+                   	   </div>  
+					   
+					    <div id="m10" class="tab-pane embed-responsive embed-responsive-16by9">
+                   			 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/epFmO0M8gDk"> </iframe>
+                   	   </div>  
+					   
+					    <div id="m11" class="tab-pane embed-responsive embed-responsive-16by9">
+                   			 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/MrHhUUnOtPc"> </iframe>
+                   	   </div> 
+					   
+					    <div id="m12" class="tab-pane embed-responsive embed-responsive-16by9">
+                   			 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/kjg8a41wwjQ"> </iframe>
+                   	   </div>  
+					   
+					    <div id="m13" class="tab-pane embed-responsive embed-responsive-16by9">
+                   			 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/QCMUMufcK5M"> </iframe>
+                   	   </div>  
+					   
+					    <div id="m14" class="tab-pane embed-responsive embed-responsive-16by9">
+                   			 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/NWtwEm8M2qw"> </iframe>
+                   	   </div>  
+					   
+					    <div id="m15" class="tab-pane embed-responsive embed-responsive-16by9">
+                   			 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/uIulBEk8gcM"> </iframe>
+                   	   </div>  
+					   
+					    <div id="m16" class="tab-pane embed-responsive embed-responsive-16by9">
+                   			 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/6Dsta1eZ1BA"> </iframe>
+                   	   </div>  
+					   
+					    <div id="m17" class="tab-pane embed-responsive embed-responsive-16by9">
+                   			 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/alLifth7gxE"> </iframe>
+                   	   </div> 
+					   
+					    <div id="m18" class="tab-pane embed-responsive embed-responsive-16by9">
+                   			 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/buYey1YGJhA"> </iframe>
+                   	   </div> 
+					   
+					    <div id="m19" class="tab-pane embed-responsive embed-responsive-16by9">
+                   			 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/qrix-SCMvjA"> </iframe>
+                   	   </div> 
+					   
+                    </div>
                 </div>
                  <!-- DIV DA Equação de 1° Grau e 2° Grau  -->
                  <div id="tab5-2" class="container tab-pane mt-4 ">
