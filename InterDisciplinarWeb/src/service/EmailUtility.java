@@ -21,8 +21,8 @@ import javax.mail.internet.MimeMessage;
 public class EmailUtility {
 	private static String host = "smtp.gmail.com";
 	private static String port = "587";
-	private static final String userName = "email teste";
-	private static final String password = "senha teste";
+	private static final String userName = "skynet.projetopi@gmail.com";
+	private static final String password = "senha email";
     public static void sendEmail( 
               String toAddress,
             String subject, String message) throws AddressException,

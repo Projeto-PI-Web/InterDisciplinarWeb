@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	<form action="ResetPass.do" method="post" name="resetform">
+	<form action="ResetPass.do" method="post" name="resetform" style="${style}">
 		<div class="container">
 			<h3 style="text-align: center" class="SUBTITULO">Digite seu
 				e-mail cadastrado para receber as orientações de recuperação</h3>
@@ -29,6 +29,9 @@
 			</c:when>
 			<c:when test="${not empty erro}">
 				<c:out value="${erro}" />
+			</c:when>
+			<c:when test="${not empty tokenInvalido }">
+				<c:out value="${tokenInvalido}"/>
 			</c:when>
 		</c:choose>
 	</div>

@@ -1,7 +1,7 @@
 package controller;
 
 import java.io.IOException;
-import java.util.Calendar;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,16 +14,16 @@ import model.User;
 import service.UserService;
 
 /**
- * Servlet implementation class ResetPassController
+ * Servlet implementation class ValidaTokenController
  */
-@WebServlet("/ResetPass.do")
-public class ResetPassController extends HttpServlet {
+@WebServlet("/ValidaToken.do")
+public class ValidaTokenController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ResetPassController() {
+    public ValidaTokenController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,29 +39,23 @@ public class ResetPassController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String email = request.getParameter("email");
 		UserService us = new UserService();
-		
-		User user = new User();
-		user = us.selectEmail(email);
-		if(user != null) {
-			Calendar cal = Calendar.getInstance();
-			String token = user.getNome() + "" + cal.getTimeInMillis() + "" + user.getEmail();
-			user.setToken(token);
-			us.setToken(user);
+		User usuario;
+		String token = request.getParameter("token");
+		PrintWriter out = response.getWriter();
+		usuario = us.validaToken(token);
+		if(usuario != null) {
 			
-			user = us.selectEmail(email);
-			String msg = "Um email foi enviado para o e-mail cadastrado com as instruções para recuperação da senha";
-			request.setAttribute("token", user.getToken());
-			request.setAttribute("mensagem", msg);
-			request.setAttribute("usuario", user);
-			RequestDispatcher rd = request.getRequestDispatcher("EmailController");
+			request.setAttribute("usuario", usuario);
+			RequestDispatcher rd = request.getRequestDispatcher("recuperacaosenha.jsp");
 			rd.forward(request, response);
-		}else {
 			
-			request.setAttribute("erro", "Usuario nao cadastrado");
+		}else {
+			request.setAttribute("tokenInvalido", "Link de recuperação de senha expirado ou inválido, por favor realize o procedimento novamente");
+			request.setAttribute("style", "display: none");
 			RequestDispatcher rd = request.getRequestDispatcher("resetpass.jsp");
 			rd.forward(request, response);
+			
 		}
 	}
 

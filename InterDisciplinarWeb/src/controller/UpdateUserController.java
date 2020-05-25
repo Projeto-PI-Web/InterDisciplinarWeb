@@ -92,7 +92,6 @@ public class UpdateUserController extends HttpServlet {
 			out.println("location='Perfil.jsp';");
 			out.println("</script>");
 		}
-		
 	}
 
 }

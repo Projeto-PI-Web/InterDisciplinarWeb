@@ -11,6 +11,7 @@ public class User {
 	private String nome;
 	private String senha;
 	private Perfil perfil;
+	private String token;
 	
 	public User () {}
 	
@@ -57,10 +58,21 @@ public class User {
 		this.perfil = perfil;
 	}
 
+	public String getToken() {
+		return token;
+	}
+
+
+	public void setToken(String token) {
+		this.token = token;
+	}
 	
 	@Override
 	public String toString() {
 		return "{Id: " + getId() + ", Email: " + getEmail() + ", Nome: " + getNome() + 
-				", Senha: " + getSenha() + ", Perfil: " + getPerfil()+"}";
+				", Senha: " + getSenha() + ", Perfil: " + getPerfil()+ ", Token:" + getToken() +"}";
 	}
+
+
+
 }

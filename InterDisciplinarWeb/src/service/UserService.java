@@ -83,4 +83,10 @@ public class UserService {
 	public User selectEmail(String email) {
 		return dao.selectEmail(email);
 	}
+	public void setToken(User usuario) {
+		dao.insertToken(usuario);
+	}
+	public User validaToken(String token) {
+		return dao.validarToken(token);
+	}
 }

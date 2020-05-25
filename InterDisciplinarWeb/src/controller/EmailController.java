@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.User;
 import service.EmailUtility;
+import service.UserService;
 
 /**
  * Servlet implementation class EmailController
@@ -39,15 +39,15 @@ public class EmailController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
 		
-		User us = (User) request.getAttribute("usuario");
+		User usuario = (User) request.getAttribute("usuario");
 		String email = request.getParameter("email");
-		System.out.println("Email recebido "+email);
+		String token = request.getParameter("token");
+
 		String to = email;
 		String assunto = "Recuperação de senha";
-		String conteudo = "Você é o usuario " + us.getNome();
-//		out.println("Testando email, enviando " + to + assunto + conteudo);
+		String path = "<a href=http://localhost:8090/InterDisciplinarWeb/ValidaToken.do?token=" + usuario.getToken()+ ">Clique aqui!</a>";
+		String conteudo = "Acesse o link para recuperar sua senha: " + path;
 		try {
 			EmailUtility.sendEmail(to, assunto, conteudo);
 			RequestDispatcher rd = request.getRequestDispatcher("resetpass.jsp");
