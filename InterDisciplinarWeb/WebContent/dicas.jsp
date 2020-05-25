@@ -38,6 +38,16 @@
 					width: 200px;
 					padding: 1px;
 			}
+			
+			.alterarbtn2 {
+			  background-color: #27496d;
+			  color: white;
+			  padding: 14px 20px;
+			  margin: 8px 0;
+			  border: none;
+			  cursor: pointer;
+			  width: 250px;
+			}
 		</style>
 	</head>
     
@@ -77,8 +87,13 @@
                     <a class="nav-link ml-5 link" href="#item1-2"> Níveis das Questões </a>
                 </nav>
             <a class="nav-link ml-3 SUBTITULO" href="#item2"> Plano de Estudos </a>
-            <a class="nav-link ml-3 SUBTITULO" href="#item3"> Dia da Prova</a>
-            <a class="nav-link ml-3 SUBTITULO" href="#item4"> Sisu </b></a>
+            <a class="nav-link ml-3 SUBTITULO" href="#item3"> Roteiro de Estudos  </a>
+            <a class="nav-link ml-3 SUBTITULO" href="#item4"> Sisu </a>
+			   <nav class="nav  nav-pills flex-column">
+                    <a class="nav-link ml-5 link" href="#item4-1"> Como o sisu funciona?</a>
+                    <a class="nav-link ml-5 link" href="#item4-2"> Quem pode se escrever? </a>
+					<a class="nav-link ml-5 link" href="#item4-3"> Modalidades de Inscrição </b> </a>
+                </nav>
 
             
              </nav>
@@ -153,15 +168,53 @@
                 
                 
                 
-                 <h2 id="item3" class="display-4 text-center my-1 mb-4 TITULO" > Dia da Prova </h3>
-                <p  class="text-center my-5" > As ferramentas que você usa para o seu estudo render e ser de qualidade é o que garante um bom resultado. <br>  Reunimos as apostilas e livros dos melhores 
-                cursinhos(disponibilizados gratuitamente por cada instituição) e explicamos o foco de cada um tem. <br> E qual pode se encaixar melhor no seu plano de estudos! </p> 
-                
+                 <h2 id="item3" class="display-4 text-center my-1 mb-4 TITULO" > Roteiro de Estudos </h3>
+                <p  class="text-center my-5" > Se você não sabe por onde começar a estudar <b class="SUBTITULO"> a gente te ajuda!</b>  </p> 
+				<p> O conteúdo do nosso site já é feito todo em ordem para facilitar a busca pelo material. Mas, se mesmo assim você quiser um caminho mais específico e que marca o seu caminho e metas, disponibilizamos um cronograma de estudos para te auxiliar.</p>
+				<p> <b class="link"> Só clicar no botão abaixo para ter acesso! </b> </p> 
+				<p  class="text-center my-5" >
+				 <a href="https://drive.google.com/open?id=1WLsZ6ts6KMNlSzQTYzvUDMjdCdXjVo8N" target="_blank"> <button class="alterarbtn2" ><b> Cronograma de Estudos </b></button> </a>
+                </p>
                   <h2 id="item4" class="display-4 text-center my-1 mb-4 TITULO" > SISU </h3>
-                <p  class="text-center my-5" > As ferramentas que você usa para o seu estudo render e ser de qualidade é o que garante um bom resultado. <br>  Reunimos as apostilas e livros dos melhores cursinhos (disponibilizados gratuitamente por cada instituição) e explicamos o foco de cada um tem. <br> E qual pode se encaixar melhor no seu plano de estudos! </p> 
-                
-               
-            
+                <p   class="text-center my-5" > <b class="SUBTITULO"> O Sistema de Seleção Unificada (Sisu)</b> é um sistema informatizado, gerenciado pelo Ministério da Educação (MEC) e teve sua primeira edição em 2010. 
+				Nele, as instituições públicas de ensino superior oferecem vagas para quem participou do Exame Nacional de Ensino Médio, o Enem.</p> 
+				
+				<h3 id="item4-1" class="SUBTITULO my-2"> Como o sisu funciona?</H3>
+				<p> O SISU faz <b class="link"> dois processos seletivos por ano:</b> um no início do primeiro semestre, outro no início do segundo semestre. 
+				Há só uma etapa de inscrição em cada processo seletivo. <p> Nela, você <b class="SUBTITULO">pode escolher dois cursos</b>, na ordem de preferência, entre as vagas ofertadas.
+				Você também <b class="link"> precisa definir se quer se inscrever para as vagas de ampla concorrência, às reservadas pela Lei de Cotas ou às destinadas a outras políticas afirmativas das instituições. </b> </p> 
+				<b class="SUBTITULO"> E dá para mudar de ideia? </b> <b class="link"> Dá sim: </b> você pode mudar suas opções até as inscrições se encerrarem.
+				Depois, o sistema seleciona automaticamente aqueles candidatos que ficaram melhor classificados em cada curso, levando em consideração as suas notas do ENEM 
+				<b class="SUBTITULO">(e os pesos que cada matéria tem no curso que você escolheu no Sisu). </b>
+				<br>
+				<p>  <b class="link"> É realizada só uma chamada para matrícula. </b> Lembre-se de que você tem um prazo para fazer a inscrição e garantir a sua vaga. </p>
+
+                <h3 id="item4-2" class="SUBTITULO my-2">Quem pode se escrever? </h3>
+				<p> Se você fez a última edição do ENEM e <b class="SUBTITULO"> não zerou a redação. </b>  Além disso, tem que ter completado o ensino médio ou seja:  <b class="link">  não pode ser treineiro! </b> </p> 
+				<p> <b class="SUBTITULO"> OBS: </b> Caso você tenha menos de 18 anos e tenha completado o Ensino médio e consiga a vaga pelo SISU, a matrícula deve ser feita acompanhado de um responsável.
+				<p> Vale lembrar que alguns cursos<b class="SUBTITULO">  exigem uma nota mínima para se inscrever. </b> </p>
+				<p> <b class="link">  Eu já estou na faculdade, posso me inscrever no SISU?</b> <i>  A resposta é sim! </i> Mas, se você já estuda em uma instituição pública e passar na seleção, vai ter que escolher qual curso quer fazer. </p>
+				
+				<p> O SISU <b class="SUBTITULO">  depende totalmente do ENEM:</b> só pode se candidatar a vagas quem fez a última edição do exame. Quando você se inscreve no SISU, o sistema importa automaticamente as suas informações e as notas do ENEM. </p>
+
+				<p> <b class="link"> Mas atenção, eles são coisas bem diferentes, ok? </b> <b> O Enem é uma  prova</b>, e o <i>SISU, um sistema de seleção:</i> você só precisa se inscrever para concorrer a uma vaga. </p>
+				
+				<p> Os candidatos que forem se inscrever no Sisu em 2020 precisarão, por exemplo, terem feito a edição de 2019 do ENEM. </p>
+				
+				<h3 id="item4-3" class="SUBTITULO my-2"> Modalidades de Inscrição</H3>
+				<p> São três as modalidades de inscrição no SISU: <b class="SUBTITULO"> ampla concorrência,</b> <b class="link">cotas </b> e <b class="SUBTITULO"> ações afirmativas das próprias instituições.</b> Para participar da ampla concorrência, tudo que você precisa é ter feito a edição do ENEM no ano anterior. </p> 
+				<p>Já a Lei de Cotas (12.711/2012) determina que as instituições devem <b class="link"> reservar 50% das vagas para alunos que estudaram em escolas públicas.</b> Entre elas, metade é destinada a estudantes com renda familiar bruta mensal de 
+				até um salário mínimo e meio por pessoa. Além disso, um percentual das vagas é reservado a estudantes autodeclarados pretos, pardos ou indígenas. </p>
+				<p> <b class="SUBTITULO">Diferentemente, </b> as ações afirmativas dependem de cada instituição e não são obrigatórias, e podem acontecer pela reserva de vagas ou por um bônus na nota final do candidato. </p> 
+				<p> <b> <i class="link">Atenção:</i> a concorrência é só com quem está inscrito na mesma modalidade que você!</b> </p>
+				
+				<p> <b class="SUBTITULO"> OBSERVAÇÕES: </b> </p> 
+
+					<p> Para poder participar das listas de espera, como no Sisu tem duas escolhas existem algumas regras, que são as seguintes: </p>
+					<p> <b class="link">1° caso </b>  passe na sua primeira opção, você não participa de nenhuma lista de espera.</p>
+					<p> <b class="link">2° caso </b>  passe na sua segunda opção e não passe na primeira, você não consegue entrar na lista de espera da sua primeira opção</p>
+					<p> <b class="link">3° caso  </b> não passe em nenhuma das suas duas opções, você pode escolher em qual lista de espera você quer participar.</p>
+
             	</div>
 
             
