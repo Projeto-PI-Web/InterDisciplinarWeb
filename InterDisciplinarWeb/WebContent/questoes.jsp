@@ -106,7 +106,7 @@
              
                   <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle SUBTITULO" data-toggle="dropdown"   href=""><b> História</b></a>
                 	<div class="dropdown-menu">
-                    	<a class="dropdown-item link active" data-toggle="tab" href="#tab1-1"><b> 1 - História Geral</b> </a>
+                    	<a class="dropdown-item link" data-toggle="tab" href="#tab1-1"><b> 1 - História Geral</b> </a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab1-2"><b> 2 - História do Brasil</b> </a>
                     </div>
                 </li> 
@@ -225,43 +225,54 @@
              o meni chama essas divs de vc ver cada um tem um ID que chama do menu para as divs 
             -->
             <div class="tab-content">
-    <!-- DIV DA HISTORIA -->
             	<!-- DIV DA HISTORIA GERAL -->
+				
             	<div id="tab1-1" class="container show active tab-pane mt-4"> 
                 <p class="col-2 link"> <b> ENEM 1° Dia 2019 </b> </p>
-                <p> A soberania dos cidadãos dotados de plenos direitos era imprescindível para a existência da cidade-estado. Segundo os regimes políticos, a proporção desses cidadãos em relação à população total dos 
-                homens livres podia variar muito, sendo bastante pequena nas aristocracias e oligarquias e maior nas democracias. <p>
+                <c:forEach var="questao" items="${questoes}">
+                <p>Questão #${questao.id}</p>
+                <br>
+                <p> ${questao.enunciado} <p>
 				<p> <sub> CARDOSO, C. F. Acidade-estado clássica. São Paulo: Ática, 1985. <sub></p>
                 
-                <p> Nas cidades-estado da Antiguidade Clássica, a proporção de cidadãos descrita no texto é explicada pela adoção do seguinte critério para a participação política: </p>
+                <p> ${questao.enunciado}</p>
+               		<form>
+                    <fieldset id="grupo1">
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                      <label class="form-check-label" for="inlineRadio1"> <b class="link"> A)</b> Controle da terra. </label>
+
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1">
+                      <label class="form-check-label" for="inlineRadio1"> <b class="link"> A)</b> ${questao.alternativaA} </label>
+                    
                     </div>
                     <br>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                      <label class="form-check-label" for="inlineRadio2"><b class="link"> B</b>) Liberdade de culto.</label>
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="option2">
+                      <label class="form-check-label" for="inlineRadio2"><b class="link"> B</b>) ${questao.alternativaB}</label>
                     </div>
                     <br>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-                      <label class="form-check-label" for="inlineRadio3"><b class="link"> C)</b> Igualdade de gênero.</label>
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="option3">
+                      <label class="form-check-label" for="inlineRadio3"><b class="link"> C)</b> ${questao.alternativaC}</label>
                     </div>
                     <br>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option4">
-                      <label class="form-check-label" for="inlineRadio3"><b class="link"> D)</b> Exclusão dos militares.</label>
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio4" value="option4">
+                      <label class="form-check-label" for="inlineRadio4"><b class="link"> D)</b> ${questao.alternativaD}</label>
                     </div>
                     <br>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option5">
-                      <label class="form-check-label" for="inlineRadio3"><b class="link"> E)</b> Exigência da alfabetização.</label>
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio5" value="option5">
+                      <label class="form-check-label" for="inlineRadio5"><b class="link"> E)</b> ${questao.alternativaD}</label>
                     </div>
+                    </fieldset>
+                    </form>
                     <br>
+                    <hr>
+                    </c:forEach>
                     <button class="responderbtn mt-3"> RESPONDER </button>
 
                 </div>
+				
                 <!-- DIV DA HISTORIA DO BRASIL -->
          	     <div id="tab1-2" class="container tab-pane mt-4">
                 <p>2</p>

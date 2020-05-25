@@ -2,6 +2,8 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.QuestionDAO;
+import model.Question;
 import model.User;
 import service.UserService;
 
@@ -28,7 +32,11 @@ public class LoginController extends HttpServlet {
 		String pSenha = request.getParameter("psw");
 	//	int pId = .getId();
 		PrintWriter out = response.getWriter();
+		QuestionDAO qDAO = new QuestionDAO();
 		
+		List<Question> ques = new ArrayList();
+		
+		ques = qDAO.selectAll();
 		
 		/*Comentei os dados dos parametros pois nao creio que não precisa montar o Usuario novamente se
 		/usar o metodo selectEmail que devolve o Usuario com todas as informaçoes já*/
@@ -46,7 +54,8 @@ public class LoginController extends HttpServlet {
 		if(us.status >= 0) {
 			RequestDispatcher view = request.getRequestDispatcher("Cursos.jsp");
 			ses.setAttribute("usuario", usuario);
-			request.setAttribute("usuario", usuario);
+		//	request.setAttribute("usuario", usuario);
+			ses.setAttribute("questoes", ques);
 			view.forward(request, response);
 		}
 		else {
