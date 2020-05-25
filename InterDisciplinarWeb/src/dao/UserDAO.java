@@ -46,6 +46,17 @@ public class UserDAO {
 		}		
 	}
 
+	public void insertToken(User usuario) {
+		String inserir = "Update Usuario Set token = MD5(?) WHERE id = ?";
+		try(PreparedStatement pst = conexao.prepareStatement(inserir)) {
+			pst.setString(1, usuario.getToken());
+			pst.setInt(2, usuario.getId());
+			pst.execute();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void delete(User usuario) {
 		String delete = "DELETE FROM Usuario WHERE id = ?";
 		try (PreparedStatement pst = conexao.prepareStatement(delete)) {
@@ -78,14 +89,12 @@ public class UserDAO {
 	}
 	
 	public void upDateUser(User user) {
-		//, perfil=?
-		String update = "UPDATE Usuario SET nome=?, email=? WHERE id = ?";
+		String update = "UPDATE Usuario SET nome=?, senha=? WHERE id = ?";
 
 		try (PreparedStatement pst = conexao.prepareStatement(update)) {
 			pst.setString(1, user.getNome());
-			//pst.setString(2, user.getSenha());
-			pst.setString(2, user.getEmail());
-	//		pst.setString(4, user.getPerfil().name()); 
+			pst.setString(2, user.getSenha());
+			//pst.setString(2, user.getEmail()); 
 			pst.setInt(3, user.getId());
 			pst.execute();
 			System.out.println("Atualizado com sucesso!");
@@ -128,7 +137,7 @@ public class UserDAO {
 		}
 		return user;
 	}
-	// Revisar Enum aqui no Set 
+	 
 	public ArrayList<User> selectAll() {
 		ArrayList<User> lstNoticia = new ArrayList<User>();
 		User user = null;
@@ -215,9 +224,10 @@ public class UserDAO {
 		}
 		return user;
 	}
+	
 	public User selectEmail(String emailU) {
 		User user = null;
-		String consulta = "SELECT id, nome, senha, email, token FROM Usuario WHERE email=?";
+		String consulta = "SELECT id,nome,senha,email,token FROM Usuario WHERE email=?";
 
 		try (PreparedStatement pst = conexao.prepareStatement(consulta)) {
 			pst.setString(1, emailU);
@@ -243,16 +253,6 @@ public class UserDAO {
 			System.out.println("Falha na consulta");
 		}
 		return user;
-	}
-	public void insertToken(User usuario) {
-		String inserir = "Update Usuario Set token = MD5(?) WHERE id = ?";
-		try(PreparedStatement pst = conexao.prepareStatement(inserir)) {
-			pst.setString(1, usuario.getToken());
-			pst.setInt(2, usuario.getId());
-			pst.execute();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 	
 	public User validarToken(String token) {

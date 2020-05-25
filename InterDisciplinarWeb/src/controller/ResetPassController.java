@@ -20,24 +20,15 @@ import service.UserService;
 public class ResetPassController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public ResetPassController() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email");
 		UserService us = new UserService();
@@ -58,7 +49,6 @@ public class ResetPassController extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("EmailController");
 			rd.forward(request, response);
 		}else {
-			
 			request.setAttribute("erro", "Usuario nao cadastrado");
 			RequestDispatcher rd = request.getRequestDispatcher("resetpass.jsp");
 			rd.forward(request, response);

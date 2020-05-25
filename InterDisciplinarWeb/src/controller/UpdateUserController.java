@@ -40,7 +40,8 @@ public class UpdateUserController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println("Entrou no Update");
+		UserService us = new UserService();
 		PrintWriter out = response.getWriter();
 		int pId = Integer.parseInt(request.getParameter("id"));
 		String cNome = request.getParameter("nome");
@@ -49,16 +50,13 @@ public class UpdateUserController extends HttpServlet {
 		String cEmail = request.getParameter("email");
 		
 		if(cSenha.equals(pSenha)) {
-			
 			if(cSenha == "" && pSenha == "") {
-				
 				User usuario = new User();
 				usuario.setId(pId);
 				usuario.setNome(cNome);
 				usuario.setEmail(cEmail);
 				//usuario.setSenha(usuario.getSenha());
 				
-				UserService us = new UserService();
 				us.atualizarUser(usuario);
 				
 				HttpSession ses = request.getSession();
@@ -66,15 +64,13 @@ public class UpdateUserController extends HttpServlet {
 				ses.setAttribute("usuario", usuario);
 				RequestDispatcher rd = request.getRequestDispatcher("Cursos.jsp");
 				rd.forward(request, response);
-			}
-			else {
+			} else {
 				User usuario = new User();
 				usuario.setId(pId);
 				usuario.setNome(cNome);
 				usuario.setEmail(cEmail);
 				usuario.setSenha(pSenha);
 				
-				UserService us = new UserService();
 				us.atualizar(usuario);
 				
 				HttpSession ses = request.getSession();
@@ -84,9 +80,7 @@ public class UpdateUserController extends HttpServlet {
 				rd.forward(request, response);
 			
 			}
-			
-		}	
-		else {
+		} else {
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('As senhas não são iguais.');");
 			out.println("location='Perfil.jsp';");

@@ -28,16 +28,16 @@ public class UserService {
 		return status;
 	}
 	
-	public int login(User usuario, String email, String senha){
-		status = -1;
-	//	System.out.println("Usuario que chegou agora: " + usuario.toString());
-		User valida = dao.selectEmail(email,senha);
+	public int login(User usuario){
+		status = 0;
+		System.out.println("Usuario que chegou agora: " + usuario.toString());
+		User valida = dao.selectEmail(usuario.getEmail(), usuario.getSenha());
 		
 		if(valida != null) {
 			if(usuario.getEmail().equals(valida.getEmail())) {
 				System.out.println("Parece que o email passou hehe");
 				status = 1;
-				/*if(senha.equals(valida.getSenha())) {
+				/*if(usuario.getSenha().equals(valida.getSenha())) {
 					System.out.println("Chegou na senha, pode passar!");
 					status = 1;
 				} else {
@@ -49,7 +49,7 @@ public class UserService {
 				status = -1;
 			}
 		}
-		
+		System.out.println("Status: " +status);
 		if(status > 0) return valida.getId();
 		else return -1;
 	}
