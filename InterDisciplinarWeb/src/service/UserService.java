@@ -37,13 +37,6 @@ public class UserService {
 			if(usuario.getEmail().equals(valida.getEmail())) {
 				System.out.println("Parece que o email passou hehe");
 				status = 1;
-				/*if(usuario.getSenha().equals(valida.getSenha())) {
-					System.out.println("Chegou na senha, pode passar!");
-					status = 1;
-				} else {
-					System.out.println("Senha incorreta, tratar...");
-					status = -1;
-				}*/
 			} else {
 				System.out.println("Nem o email confere... Verifica de novo");
 				status = -1;
