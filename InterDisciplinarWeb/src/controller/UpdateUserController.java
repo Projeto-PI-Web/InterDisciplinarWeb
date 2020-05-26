@@ -57,7 +57,7 @@ public class UpdateUserController extends HttpServlet {
 				usuario.setEmail(cEmail);
 				//usuario.setSenha(usuario.getSenha());
 				
-				us.atualizarUser(usuario);
+				us.atualizar(usuario);
 				
 				HttpSession ses = request.getSession();
 				request.setAttribute("usuario", usuario);
@@ -71,7 +71,7 @@ public class UpdateUserController extends HttpServlet {
 				usuario.setEmail(cEmail);
 				usuario.setSenha(pSenha);
 				
-				us.atualizar(usuario);
+				us.atualizarUser(usuario);
 				
 				HttpSession ses = request.getSession();
 				request.setAttribute("usuario", usuario);

@@ -71,15 +71,15 @@ public class UserDAO {
 
 	public void upDate(User user) {
 		//, perfil=?
-		String update = "UPDATE Usuario SET nome=?, senha=MD5(?), email=?, token=? WHERE id = ?";
+		String update = "UPDATE Usuario SET nome=?, email=?, token=? WHERE id = ?";
 
 		try (PreparedStatement pst = conexao.prepareStatement(update)) {
 			pst.setString(1, user.getNome());
-			pst.setString(2, user.getSenha());
-			pst.setString(3, user.getEmail());
+			//pst.setString(2, user.getSenha());
+			pst.setString(2, user.getEmail());
 	//		pst.setString(4, user.getPerfil().name()); 
-			pst.setString(4, user.getToken());
-			pst.setInt(5, user.getId());
+			pst.setString(3, user.getToken());
+			pst.setInt(4, user.getId());
 			pst.execute();
 			System.out.println("Atualizado com sucesso!");
 		} catch (SQLException ex) {
@@ -89,13 +89,13 @@ public class UserDAO {
 	}
 	
 	public void upDateUser(User user) {
-		String update = "UPDATE Usuario SET nome=?, senha=? WHERE id = ?";
+		String update = "UPDATE Usuario SET nome=?, senha=MD5(?), email=? WHERE id = ?";
 
 		try (PreparedStatement pst = conexao.prepareStatement(update)) {
 			pst.setString(1, user.getNome());
 			pst.setString(2, user.getSenha());
-			//pst.setString(2, user.getEmail()); 
-			pst.setInt(3, user.getId());
+			pst.setString(3, user.getEmail()); 
+			pst.setInt(4, user.getId());
 			pst.execute();
 			System.out.println("Atualizado com sucesso!");
 		} catch (SQLException ex) {
