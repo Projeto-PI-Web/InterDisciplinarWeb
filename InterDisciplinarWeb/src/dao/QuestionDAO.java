@@ -92,7 +92,7 @@ public class QuestionDAO {
 	
 	public Question select (Question question) {
 		Question quest = null;
-		String consulta = "SELECT id, enunciado, alternativa_correta, peso," 
+		String consulta = "SELECT id, enunciado, texto_apoio, alternativa_correta, peso," 
 				+ "alternativa_a, alternativa_b, alternativa_c, alternativa_d, alternativa_e," 
 				+ "fk_topico FROM Noticia WHERE id = ?";
 				
@@ -105,6 +105,7 @@ public class QuestionDAO {
 				
 				int idNoticia = resultado.getInt("id");
 				String enunciado = resultado.getString("enunciado");
+				String texto_apoio = resultado.getString("texto_apoio");
 				String alternativaA = resultado.getString("alternativaA");
 				String alternativaB = resultado.getString("alternativaB");
 				String alternativaC = resultado.getString("alternativaC");
@@ -122,6 +123,7 @@ public class QuestionDAO {
 				quest.setAlternativaC(alternativaC);
 				quest.setAlternativaD(alternativaD);
 				quest.setAlternativaE(alternativaE);
+				quest.setTexto_apoio(texto_apoio);
 				System.out.println("Essa é a noticia: " + quest.toString());
 			}
 			System.out.println("Consulta feita com sucesso");
@@ -136,8 +138,8 @@ public class QuestionDAO {
 	public ArrayList<Question> selectAll () {
 		ArrayList<Question> lstNoticia = new ArrayList<Question>();
 		Question quest = null;
-		String consulta = "SELECT id, enunciado, alternativa_correta, peso," 
-				+ "alternativa_a, alternativa_b, alternativa_c, alternativa_d, alternativa_e," 
+		String consulta = "SELECT id, enunciado, texto_apoio, alternativa_correta, peso," 
+				+ "valor_alternativa_a, valor_alternativa_b, valor_alternativa_c, valor_alternativa_d, valor_alternativa_e," 
 				+ "fk_topico FROM Questao"; //Noticia
 				
 		try (PreparedStatement pst = conexao.prepareStatement(consulta)){
@@ -148,11 +150,12 @@ public class QuestionDAO {
 				
 				int idNoticia = resultado.getInt("id");
 				String enunciado = resultado.getString("enunciado");
-				String alternativaA = resultado.getString("alternativa_a");
-				String alternativaB = resultado.getString("alternativa_b");
-				String alternativaC = resultado.getString("alternativa_c");
-				String alternativaD = resultado.getString("alternativa_d");
-				String alternativaE = resultado.getString("alternativa_e");
+				String texto_apoio = resultado.getString("texto_apoio");
+				String alternativaA = resultado.getString("valor_alternativa_a");
+				String alternativaB = resultado.getString("valor_alternativa_b");
+				String alternativaC = resultado.getString("valor_alternativa_c");
+				String alternativaD = resultado.getString("valor_alternativa_d");
+				String alternativaE = resultado.getString("valor_alternativa_e");
 				String alternativaCorreta = resultado.getString("alternativa_correta");
 				String peso = resultado.getString("peso");
 				
@@ -165,6 +168,52 @@ public class QuestionDAO {
 				quest.setAlternativaC(alternativaC);
 				quest.setAlternativaD(alternativaD);
 				quest.setAlternativaE(alternativaE);
+				quest.setTexto_apoio(texto_apoio);
+				System.out.println("Essa é a noticia: " + quest.toString());
+				lstNoticia.add(quest);
+			}
+			System.out.println("Consulta feita com sucesso");
+		} catch(SQLException ex) {	
+			ex.printStackTrace();
+			System.out.println("Falha na consulta");
+		}
+		return lstNoticia;
+	}
+	public ArrayList<Question> selectByTopicId (int id) {
+		ArrayList<Question> lstNoticia = new ArrayList<Question>();
+		Question quest = null;
+		String consulta = "SELECT id, enunciado, texto_apoio, alternativa_correta, peso," 
+				+ "valor_alternativa_a, valor_alternativa_b, valor_alternativa_c, valor_alternativa_d, valor_alternativa_e," 
+				+ "fk_topico FROM Questao WHERE fk_topico =?"; //Noticia
+				
+		try (PreparedStatement pst = conexao.prepareStatement(consulta)){
+			pst.setInt(1, id);
+			ResultSet resultado = pst.executeQuery();
+			
+			while(resultado.next()) {
+				quest = new Question();
+				
+				int idNoticia = resultado.getInt("id");
+				String enunciado = resultado.getString("enunciado");
+				String texto_apoio = resultado.getString("texto_apoio");
+				String alternativaA = resultado.getString("valor_alternativa_a");
+				String alternativaB = resultado.getString("valor_alternativa_b");
+				String alternativaC = resultado.getString("valor_alternativa_c");
+				String alternativaD = resultado.getString("valor_alternativa_d");
+				String alternativaE = resultado.getString("valor_alternativa_e");
+				String alternativaCorreta = resultado.getString("alternativa_correta");
+				String peso = resultado.getString("peso");
+				
+				quest.setId(idNoticia);
+				quest.setEnunciado(enunciado);
+				quest.setAlternativaCorreta(alternativaCorreta);
+				quest.setPeso(peso);
+				quest.setAlternativaA(alternativaA);
+				quest.setAlternativaB(alternativaB);
+				quest.setAlternativaC(alternativaC);
+				quest.setAlternativaD(alternativaD);
+				quest.setAlternativaE(alternativaE);
+				quest.setTexto_apoio(texto_apoio);
 				System.out.println("Essa é a noticia: " + quest.toString());
 				lstNoticia.add(quest);
 			}

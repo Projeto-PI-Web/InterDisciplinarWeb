@@ -3,6 +3,7 @@ package model;
 public class Question {
 	private int id;
 	private String enunciado;
+	private String texto_apoio;
 	private String peso;
 	private String alternativaCorreta;
 	private String alternativaA;
@@ -13,11 +14,12 @@ public class Question {
 	
 	public Question() {}
 	
-	public Question(int id, String enunciado, String peso, String alternativaCorreta, 
+	public Question(int id, String enunciado, String texto_apoio, String peso, String alternativaCorreta, 
 					String alternativaA, String alternativaB, String alternativaC, 
 					String alternativaD, String alternativaE) {
 		setId(id);
 		setEnunciado(enunciado);
+		setTexto_apoio(texto_apoio);
 		setPeso(peso);
 		setAlternativaCorreta(alternativaCorreta);
 		setAlternativaA(alternativaA);
@@ -83,9 +85,17 @@ public class Question {
 	public void setAlternativaE(String alternativaE) {
 		this.alternativaE = alternativaE;
 	}
-	
+
+	public String getTexto_apoio() {
+		return texto_apoio;
+	}
+
+	public void setTexto_apoio(String texto_apoio) {
+		this.texto_apoio = texto_apoio;
+	}
 	@Override
 	public String toString() {
-		return getAlternativaCorreta();
+		return getTexto_apoio();
 	}
+
 }

@@ -30,10 +30,10 @@ public class LoginController extends HttpServlet {
 		System.out.println("POST DO LOGIN");
 		String pEmail = request.getParameter("uname");
 		String pSenha = request.getParameter("psw");
-		QuestionDAO qDAO = new QuestionDAO();
+	//	QuestionDAO qDAO = new QuestionDAO();
 		
-		List<Question> ques = new ArrayList();
-		ques = qDAO.selectAll();
+	//	List<Question> ques = new ArrayList();
+	//	ques = qDAO.selectAll();
 		
 		/*Comentei os dados dos parametros pois nao creio que não precisa montar o Usuario novamente se
 		/usar o metodo selectEmail que devolve o Usuario com todas as informaçoes já*/
@@ -50,7 +50,7 @@ public class LoginController extends HttpServlet {
 			RequestDispatcher view = request.getRequestDispatcher("Cursos.jsp");
 			ses.setAttribute("usuario", usuario);
 			//request.setAttribute("usuario", usuario);
-			ses.setAttribute("questoes", ques);
+		//	ses.setAttribute("questoes", ques);
 			view.forward(request, response);
 		} else {
 			System.out.println("Não passou no Login");

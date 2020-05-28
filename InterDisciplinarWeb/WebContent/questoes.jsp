@@ -77,6 +77,12 @@
 			}
 			
 		</style>
+		<script>
+		function callServlet(topico){
+			location.href = 'ViewQuestion.do?topico=' + topico;
+			console.log(param);
+		}
+		</script>
 	</head>
     
 	<body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color:#f6f4f4">
@@ -106,7 +112,7 @@
              
                   <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle SUBTITULO" data-toggle="dropdown"   href=""><b> História</b></a>
                 	<div class="dropdown-menu">
-                    	<a class="dropdown-item link" data-toggle="tab" href="#tab1-1"><b> 1 - História Geral</b> </a>
+                    	<a class="dropdown-item link" data-toggle="tab" href="#tab1-1" onclick="callServlet('histgeral')"><b> 1 - História Geral</b> </a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab1-2"><b> 2 - História do Brasil</b> </a>
                     </div>
                 </li> 
@@ -228,12 +234,17 @@
             	<!-- DIV DA HISTORIA GERAL -->
 				
             	<div id="tab1-1" class="container show active tab-pane mt-4"> 
+            	<c:choose >
+            		<c:when test="${not empty erroQuestao}">
+					<c:out value="${erroQuestao}" />
+				</c:when>
+            	</c:choose>
                 <p class="col-2 link"> <b> ENEM 1° Dia 2019 </b> </p>
                 <c:forEach var="questao" items="${questoes}">
                 <p>Questão #${questao.id}</p>
                 <br>
-                <p> ${questao.enunciado} <p>
-				<p> <sub> CARDOSO, C. F. Acidade-estado clássica. São Paulo: Ática, 1985. <sub></p>
+                <p> ${questao.texto_apoio} <p>
+				
                 
                 <p> ${questao.enunciado}</p>
                		<form>

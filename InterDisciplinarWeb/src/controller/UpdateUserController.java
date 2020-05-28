@@ -52,6 +52,7 @@ public class UpdateUserController extends HttpServlet {
 		if(cSenha.equals(pSenha)) {
 			if(cSenha == "" && pSenha == "") {
 				User usuario = new User();
+				
 				usuario.setId(pId);
 				usuario.setNome(cNome);
 				usuario.setEmail(cEmail);
