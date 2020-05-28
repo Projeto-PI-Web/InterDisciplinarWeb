@@ -119,7 +119,7 @@
                 
                 <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle SUBTITULO" data-toggle="dropdown"  href=""><b> Geografia</b></a>
                 	<div class="dropdown-menu">
-                    	<a class="dropdown-item link " data-toggle="tab" href="#tab2-1"> <b>1 - Agricultura e meio ambiente</b> </a>
+                    	<a class="dropdown-item link " data-toggle="tab" href="#tab2-1" onclick="callServlet('agriculturaambiente')"><b>1 - Agricultura e meio ambiente</b> </a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab2-2"> <b>2 - População e migrações</b>  </a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab2-3"> <b>3 - Urbanização </b>  </a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab2-4"> <b>4 - Globalização e Indústria </b> </a>
@@ -147,7 +147,7 @@
                 
                  <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle SUBTITULO" data-toggle="dropdown"  href=""> <b>Matemática 1</b></a>
                 	<div class="dropdown-menu">
-                    	<a class="dropdown-item link" data-toggle="tab" href="#tab5-1"> <b>1 - Matemática Básica </b> </a>
+                    	<a class="dropdown-item link" data-toggle="tab" href="#tab5-1" onclick="callServlet('matbas')"> <b>1 - Matemática Básica </b> </a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab5-2"> <b>2 - Equação de 1° Grau e 2° Grau </b> </a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab5-3"> <b>3 - Porcentagem e Juros</b> </a>
                         <a class="dropdown-item link" data-toggle="tab" href="#tab5-4"> <b>4 - Matemática - PA </b> </a>
@@ -235,8 +235,8 @@
 				
             	<div id="tab1-1" class="container show active tab-pane mt-4"> 
             	<c:choose >
-            		<c:when test="${not empty erroQuestao}">
-					<c:out value="${erroQuestao}" />
+            		<c:when test="${not empty erroQuestaohistgeral}">
+					<c:out value="${erroQuestaohistgeral}" />
 				</c:when>
             	</c:choose>
                 <p class="col-2 link"> <b> ENEM 1° Dia 2019 </b> </p>
@@ -293,6 +293,53 @@
                  <!-- DIV DA Agricultura e meio ambiente -->
                  <div id="tab2-1" class="container tab-pane mt-4 "> 
                 <p> Agricultura e meio ambiente</p>
+                                <c:choose >
+            		<c:when test="${not empty erroQuestaomatbas}">
+					<c:out value="${erroQuestaomatbas}" />
+				</c:when>
+            	</c:choose>
+                <p class="col-2 link"> <b> ENEM 1° Dia 2019 </b> </p>
+                <c:forEach var="questao" items="${questoes}">
+                <p>Questão #${questao.id}</p>
+                <br>
+                <p> ${questao.texto_apoio} <p>
+				
+                
+                <p> ${questao.enunciado}</p>
+               		<form>
+                    <fieldset id="grupo1">
+                    <div class="form-check form-check-inline">
+
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1">
+                      <label class="form-check-label" for="inlineRadio1"> <b class="link"> A)</b> ${questao.alternativaA} </label>
+                    
+                    </div>
+                    <br>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="option2">
+                      <label class="form-check-label" for="inlineRadio2"><b class="link"> B</b>) ${questao.alternativaB}</label>
+                    </div>
+                    <br>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="option3">
+                      <label class="form-check-label" for="inlineRadio3"><b class="link"> C)</b> ${questao.alternativaC}</label>
+                    </div>
+                    <br>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio4" value="option4">
+                      <label class="form-check-label" for="inlineRadio4"><b class="link"> D)</b> ${questao.alternativaD}</label>
+                    </div>
+                    <br>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio5" value="option5">
+                      <label class="form-check-label" for="inlineRadio5"><b class="link"> E)</b> ${questao.alternativaD}</label>
+                    </div>
+                    </fieldset>
+                    </form>
+                    <br>
+                    <hr>
+                    </c:forEach>
+                    <button class="responderbtn mt-3"> RESPONDER </button>
                 </div>
                  <!-- DIV DA População e migrações  -->
                  <div id="tab2-2" class="container tab-pane mt-4 ">
@@ -350,7 +397,53 @@
  <!-- DIV DA MATEMATICA 1 -->
                  <!-- DIV DA Matemática Básica -->
                  <div id="tab5-1" class="container tab-pane mt-4 ">
-                <p> Matemática Básica</p>
+                <c:choose >
+            		<c:when test="${not empty erroQuestaoagriculturaambiente}">
+					<c:out value="${erroQuestaoagriculturaambiente}" />
+				</c:when>
+            	</c:choose>
+                <p class="col-2 link"> <b> ENEM 1° Dia 2019 </b> </p>
+                <c:forEach var="questao" items="${questoes}">
+                <p>Questão #${questao.id}</p>
+                <br>
+                <p> ${questao.texto_apoio} <p>
+				
+                
+                <p> ${questao.enunciado}</p>
+               		<form>
+                    <fieldset id="grupo1">
+                    <div class="form-check form-check-inline">
+
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1">
+                      <label class="form-check-label" for="inlineRadio1"> <b class="link"> A)</b> ${questao.alternativaA} </label>
+                    
+                    </div>
+                    <br>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="option2">
+                      <label class="form-check-label" for="inlineRadio2"><b class="link"> B</b>) ${questao.alternativaB}</label>
+                    </div>
+                    <br>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="option3">
+                      <label class="form-check-label" for="inlineRadio3"><b class="link"> C)</b> ${questao.alternativaC}</label>
+                    </div>
+                    <br>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio4" value="option4">
+                      <label class="form-check-label" for="inlineRadio4"><b class="link"> D)</b> ${questao.alternativaD}</label>
+                    </div>
+                    <br>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio5" value="option5">
+                      <label class="form-check-label" for="inlineRadio5"><b class="link"> E)</b> ${questao.alternativaD}</label>
+                    </div>
+                    </fieldset>
+                    </form>
+                    <br>
+                    <hr>
+                    </c:forEach>
+                    <button class="responderbtn mt-3"> RESPONDER </button>
                 </div>
                  <!-- DIV DA Equação de 1° Grau e 2° Grau  -->
                  <div id="tab5-2" class="container tab-pane mt-4 ">

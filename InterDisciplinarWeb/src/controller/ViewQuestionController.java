@@ -43,7 +43,7 @@ public class ViewQuestionController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String topicoparam = request.getParameter("topico");
-		String atributo = "";
+		String atributo = topicoparam;
 		int topico = -1;
 		RequestDispatcher view = request.getRequestDispatcher("questoes.jsp");
 		HttpSession ses = request.getSession();
@@ -56,8 +56,6 @@ public class ViewQuestionController extends HttpServlet {
 		for(String st : topicos.keySet()) {
 			if(st.equals(topicoparam)) {
 				topico = topicos.get(st);
-				atributo = st;
-				System.out.println("Atributo: " + atributo);
 			}
 		}
 
@@ -70,7 +68,7 @@ public class ViewQuestionController extends HttpServlet {
 
 			ses.setAttribute("questoes", ques);
 		} else {
-			ses.setAttribute("erroQuestao", "Não há questões para esse tópico");
+			ses.setAttribute("erroQuestao"+atributo, "Não há questões para esse tópico");
 		}
 		view.forward(request, response);
 	}
