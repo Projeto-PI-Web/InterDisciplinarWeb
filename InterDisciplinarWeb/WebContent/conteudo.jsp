@@ -36,6 +36,16 @@
 			  cursor: pointer;
 			  width: 250px;
 			}
+			
+			.alterarbtn3 {
+			  background-color: #27496d;
+			  color: white;
+			  padding: 14px 20px;
+			  margin: 8px 0;
+			  border: none;
+			  cursor: pointer;
+			  width: 350px;
+			}
 			.TITULO{
 				color:#142850
 			}
@@ -84,6 +94,7 @@
                     <a class="nav-link ml-5 link" href="#item3-2"> <b>Enem 2018</b> </a>
                     <a class="nav-link ml-5 link" href="#item3-3"> <b>Enem 2017</b> </a>
                 </nav>
+			<a class="nav-link ml-3 SUBTITULO" href="#item4"> <b>Livros</b></a>	
              </nav>
             </nav>
             </div>
@@ -189,6 +200,21 @@
                <a href="http://download.inep.gov.br/educacao_basica/enem/provas/2017/cad_5_prova_amarelo_12112017.pdf" target="_blank"><button class="alterarbtn2" > <b>Segundo dia</b> </button> </a>
                <a href="http://download.inep.gov.br/educacao_basica/enem/gabaritos/2017/cad_5_gabarito_amarelo_12112017.pdf" target="_blank"><button class="alterarbtn2" > <b> Gabarito </b> </button> </a> <br> 
                </p>
+			   
+			   <h4 id="item3" class="display-4 text-center my-1 mb-4 SUBTITULO"> Livros </h4>
+			   <p  class="text-center my-5" >
+               <a href="https://trello-attachments.s3.amazonaws.com/5e67f35b4c5bd70fd8c6fcc6/5e9ce27d17194c77f6cba2e6/d6a111ecc1f1791146f882c97bc12a42/O_principe.pdf" target="_blank"><button class="alterarbtn2" ><b> O Príncipe </b></button> </a>
+               <a href="https://trello-attachments.s3.amazonaws.com/5e67f35b4c5bd70fd8c6fcc6/5e9ce27d17194c77f6cba2e6/730f9d9c1a195ceb460152d6d97729e5/O_cortico.pdf" target="_blank"> <button class="alterarbtn2" > <b> O Cortiço </b> </button> </a>  
+               <a href="https://trello-attachments.s3.amazonaws.com/5e67f35b4c5bd70fd8c6fcc6/5e9ce27d17194c77f6cba2e6/2a5349609b794dbca055b1c3877e4d55/Darcy_Ribeiro_O_Povo_Brasileiro.pdf" target="_blank"><button class="alterarbtn2" > <b>O Povo Brasileiro</b> </button> </a><br>
+               <a href="https://trello-attachments.s3.amazonaws.com/5e67f35b4c5bd70fd8c6fcc6/5e9ce27d17194c77f6cba2e6/69a32328056cd72ffa1fc39d2913e412/Era_dos_Extremos_(1914-1991)_-_Eric_J._Hobsbawm.pdf" target="_blank"><button class="alterarbtn2" > <b> Era dos Extremos </b> </button> </a>		
+				<a href="https://trello-attachments.s3.amazonaws.com/5e67f35b4c5bd70fd8c6fcc6/5e9ce27d17194c77f6cba2e6/e2048ab74dab7d162449e8b3337c60aa/A-Hora-da-Estrela-Clarice-Lispector.pdf" target="_blank"><button class="alterarbtn2" ><b>A Hora da Estrela </b></button> </a>
+			   <a href="https://trello-attachments.s3.amazonaws.com/5e67f35b4c5bd70fd8c6fcc6/5e9ce27d17194c77f6cba2e6/1caa3c78346a0bd76343dbe80841cf07/Vidas_Secas_-_Graciliano_Ramos.pdf" target="_blank"> <button class="alterarbtn2" > <b> Vidas Secas </b> </button> </a> <br> 
+			   <a href="https://trello-attachments.s3.amazonaws.com/5e67f35b4c5bd70fd8c6fcc6/5e9ce27d17194c77f6cba2e6/2533d5a72b66d3115b259ddaf5545ac9/domCasmurro.pdf" target="_blank"><button class="alterarbtn2" ><b> Dom Casmurro </b></button> </a>
+			   <a href="https://trello-attachments.s3.amazonaws.com/5e67f35b4c5bd70fd8c6fcc6/5e9ce27d17194c77f6cba2e6/f1320851fbc89b325507e1b80bc02fca/memoriasBras.pdf" target="_blank"> <button class="alterarbtn3" > <b> Memórias Póstumas de Brás Cubas </b> </button> </a> <br> 
+			   
+               </p>
+			   
+			   
             	</div>
         </div>
     </div>
