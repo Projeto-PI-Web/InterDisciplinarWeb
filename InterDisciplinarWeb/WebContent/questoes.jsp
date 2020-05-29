@@ -247,40 +247,51 @@
 				
                 
                 <p> ${questao.enunciado}</p>
-               		<form>
+               		<form action="ValidaQuestao.do" method="post">
+               		<input type="hidden" name="id" value="${questao.id}">
                     <fieldset id="grupo1">
                     <div class="form-check form-check-inline">
-
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1">
-                      <label class="form-check-label" for="inlineRadio1"> <b class="link"> A)</b> ${questao.alternativaA} </label>
+					
+                      <input class="form-check-input " type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="A">
+                      <label class="form-check-label ${corretaA}" for="inlineRadio1"> <b class="link"> A)</b> ${questao.alternativaA} </label>
                     
                     </div>
                     <br>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="option2">
-                      <label class="form-check-label" for="inlineRadio2"><b class="link"> B</b>) ${questao.alternativaB}</label>
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="B">
+                      <label class="form-check-label " for="inlineRadio2"><b class="link"> B</b>) ${questao.alternativaB}</label>
                     </div>
                     <br>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="option3">
-                      <label class="form-check-label" for="inlineRadio3"><b class="link"> C)</b> ${questao.alternativaC}</label>
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="C">
+                      <label class="form-check-label " for="inlineRadio3"><b class="link"> C)</b> ${questao.alternativaC}</label>
                     </div>
                     <br>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio4" value="option4">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio4" value="D">
                       <label class="form-check-label" for="inlineRadio4"><b class="link"> D)</b> ${questao.alternativaD}</label>
                     </div>
                     <br>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio5" value="option5">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio5" value="E">
                       <label class="form-check-label" for="inlineRadio5"><b class="link"> E)</b> ${questao.alternativaD}</label>
                     </div>
                     </fieldset>
+                    <div>
+                    
+                    <c:set var = "id1" scope = "session" value = "resposta${questao.id}"/>
+                    <c:set var = "resposta1" scope = "session" value = "resp + id"/>
+                    <c:if test= "not empty ${resposta6}">
+                    <c:out value="${resposta6}" />
+                    </c:if>
+                    	
+                    </div>
+                    <button type="submit" class="responderbtn mt-3"> RESPONDER </button>
                     </form>
                     <br>
                     <hr>
                     </c:forEach>
-                    <button class="responderbtn mt-3"> RESPONDER </button>
+                    
 
                 </div>
 				
