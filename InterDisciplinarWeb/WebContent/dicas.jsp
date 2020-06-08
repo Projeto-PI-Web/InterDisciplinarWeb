@@ -225,7 +225,7 @@
 
 
 
-
+<c:import url="rodape.jsp"/> 
 
 		
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

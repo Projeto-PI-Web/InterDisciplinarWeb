@@ -15,6 +15,7 @@
 		<style>
 			body {
 				position: relative;
+				height:100%;
 			}
 			
 			.scrollspySite{
@@ -680,7 +681,7 @@
          
          
          
-
+<c:import url="rodape.jsp"/> 
 
 
 

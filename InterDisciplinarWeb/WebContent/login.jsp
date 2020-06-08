@@ -210,7 +210,7 @@
   <!-- Footer Links -->
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3 SUBTITULO"> <b> © 2020 Copyright: SKYNET </b>
+  <div class="footer-copyright text-center py-3 SUBTITULO"> <b> © 2020 Copyright: MotivaStudy </b>
   </div>
   <!-- Copyright -->
 
