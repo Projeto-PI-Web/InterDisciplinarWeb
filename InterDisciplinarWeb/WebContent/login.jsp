@@ -80,6 +80,12 @@
 				color:#00909e
 			}
 			
+			
+			
+			.img-200-200 {
+			   width: 10px; // 
+			}
+			
 			}
 		</style>
 		<script>
@@ -106,6 +112,14 @@
 		<title>Login</title>
 	</head>
 	<body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color:#f6f4f4">
+	
+		<div>
+		
+		<img  src="https://i.imgur.com/0RPXXl7.png" width="25%"  class="rounded mx-auto d-block" >
+		</div>
+		
+		
+		
    	 <div class="col-12 text-center my-5">
 		<form action="LoginController.do" method="post" name="f1">
 		  
@@ -129,6 +143,79 @@
 	    <button type="reset" value="reset" class="cancelbtn" onclick="window.location.href = 'index.html';">Voltar</button> <br>
 	    <span class="psw text-center col-12 "><B>Esqueceu sua <a href="resetpass.jsp"> <I class="link">senha? </I></a> </B></span>
 	  </div>
+	  
+	  <br class="mb-5"> 
+	<br class="mb-5"> 
+	<br class="mb-5"> 
+	<br class="mb-5">
+	<br class="mb-5">
+	<br class="mb-5">
+	<br class="mb-5">
+	<br class="mb-5">
+	<br class="mb-5">
+	<br class="mb-5">
+	<br class="mb-5">
+	<br class="mb-5">
+	<br class="mb-5">
+	<br class="mb-5">
+		<br class="mb-5">
+	<br class="mb-5">
+    </div>
+	
+	
+ <!-- Footer -->
+<footer class="page-footer font-small indigo" style="background-color:#cdd7d9">
+
+  <!-- Footer Links -->
+  <div class="container">
+
+    <!-- Grid row-->
+    <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+    <hr class="rgba-white-light" style="margin: 0 15%;">
+
+    <!-- Grid row-->
+    <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+
+      <!-- Grid column -->
+      <div class="col-md-8 col-12 mt-5">
+        <p style="line-height: 1.7rem" class="display-5"> <i> A MotivaStudy não é dono de nenhum dos conteúdos distribuídos e seus criadores foram citados da públicação.
+          Nós apenas queremos distribuir de uma forma fácil e organizada para atingir o maior número de pessoas.</i></P>
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+    <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+    <!-- Grid row-->
+    <div class="row pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-12">
+
+  
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3 SUBTITULO"> <b> © 2020 Copyright: SKYNET </b>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 
       
           		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
