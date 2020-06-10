@@ -47,7 +47,6 @@ public class ViewQuestionController extends HttpServlet {
 		int topico = -1;
 		RequestDispatcher view = request.getRequestDispatcher("questoes.jsp");
 		HttpSession ses = request.getSession();
-		
 		Map<String, Integer> topicos = new HashMap<String, Integer>();
 		topicos.put("histgeral", 15);
 		topicos.put("matbas", 26);
@@ -66,7 +65,7 @@ public class ViewQuestionController extends HttpServlet {
 		ques = qDAO.selectByTopicId(topico);
 		if (ques.size() > 0) {
 
-			ses.setAttribute("questoes", ques);
+			ses.setAttribute("questao", ques);
 		} else {
 			ses.setAttribute("erroQuestao"+atributo, "Não há questões para esse tópico");
 		}

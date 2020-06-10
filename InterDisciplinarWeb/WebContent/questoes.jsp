@@ -81,7 +81,7 @@
 		<script>
 		function callServlet(topico){
 			location.href = 'ViewQuestion.do?topico=' + topico;
-			console.log(param);
+			console.log(topico);
 		}
 		</script>
 	</head>
@@ -241,7 +241,7 @@
 				</c:when>
             	</c:choose>
                 <p class="col-2 link"> <b> ENEM 1° Dia 2019 </b> </p>
-                <c:forEach var="questao" items="${questoes}">
+                <c:forEach var="questao" items="${questao}" varStatus="loop">
                 <p>Questão #${questao.id}</p>
                 <br>
                 <p> ${questao.texto_apoio} <p>
@@ -254,7 +254,7 @@
                     <div class="form-check form-check-inline">
 					
                       <input class="form-check-input " type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="A">
-                      <label class="form-check-label ${corretaA}" for="inlineRadio1"> <b class="link"> A)</b> ${questao.alternativaA} </label>
+                      <label class="form-check-label " for="inlineRadio1"> <b class="link"> A)</b> ${questao.alternativaA} </label>
                     
                     </div>
                     <br>
@@ -279,13 +279,8 @@
                     </div>
                     </fieldset>
                     <div>
-                    
-                    <c:set var = "id1" scope = "session" value = "resposta${questao.id}"/>
-                    <c:set var = "resposta1" scope = "session" value = "resp + id"/>
-                    <c:if test= "not empty ${resposta6}">
-                    <c:out value="${resposta6}" />
-                    </c:if>
-                    	
+                    <c:set var="resp" value="resposta${questao.id}"/>
+                    <c:out value="${sessionScope[resp]}"></c:out>
                     </div>
                     <button type="submit" class="responderbtn mt-3"> RESPONDER </button>
                     </form>
@@ -311,42 +306,46 @@
 				</c:when>
             	</c:choose>
                 <p class="col-2 link"> <b> ENEM 1° Dia 2019 </b> </p>
-                <c:forEach var="questao" items="${questoes}">
-                <p>Questão #${questao.id}</p>
+                <c:forEach var="agricultura" items="${questao}">
+                <p>Questão #${agricultura.id}</p>
                 <br>
-                <p> ${questao.texto_apoio} <p>
+                <p> ${agricultura.texto_apoio} <p>
 				
                 
-                <p> ${questao.enunciado}</p>
+                <p> ${agricultura.enunciado}</p>
                		<form>
                     <fieldset id="grupo1">
                     <div class="form-check form-check-inline">
 
                       <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1">
-                      <label class="form-check-label" for="inlineRadio1"> <b class="link"> A)</b> ${questao.alternativaA} </label>
+                      <label class="form-check-label" for="inlineRadio1"> <b class="link"> A)</b> ${agricultura.alternativaA} </label>
                     
                     </div>
                     <br>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="option2">
-                      <label class="form-check-label" for="inlineRadio2"><b class="link"> B</b>) ${questao.alternativaB}</label>
+                      <label class="form-check-label" for="inlineRadio2"><b class="link"> B</b>) ${agricultura.alternativaB}</label>
                     </div>
                     <br>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="option3">
-                      <label class="form-check-label" for="inlineRadio3"><b class="link"> C)</b> ${questao.alternativaC}</label>
+                      <label class="form-check-label" for="inlineRadio3"><b class="link"> C)</b> ${agricultura.alternativaC}</label>
                     </div>
                     <br>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio4" value="option4">
-                      <label class="form-check-label" for="inlineRadio4"><b class="link"> D)</b> ${questao.alternativaD}</label>
+                      <label class="form-check-label" for="inlineRadio4"><b class="link"> D)</b> ${agricultura.alternativaD}</label>
                     </div>
                     <br>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio5" value="option5">
-                      <label class="form-check-label" for="inlineRadio5"><b class="link"> E)</b> ${questao.alternativaD}</label>
+                      <label class="form-check-label" for="inlineRadio5"><b class="link"> E)</b> ${agricultura.alternativaD}</label>
                     </div>
                     </fieldset>
+                    <div>
+                    <c:set var="resp" value="resposta${agricultura.id}"/>
+                    <c:out value="${sessionScope[resp]}"></c:out>
+                    </div>
                     </form>
                     <br>
                     <hr>
@@ -415,42 +414,46 @@
 				</c:when>
             	</c:choose>
                 <p class="col-2 link"> <b> ENEM 1° Dia 2019 </b> </p>
-                <c:forEach var="questao" items="${questoes}">
-                <p>Questão #${questao.id}</p>
+                <c:forEach var="mat" items="${questao}">
+                <p>Questão #${mat.id}</p>
                 <br>
-                <p> ${questao.texto_apoio} <p>
+                <p> ${mat.texto_apoio} <p>
 				
                 
-                <p> ${questao.enunciado}</p>
+                <p> ${mat.enunciado}</p>
                		<form>
                     <fieldset id="grupo1">
                     <div class="form-check form-check-inline">
 
                       <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1">
-                      <label class="form-check-label" for="inlineRadio1"> <b class="link"> A)</b> ${questao.alternativaA} </label>
+                      <label class="form-check-label" for="inlineRadio1"> <b class="link"> A)</b> ${mat.alternativaA} </label>
                     
                     </div>
                     <br>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="option2">
-                      <label class="form-check-label" for="inlineRadio2"><b class="link"> B</b>) ${questao.alternativaB}</label>
+                      <label class="form-check-label" for="inlineRadio2"><b class="link"> B</b>) ${mat.alternativaB}</label>
                     </div>
                     <br>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="option3">
-                      <label class="form-check-label" for="inlineRadio3"><b class="link"> C)</b> ${questao.alternativaC}</label>
+                      <label class="form-check-label" for="inlineRadio3"><b class="link"> C)</b> ${mat.alternativaC}</label>
                     </div>
                     <br>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio4" value="option4">
-                      <label class="form-check-label" for="inlineRadio4"><b class="link"> D)</b> ${questao.alternativaD}</label>
+                      <label class="form-check-label" for="inlineRadio4"><b class="link"> D)</b> ${mat.alternativaD}</label>
                     </div>
                     <br>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio5" value="option5">
-                      <label class="form-check-label" for="inlineRadio5"><b class="link"> E)</b> ${questao.alternativaD}</label>
+                      <label class="form-check-label" for="inlineRadio5"><b class="link"> E)</b> ${mat.alternativaD}</label>
                     </div>
                     </fieldset>
+                    <div>
+                    <c:set var="resp" value="resposta${mat.id}"/>
+                    <c:out value="${sessionScope[resp]}"></c:out>
+                    </div>
                     </form>
                     <br>
                     <hr>
@@ -680,8 +683,8 @@
          </div>
          
          
-         
-<c:import url="rodape.jsp"/> 
+<c:import url="rodape.jsp"/>       
+
 
 
 

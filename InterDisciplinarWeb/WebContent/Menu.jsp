@@ -47,7 +47,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-        <a class="btn btn-primary" href="index.html">Sim</a>
+        <a class="btn btn-primary" href="LogOut.do">Sim</a>
       </div>
     </div>
   </div>

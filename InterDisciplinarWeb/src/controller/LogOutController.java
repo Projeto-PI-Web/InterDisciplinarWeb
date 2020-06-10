@@ -1,8 +1,6 @@
 package controller;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,20 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.Question;
-import service.QuestionService;
-
 /**
- * Servlet implementation class ValidaQuestaoController
+ * Servlet implementation class LogOutController
  */
-@WebServlet("/ValidaQuestao.do")
-public class ValidaQuestaoController extends HttpServlet {
+@WebServlet("/LogOut.do")
+public class LogOutController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ValidaQuestaoController() {
+    public LogOutController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,24 +34,17 @@ public class ValidaQuestaoController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String resposta = request.getParameter("inlineRadioOptions1");
-		int pId = Integer.parseInt(request.getParameter("id")) ;
-		QuestionService qs = new QuestionService();
-		Question ques = new Question();
-		ques.setId(pId);
-		ques = qs.carregar(ques);
-		String correta = ques.getAlternativaCorreta();
 		HttpSession ses = request.getSession();
-		RequestDispatcher rd = request.getRequestDispatcher("questoes.jsp");
-	//	ses.removeAttribute("resposta" + pId);
-		if(correta.equals(resposta)) {
-			
-			ses.setAttribute("resposta" + pId, "Questão Correta");
-		}else {
-			ses.setAttribute("resposta"+ pId, "Questão Incorreta");
-			ses.setAttribute("qid", pId);
+		
+		if(ses !=null) {
+			try {
+				ses.removeAttribute("usuario");
+				ses.invalidate();
+				response.sendRedirect("login.jsp");
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 		}
-		rd.forward(request, response);
 	}
 
 }
