@@ -45,7 +45,6 @@ public class LoginController extends HttpServlet {
 		if(us.status >= 0) {
 			System.out.println("DENTRO DO IF");
 			usuario = us.selectEmail(pEmail);
-			System.out.println("Usuario Logado dentro do IF: " +usuario.toString());
 			HttpSession ses = request.getSession();
 			RequestDispatcher view = request.getRequestDispatcher("Cursos.jsp");
 			ses.setAttribute("usuario", usuario);

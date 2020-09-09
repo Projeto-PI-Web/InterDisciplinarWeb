@@ -56,7 +56,7 @@
 
 <title>Recuperação de Senha</title>
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color:#f6f4f4">
+<body style="background-color:#f6f4f4">
 	      	<!-- MENU SUPERIOR -->
 		<c:import url="Menu.jsp"/> 
              
@@ -66,8 +66,8 @@
 			<input type="hidden" name="recuperacao" value="recuperacao"/>
 			<input type="hidden" name="token" value="${usuario.token}"/>
 			<h5 class="col-12 ml-1 mt-5 mb-5 display-4 4 SUBTITULO">ALTERE SUA SENHA</h5>
-			<input type="password" align="center" name="senha"	placeholder="Informe a nova Senha"/> 
-			<input type="password" align="center" name="csenha" placeholder="Confirme a senha" /> 
+			<input type="password" name="senha"	/> 
+			<input type="password" name="csenha" /> 
 			<br>
 
 			<button class="responderbtn" type="submit"> <b> Confirmar	Alteração </b> </button>
